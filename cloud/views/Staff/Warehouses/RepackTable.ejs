@@ -59,7 +59,7 @@
 
                         <ul id="list">
                             <div id="repack_table">
-                                <% include staff_RepackDynamicTable.ejs %>
+                                <% include RepackDynamicTable.ejs %>
                             </div>
                         </ul>
                         
@@ -108,7 +108,7 @@
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
                     like: filter_like(),
                     
-                    document: "staff_RepackDynamicTable",
+                    document: "Staff/Warehouses/RepackDynamicTable",
                     itemid: "repack_table"
                 });
             
@@ -143,7 +143,7 @@
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
                     like: filter_like(),
                     
-                    document: "staff_RepackDynamicTable",
+                    document: "Staff/WarehousesRepackDynamicTable",
                     itemid: "repack_table"
                 });
         });
@@ -186,7 +186,7 @@
                                     /* CONDICIONES */
                                     conditions: filter_conditions(),
                                     
-                                    document: "staff_RepackDynamicTable",
+                                    document: "Staff/Warehouses/RepackDynamicTable",
                                     itemid: "repack_table"
                                 });
                             }
