@@ -47,6 +47,17 @@ function GetRendered(kwargs)
     );      
 }
 
+function Update(kwargs)
+{
+    /*REQUEST DATA FROM THE SERVER*/
+    $.post("/update", 
+        kwargs, 
+        function(data)
+        {
+            alert(data);
+        }
+    );      
+}
       
 function date_condition(filterdate)
 {
