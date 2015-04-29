@@ -81,6 +81,11 @@
         function update_table()
         {
 
+            if($("#warehousefilter").val() == "")
+                conditions = {"equalTo": {"Status":"Received"}};
+            else
+                conditions = {"equalTo": {"Status":"Received", Warehouse:$("#warehousefilter").val()}};
+                
             InsertTable({
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
                          {
@@ -102,8 +107,7 @@
                     
                     /* CONDICIONES */
                     conditions: filter_conditions_with_dict({
-                                                        conditions:{equalTo:{"Status":"Received"}}
-                                                        }),
+                                                        conditions:conditions}),
                     
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
                     like: filter_like(),
