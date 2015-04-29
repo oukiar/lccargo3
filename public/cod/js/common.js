@@ -54,7 +54,7 @@ function Update(kwargs)
         kwargs, 
         function(data)
         {
-            alert(data);
+            ;
         }
     );      
 }
@@ -150,6 +150,13 @@ function date_condition(filterdate)
     }
     
     return {};
+}
+
+function filter_conditions_with_dict(kwargs)
+{
+    res = filter_conditions(kwargs["filterby"], kwargs["searchtext"], kwargs["filterdate"]);
+    
+    return jQuery.extend(res, kwargs["conditions"]);
 }
 
 function filter_conditions(filterby, searchtext, filterdate)
