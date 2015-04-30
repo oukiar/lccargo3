@@ -77,12 +77,6 @@
         
         function update_table()
         {
-        
-            if($("#warehousefilter").val() == "")
-                conditions = {containedIn:{"Status":["Repack","Received","NotProcessed", "InTransfer"]}};
-            else
-                conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]}, 
-                                equalTo:{Warehouse:$("#warehousefilter").val()}};
                 
             InsertTable({
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
@@ -105,14 +99,12 @@
                     collection: "Warehouses", /* COLLECCION PRINCIPAL */
                     
                     /* CONDICIONES */
-                    conditions: filter_conditions_with_dict({
-                                                conditions:conditions
-                                                }),
+                    conditions: filter_conditions(),
                     
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
-                    like: filter_like(),
+                    like: filter_like_with_dict({like:{"Status":$("#warehousefilter").val()} }),
                     
-                    document: "Staff/Warehouses/labels_partitions/dynamictable",
+                    document: "Staff/transit/receiving/dynamicTable",
                     itemid: "ware_table"
                 });        
         }

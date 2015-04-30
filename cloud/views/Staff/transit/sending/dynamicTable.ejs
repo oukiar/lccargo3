@@ -9,7 +9,6 @@
 			<!--ATTENTION WE NEED TO MAKE THIS-->
             <th>Date Sent</th><!--ATTENTION WE NEED TO MAKE THIS-->
             <th>Shipment</th>
-            <th style="width:5px;">Receive</th>
     </tr>
 
     <% results.forEach(function(label){%>
@@ -25,7 +24,6 @@
             <td><%= label["Warehouse"]%></td>
             <td><%= label["ReceiptDate"]%></td><!--ATTENTION WE NEED DATE TRANSFERED-->
             <td><%= label["Shipment"]%></td>
-            <td align="center"><input name="checkship" id="<%=label['objectId']%>" type="checkbox"></td>
 			 </tr>
 		
     <% }) %>   
@@ -36,12 +34,6 @@
 
 <script>
 
-    transferId = -1;
-
-    function opentransfer(objectId)
-    {
-        transferId = objectId;
-    }
 
     function wareceipt(objectId)
     {
@@ -74,41 +66,6 @@
                 });
     }
 
-    $("#btn_classify").click(
-        function()
-        {
-            $("#classifycolumn").css("display", "block");
-			$("#classifyDiv").css("display", "none");
-            $("#shipoptions").css("display", "block");
-            
-            $(".checkship").css("display", "block");
-        });
-        
-		$("#btn_back").click(
-			function(){
-				$("#classifyDiv").css("display", "block");
-				$("#shipoptions").css("display", "none");
-				$(".checkship").css("display", "none");
-				$("#classifycolumn").css("display", "none");
-				
-			});
-		
-    $("#btn_accept").click(
-        function()
-        {
-            checkboxes = document.getElementsByName("checkship");
-            
-            for(i in checkboxes)
-            {
-                if(checkboxes[i].checked)
-                {        
-                    return true;
-                }
-            }
-            
-            alert("You must select almost one label");
-            return false;
-        });
 
 
 </script>

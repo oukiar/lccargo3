@@ -182,6 +182,13 @@ function filter_conditions(filterby, searchtext, filterdate)
     }    
 }
 
+function filter_like_with_dict(kwargs)
+{
+    res = filter_like(kwargs["filterby"], kwargs["searchtext"]);
+    
+    return jQuery.extend(res, kwargs["like"]);
+}
+
 function filter_like(filterby, searchtext)
 {
     if(typeof filterby == "undefined") filterby = "filterby";

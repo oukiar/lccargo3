@@ -33,15 +33,17 @@
     </table>
 </div>
 
+		<!--MODAL PARA MOSTAR PROGRESO DE GUARDADO DE INPUT TRANSIT-->
+	    <div id="openModalB" class="modalDialogB">
+	        <div>
+	            <a href="#close" title="Close" class="closeB">X</a>
+	            <div id="receive_items">
+				
+	            </div>
+	        </div>
+	    </div>
 
 <script>
-
-    transferId = -1;
-
-    function opentransfer(objectId)
-    {
-        transferId = objectId;
-    }
 
     function wareceipt(objectId)
     {
@@ -74,26 +76,8 @@
                 });
     }
 
-    $("#btn_classify").click(
-        function()
-        {
-            $("#classifycolumn").css("display", "block");
-			$("#classifyDiv").css("display", "none");
-            $("#shipoptions").css("display", "block");
-            
-            $(".checkship").css("display", "block");
-        });
-        
-		$("#btn_back").click(
-			function(){
-				$("#classifyDiv").css("display", "block");
-				$("#shipoptions").css("display", "none");
-				$(".checkship").css("display", "none");
-				$("#classifycolumn").css("display", "none");
-				
-			});
 		
-    $("#btn_accept").click(
+    $("#btn_receive").click(
         function()
         {
             checkboxes = document.getElementsByName("checkship");
@@ -102,12 +86,27 @@
             {
                 if(checkboxes[i].checked)
                 {        
-                    return true;
+                    var str = "<img id='save-" + checkboxes[i].id + "' src='/web/img/icons/loader_grey.gif' width=16 height=16>  " + checkboxes[i].id + "<br>";
+                    
+                    $("#receive_items").append( str );
+                    
+                    $.post("/update", {collection:"Warehouses", 
+                                        objectId:checkboxes[i].id, 
+                                        values:
+                                            {
+                                                Status:"Received", Warehouse:$("#warehousefilter").val() 
+                                            }
+                                        },
+                                            
+                                        function(data)
+                                        {
+                                            kwargs = JSON.parse(data);
+                                            $("#save-" + kwargs["objectId"]).replaceWith("SAVED");
+                                        }
+                                    );
                 }
             }
             
-            alert("You must select almost one label");
-            return false;
         });
 
 

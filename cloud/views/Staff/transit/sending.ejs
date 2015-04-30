@@ -58,29 +58,11 @@
             </section>
             </section>
             <!-- END CONTENT -->
-           
-
-      
 
 
         </div><!-- END CONTAINER -->
 		
-		
-		
-	
-		
-		
-		
-		
-		
-					
-					
-					
-					
-					
-			
-					
-			
+
 			</div>
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 <%include ../../generals/endFiles.ejs%>
@@ -90,12 +72,6 @@
         
         function update_table()
         {
-        
-            if($("#warehousefilter").val() == "")
-                conditions = {containedIn:{"Status":["Repack","Received","NotProcessed", "InTransfer"]}};
-            else
-                conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]}, 
-                                equalTo:{Warehouse:$("#warehousefilter").val()}};
                 
             InsertTable({
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
@@ -119,13 +95,13 @@
                     
                     /* CONDICIONES */
                     conditions: filter_conditions_with_dict({
-                                                conditions:conditions
+                                                conditions:{equalTo:{Warehouse:$("#warehousefilter").val()}}
                                                 }),
                     
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
-                    like: filter_like(),
+                    like: filter_like_with_dict({like:{"Status":"TransferOut"}}),
                     
-                    document: "Staff/Warehouses/labels_partitions/dynamictable",
+                    document: "Staff/transit/sending/dynamicTable",
                     itemid: "ware_table"
                 });        
         }
