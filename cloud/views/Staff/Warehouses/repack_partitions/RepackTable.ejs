@@ -8,7 +8,6 @@
                     
                     <div class="col-md-6 col-xs-6" style="margin-top:10px;">
                     
-                    <form class="pure-form" align="right">
 						<table>
 						<tr>
                      	<td style="padding:0 .8px 0 .8px;"><label for="filterby" class="pfont">By:</label></td>
@@ -45,14 +44,17 @@
                                 <option value="Current year">Current Year</option>
                             </select></td>		   
 		  	        
+                            <td><button id="btn_search" class="pure-button pure-button-primary">Search</button></td>
+                    
                            <td style="padding:0 .8px 0 .8px;"> </td>
                     </tr>
 					</table>
-                        </form>
+                    
+                    
+                    
                         </div>
                     </div>
                   
-                    <form class="pure-form" align="right">
                   
                     <div class="panel">
                         <div class="panel-body">
@@ -71,12 +73,14 @@
         </div>
  
         
-        
-    </form>
 
 </div>
 
 <script>
+    
+    $("#btn_search").click(function(){
+            update_table();
+        });
           
         function update_table()
         {
@@ -167,7 +171,7 @@
 	  			$("#searchtext").replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>");
                 $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
                 
-                $("#searchtext").keyup(searchtext_keyup);
+                /*$("#searchtext").keyup(searchtext_keyup);*/
             }
 	  	});
 </script>
