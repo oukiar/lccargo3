@@ -75,12 +75,13 @@ function date_condition(filterdate)
     }
     else if($("#"+filterdate).val() == "Yesterday")
     {
+        var now = new Date();
         var yesterday = new Date();
         yesterday.setDate(yesterday.getDate()-1);
         
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( yesterday ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( yesterday ).format("MM[/]DD[/]YYYY")}}
+                lessThan: {'ReceiptDate' : {__type:"Date", iso:moment( now ).format("MM[/]DD[/]YYYY")}}
                 };
     }
     else if($("#"+filterdate).val() == "This week")
@@ -214,13 +215,13 @@ function filter_like(filterby, searchtext)
     
 }
 	
-function filterby_changed(filterby, searchtext, filterdate, updatetable, searchkeyup)
+function filterby_changed(filterby, searchtext, filterdate, updatetable)
 {
     if(typeof filterby == "undefined") filterby = "filterby";
     if(typeof searchtext == "undefined") searchtext = "searchtext";
     if(typeof filterdate == "undefined") filterdate = "filterdate";
     if(typeof updatetable == "undefined") updatetable = update_table;
-    if(typeof searchkeyup == "undefined") searchkeyup = searchtext_keyup;
+    //if(typeof searchkeyup == "undefined") searchkeyup = searchtext_keyup;
     
     if($("#"+filterby).val() == "Date" )
     {
@@ -257,7 +258,7 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable, searchk
         $("#"+searchtext).replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>".replace(/searchtext/g, searchtext));
         $("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
         
-        $("#"+searchtext).keyup(searchkeyup);
+        //$("#"+searchtext).keyup(searchkeyup);
         
         $("#"+filterdate).change(function(){
                 updatetable();

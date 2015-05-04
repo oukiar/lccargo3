@@ -101,7 +101,7 @@
 
                         <ul id="list">
                             <div id="repack_table">
-                                <% include RepackDynamicTable.ejs %>
+                                <% include /web/Staff/Warehouses/Repack/RepackDynamicTable.ejs %>
                             </div>
                         </ul>
                         
@@ -235,10 +235,6 @@
 	            alert("User not selected");
 	            return false;
 	        }
-            
-            
-            repack_items = []; 
-            repack_labels = []; 
         
 	        var repack_text = "Repack detail:\n\n";
         
@@ -248,10 +244,8 @@
 	        {
 	            if(checkboxes[i].checked)
 	            {
-                    dict = JSON.parse(checkboxes[i].id);
-	                repack_items.push(dict["objectId"]);
-	                repack_labels.push(dict["Receipt"]);
-	                repack_text += "Receipt ID: " + dict["Receipt"] + "\n";
+	                repack_items.push(checkboxes[i].id);
+	                repack_text += "Receipt ID: " + checkboxes[i].id + "\n---------------------------\n";
 	            }
 	        }
         

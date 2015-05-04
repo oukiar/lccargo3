@@ -63,6 +63,16 @@
         </div><!-- END CONTAINER -->
 		
 
+		<!-- MODAL FOR LABEL -->
+        <div id="openModalB" class="modalDialogB" >
+            <div>
+                <a id="btn_closeclassifydialog" href="#closeB" title="Close" class="close">X</a>
+                
+                <% include sending/labelform.ejs %>
+            </div>
+        </div>
+        
+
 			</div>
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 <%include ../../generals/endFiles.ejs%>
@@ -95,11 +105,11 @@
                     
                     /* CONDICIONES */
                     conditions: filter_conditions_with_dict({
-                                                conditions:{equalTo:{Warehouse:$("#warehousefilter").val()}}
+                                                conditions:{equalTo:{Warehouse:$("#warehousefilter").val()}, contains:{"Status":"TransferOut"}}
                                                 }),
                     
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
-                    like: filter_like_with_dict({like:{"Status":"TransferOut"}}),
+                    like: filter_like(),
                     
                     document: "Staff/transit/sending/dynamicTable",
                     itemid: "ware_table"
