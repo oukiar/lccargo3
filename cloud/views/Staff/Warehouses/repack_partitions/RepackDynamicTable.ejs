@@ -15,7 +15,7 @@
         <% results.forEach(function(label){%>
             <tr>
                 <td align="center"><input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['Receipt']})%>" name="checkware" type="checkbox"></td>
-                <td align="center"><%= label["Receipt"]%></td>
+                <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Country"]%></td>

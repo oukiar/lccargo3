@@ -130,9 +130,6 @@
             else
                 conditions = {"equalTo": {"Status":"Received", Warehouse:$("#warehousefilter").val()}};
              
-            /*
-            alert(JSON.stringify(filter_conditions_with_dict({
-                                                        conditions:conditions})) );*/
                 
             InsertTable({
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
@@ -181,50 +178,7 @@
         });
 
 	  	$("#filterby").change(function(){
-	
-	  		if($("#filterby").val() == "Date")
-	  		{
-	  			$("#searchtext").replaceWith("<input type='text'  placeholder='From' id='searchtext' name='searchtext'>");
-				$("#fromTxt").replaceWith("<label class='pfont' style='display: block;' id='fromTxt'>From:</label>");
-                $("#toTxt").replaceWith("<label class='pfont' id='toTxt'>To:</label>");
-                $("#filterdate").replaceWith("<input type='text'  placeholder='To' id='filterdate' name='filterdate'>");
-            
-                $( "#searchtext" ).datepicker();
-                $( "#filterdate" ).datepicker(
-                    {
-                        onSelect: 
-                            function(dateText, inst) 
-                            {
-                                update_table();
-                            }
-                        });
-                        
-	  		}
-	          else if($("#filterby").val() == "volume")
-	  		{
-            
-	  			$("#searchtext").replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'><select id='volumecond' name='volumecond'><option value='lessthan'>Less than</option><option value='greaterthan'>Greater Than</option><option value='equal'>Equal</option></select>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-            
-            }
-            else if($("#filterby").val() == "All")
-	  		{
-            
-	  			$("#searchtext").replaceWith("<input type='hidden' placeholder='Search' id='searchtext' name='searchtext'>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-				$("#fromTxt").replaceWith("<label class='pfont' style='display: none;' id='fromTxt'>From:</label>");
-				 $("#toTxt").replaceWith("<label class='pfont' id='toTxt'>Date:</label>");
-            
-            }
-            else
-            {
-	  			$("#searchtext").replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-				$("#fromTxt").replaceWith("<label class='pfont' style='display: none;' id='fromTxt'>From:</label>");
-				$("#toTxt").replaceWith("<label class='pfont' id='toTxt'>Date:</label>");
-                
-                /*$("#searchtext").keyup(searchtext_keyup);*/
-            }
+            filterby_changed();
 	  	});
 		
 		
@@ -264,16 +218,83 @@
         
 	        $("#InternalNotes").val(repack_text);
         
-	        /*
-	        InsertForm2({
-	                    params: {"warehouselist":repack_items, "internal_notes":repack_text, "usrID":usrID},
-	                    document: "staff_RepackForm",
-	                    itemid: "openModal"
-	            });*/
-            
-	        /*$("#repack_content").replaceWith("<div id='openModal' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>Modal Box</h2><p>This is a sample modal box that can be created using the powers of CSS3.</p><p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p></div></div>");
-	        */
-        
 	    });
+       
+    /* FUNCION ENCARGADA DE LLENAR EL FORM DEL LABEL (DE LA TABLA DE LABELS MOSTRADOS PARA REPACK) */
+    function wareceipt(objectId)
+    {
+        
+        $.post("/getby", 
+                {by:"objectId", value:objectId, classvar:"Warehouses"}, 
+                function(data){
+                
+                    wh = JSON.parse(data);
+                    
+                    $("#ReceiptLabel").val(wh["Receipt"]);
+                    $("#ReceiptDateLabel").val(moment(wh["ReceiptDate"]).format("MM[/]DD[/]YYYY") );
+                    $("#AgentLabel").val(wh["Agent"]);
+                    $("#TransportLabel").val(wh["Transport"]);
+                    $("#WarehouseLabel").val(wh["Warehouse"]);
+                    $("#CountryLabel").val(wh["Country"]);
+                    $("#PricesLabel").val(wh["Prices"]);
+                    $("#WeightLabel").val(wh["Weight"]);
+                    $("#WeightVolLabel").val(wh["WeightVol"]);
+                    $("#VolumeLabel").val(wh["Volume"]);
+                    $("#ExtraCostLabel").val(wh["ExtraCost"]);
+                    $("#InvoiceLabel").val(wh["Invoice"]);
+                    $("#ValueLabel").val(wh["Value"]);
+                    $("#ZoneLabel").val(wh["Zone"]);
+                    $("#ContentLabel").val(wh["Content"]);
+                    $("#GeneralNotesLabel").val(wh["GeneralNotes"]);
+                    $("#InternalNotesLabel").val(wh["InternalNotes"]);
+                    
+                    
+                    var nrows = 1;
+                    boxes = JSON.parse(wh["Boxes"]);
+                    
+                    for(box in boxes)
+                    {
+                        
+                        if(typeof $("#LengthLabel-"+nrows.toString() ).val() == "undefined" )
+                        {
+                            $( "#btn_addboxLabel" ).trigger("click");
+                        }
+                        
+                        $("#LengthLabel-"+nrows.toString() ).val(boxes[box]["length"]);
+                        $("#WidthLabel-"+nrows.toString() ).val(boxes[box]["width"]);
+                        $("#HeightLabel-"+nrows.toString() ).val(boxes[box]["height"]);
+                        $("#WeightLabel-"+nrows.toString() ).val(boxes[box]["weight"]);
+                        $("#BoxesLabel-"+nrows.toString() ).val(boxes[box]["boxes"]);
+                        
+                        nrows += 1;
+                    }
+                });
+    }
+    
+    $( "#btn_addboxLabel" ).click(
+                function()
+                {
+                    
+                    totalrows += 1; 
+                    
+                    var newrow = "<div class=\"cont-106\">";
+                    var beforestr0 = "<div class=\"colwrapper-60\"><div class=\"cont-107\"><input type=\"text\" name=\"";
+                    var beforestr1 = "<div class=\"colwrapper-61\"><div class=\"cont-107\"><input type=\"text\" name=\"";
+                    var beforestr2 = "<div class=\"colwrapper-62\"><div class=\"cont-107\"><input type=\"text\" name=\"";
+                    var beforestr3 = "<div class=\"colwrapper-63\"><div class=\"cont-107\"><input type=\"text\" name=\"";
+                    var beforestr4 = "<div class=\"colwrapper-64\"><div class=\"cont-107\"><input type=\"text\" name=\"";
+                    var afterstr = "\" class=\"input-35\"></div></div>";
+
+                    newrow += beforestr0 + "LengthLabel-" + totalrows.toString() + "\" id=\"LengthLabel-" + totalrows.toString() + afterstr;
+                    newrow += beforestr1 + "WidthLabel-" + totalrows.toString() + "\" id=\"WidthLabel-" + totalrows.toString() + afterstr;
+                    newrow += beforestr2 + "HeightLabel-" + totalrows.toString() + "\" id=\"HeightLabel-" + totalrows.toString() + afterstr;
+                    newrow += beforestr3 + "WeightLabel-" + totalrows.toString() + "\" id=\"WeightLabel-" + totalrows.toString() + afterstr;
+                    newrow += beforestr4 + "BoxesLabel-" + totalrows.toString() + "\" id=\"BoxesLabel-" + totalrows.toString() + afterstr;
+                                    
+                    newrow += "</div>";
+
+                    $(newrow).appendTo("#dyntableLabel");
+
+                });
        
 </script>

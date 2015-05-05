@@ -256,7 +256,7 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
     else
     {
         $("#"+searchtext).replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>".replace(/searchtext/g, searchtext));
-        $("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
+        $("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yesterday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
         
         //$("#"+searchtext).keyup(searchkeyup);
         
