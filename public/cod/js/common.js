@@ -22,6 +22,18 @@ function InsertTable(kwargs)
         }
     );           
 }
+
+function Insert(kwargs)
+{
+    /*REQUEST DATA FROM THE SERVER*/
+    $.post("/getrendered", 
+        kwargs, 
+        function(data)
+        {
+            $("#" + kwargs["itemid"]).replaceWith(data);
+        }
+    );           
+}
     
 function SaveForm(kwargs)
 {
