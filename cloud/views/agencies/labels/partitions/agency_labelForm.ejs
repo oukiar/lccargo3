@@ -44,7 +44,7 @@
 							<div class="cont-16">
 								<div class="colwrapper-8">
 									<div class="cont-17">
-										<div class="cont-18"><p class="para-5"><span class="font-5">Shipper:</span></p></div>
+                                    
 									</div>
 								</div>
 								<div class="colwrapper-9">
@@ -56,9 +56,9 @@
 							<div class="cont-21">
 								<div class="colwrapper-10">
 									<div class="cont-22">
-										<!-- SHIPPER -->
+										<!-- SHIPPER 
 										<input type="text" name="Shipper" class="input-4" id='Shipper'>
-										<input type="hidden" name="ShipperID" class="input-5" id='ShipperID'>
+										<input type="hidden" name="ShipperID" class="input-5" id='ShipperID'>-->
 									</div>
 								</div>
 								<div class="colwrapper-11">
@@ -427,7 +427,7 @@
 				</div>
 			
 				</div>
-			</div>
+			</div> 
              </div>
 			 </div>
                 
@@ -458,14 +458,15 @@
     $("#btn_save").click(
     function()
     {   
-        if($("#ConsigneeID").val() == -1 || $("#ShipperID").val() == -1)
+        if($("#ConsigneeID").val() == -1)
         {
-            alert("You must select shipper and consignee from the result list");
+            alert("You must select consignee from the result list");
             return false;
         }
         else
         {
             $("#modalmessage").replaceWith("<div id='modalmessage'><img src='/web/img/icons/loader_grey.gif'></div>");
+            
             
             var c=1;
             var boxes = [];
@@ -489,7 +490,7 @@
                     Status: "Received",
                     ReceiptDate:    {__type: "Date", iso:$("#ReceiptDate").val() },
                     Agent:          $("#Agent").val(),
-                    Shipper:        {__type: "Pointer", className: "Agencies", objectId: $("#ShipperID").val()},
+                    Shipper:        {__type: "Pointer", className: "Agencies", objectId: agencyID},
                     Consignee:      {__type: "Pointer", className: "Clients", objectId: $("#ConsigneeID").val()},
                     Transport:      $("#Transport").val(),
                     Warehouse:      $("#Warehouse").val(),
@@ -509,14 +510,14 @@
 						bgcolor: "",
 						Shipment: "Pending"
                     },
-                collection: "Warehouses",
-                document: "Staff/Warehouses/newlabel_partitions/result",
+                collection: "StoreLabels",
+                document: "agencies/labels/partitions/result",
                 itemid: "modalmessage"
                 });
                 
             /* REINSERT FORM */
             InsertForm({
-                        document: "Staff/Warehouses/newlabel_partitions/LabelForm",
+                        document: "agencies/labels/partitions/agency_labelForm",
                         itemid: "content"
                 });
                 

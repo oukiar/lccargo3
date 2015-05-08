@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         
         
+        <script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        
+        
         <!--ADMIN REQUIREMENTS-->   
         <% include ../../generals/ultraAdmin.ejs %>
     
@@ -38,8 +42,16 @@
 			
 			
             <!-- START CONTENT -->
-           <section class="wrapper" style='margin-top:13px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
-            <% include partitions/agency_labelForm.ejs %>
+            
+            
+            <section class="wrapper" style='margin-top:13px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
+
+
+
+                <% include partitions/agency_labelForm.ejs %>
+                
+                
+                <button id="btn_test">User</button>
             </section>
        
             <!-- END CONTENT -->
@@ -61,7 +73,29 @@
 
         <!-- modal end -->
 
+<script>
 
+    Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+
+    agencyID = "<%= user.get("AgencyID").id %>";
+
+    
+    $("#btn_test").click(function(){
+            
+            alert(JSON.stringify(agencyID) );            
+        });
+    
+    /*
+    query.get(,
+    {
+        success: 
+            function(result)
+            {
+                alert(JSON.stringify(agencyID) );
+            }
+    });*/
+
+</script>
 
 
 </body>

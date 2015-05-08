@@ -29,7 +29,7 @@
 			          
 			          
 					<div id="classifyDiv" style="display:block">
-                        <a href="#openModalB" id="btn_receive" class="pure-button pure-button-primary">Receive</a>
+                        <a href="#openModalC" id="btn_receive" class="pure-button pure-button-primary">Receive</a>
                     </div>
               
 	           </div>
@@ -39,7 +39,7 @@
    			
 			
 	            <div class="col-md-6 col-xs-6" style="margin-top:20px;">
-		  	<form class="pure-form" method="post" action="/staff_warehouse_filter" align="right">
+                    <div align="right">
 		  	  
 		  	               <label for="filterby" class="pfont">By:</label>
 		  	               <select  id="filterby" name="filterby">
@@ -73,9 +73,11 @@
 		  					   <option value="This month">This month</option>
 		  					   <option value="Last month">Last month</option>	
 		  					   <option value="Current year">Current Year</option>
-		  				   </select>			   
+		  				   </select>	
+                           
+                           <button id="btn_search" class="pure-button pure-button-primary">Search</button> 		   
 		  	
-		  	</form>
+                    </div>
 			
 	            </div>
 	          </div>
@@ -106,68 +108,21 @@
             update_table();
         });
 
-        function searchtext_keyup()
-        {
-            update_table();
-        }
+        $("#btn_search").click(function()
+            {
+                update_table();
+            }); 
         
             
         $("#filterdate").change(function(){
             update_table();
         });            
 
-	  	$("#filterby").change(function(){
-	
-	  		if($("#filterby").val() == "Date")
-	  		{
-	  			$("#searchtext").replaceWith("<input type='text'  placeholder='From' id='searchtext' name='searchtext'>");
-				$("#fromTxt").replaceWith("<label class='pfont' style='display: block;' id='fromTxt'>Date:</label>");
-                $("#toTxt").replaceWith("<label class='pfont' id='toTxt'>To:</label>");
-                $("#filterdate").replaceWith("<input type='text'  placeholder='To' id='filterdate' name='filterdate'>");
-            
-                $( "#searchtext" ).datepicker();
-                $( "#filterdate" ).datepicker(
-                    {
-                        onSelect: 
-                            function(dateText, inst) 
-                            {
-                                update_table();
-                            }
-                        });
-                        
-	  		}
-            else if($("#filterby").val() == "volume")  /* DISABLED BY NOW */
-	  		{
-            
-	  			$("#searchtext").replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'><select id='volumecond' name='volumecond'><option value='lessthan'>Less than</option><option value='greaterthan'>Greater Than</option><option value='equal'>Equal</option></select>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-            
-            }
-            else if($("#filterby").val() == "All")
-	  		{
-            
-	  			$("#searchtext").replaceWith("<input type='hidden' placeholder='Search' id='searchtext' name='searchtext'>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-                    
-                $("#filterdate").change(function(){
-                        update_table();
-                    }); 
-                      
-                update_table();
-                
-            }
-            else
+        
+        $("#filterby").change(function()
             {
-	  			$("#searchtext").replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>");
-                $("#filterdate").replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>");
-                
-                $("#searchtext").keyup(searchtext_keyup);
-                
-                $("#filterdate").change(function(){
-                        update_table();
-                    }); 
-            }
-	  	});
+                filterby_changed("filterby", "searchtext", "filterdate", update_table); 
+            });
             
 </script>
 		
