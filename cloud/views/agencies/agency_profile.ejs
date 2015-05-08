@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+		
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <title>LC Cargo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        
+       
+	
+  <!--ADMIN REQUIREMENTS-->   
+  <% include ../generals/ultraAdmin.ejs %>
+    
+        <script src="/cod/js/common.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	 
+	  
+	  
+    
+    </head>
+    <!-- END HEAD -->
+
+    <!-- BEGIN BODY -->
+    <body class=" ">
+		<!--START TOPBAR-->
+		 <% include generals/topbar.ejs %>
+		 
+        <!-- START CONTAINER -->
+        <div class="page-container row-fluid">
+            <!-- SIDEBAR - START -->
+            <% include generals/sideBar.ejs %>
+        <!--  SIDEBAR - END -->
+			
+			
+            <!-- START CONTENT -->
+          
+        <section class="wrapper" style='margin-top:60px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
+
+
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                    <div class="page-title">
+                        <div class="pull-left">
+
+          <h1 class="title">Store's Profile</h1>
+			  
+  
+  	  <fieldset class="container">
+	  			 		
+  	  <div ng-controller="MyController" class="my-controller">
+	
+  		  <div class="pull-right" style="margin-top:5px;">
+			<button id="btn_edit" class="pure-button pure-button-primary" onclick="editTable()">Edit</button>
+			
+			<button id="btn_cancel" class="cancel" onclick="cancelTable()" style="display:none;">Cancel</button>
+			<button type="submit" id="btn_save" class="pure-button pure-button-primary" onclick="saveTable()" style="display:none;"  form="updateAgencyInfo">Save</button>
+			
+  		  </div>
+	 
+  	    <div class="row">
+  	      <div class="col-lg-12 col-md-12 container">
+  	 
+  	      
+		
+			
+					<form method="post" action="updateAgencyInfo" id="updateAgencyInfo">
+						<span style="display:none;" id="caption">You can now edit your information:</span>	
+            <table class="table table-bordered" id="blueRow">
+	        <tr>
+	        <th style="width:15%;">Name:</th>
+	        <td contenteditable='false' id="tdName"><%= store.get("Name")%>
+			</td>
+	        </tr>
+	        <tr>
+	            <th style="width:15%;">Telephone:</th>
+	            <td contenteditable='false' id="tdTel"><%= store.get("Telephone")%></td>
+	        </tr>
+	        <tr>
+	            <th style="width:15%;">Email:</th>
+	            <td contenteditable='false'  id="tdEmail"><%= store.get("Email")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">Website:</th>
+	            <td contenteditable='false' id="tdWeb"><%= store.get("Website")%></td>
+	        </tr>
+			
+			
+	        <tr>
+	            <th style="width:15%;">Address:</th>
+	            <td contenteditable='false' id="tdAddress"><%= store.get("Address")%></td>
+			</tr>
+	        <tr>
+	            <th style="width:15%;"></th>
+				<td contenteditable='false' id="tdAddress2"><%= store.get("Address2")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">City:</th>
+	            <td contenteditable='false' id="tdCity"><%= store.get("City")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">State:</th>
+	            <td contenteditable='false' id="tdState"><%= store.get("State")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">Country:</th>
+	            <td contenteditable='false' id="tdCountry"><%= store.get("Country")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">ZIP:</th>
+	            <td contenteditable='false' id="tdZIP"><%= store.get("ZIP")%></td>
+	        </tr>
+			
+	        <tr>
+	            <th style="width:15%;">PoBox:</th>
+	            <td contenteditable='false' id="tdPoBox"><%= store.get("PoBoxID")%></td>
+	        </tr>
+			
+			
+	        <tr>
+	            <th style="width:15%;">Description:</th>
+	            <td contenteditable='false' id="tdDescription"><%= store.get("Notes")%></td>
+	        </tr>
+			
+	    </table>
+	</form>
+
+
+				<script>
+					function editTable(){
+					document.getElementById("tdName").contentEditable = true;
+					document.getElementById("tdTel").contentEditable = true;
+					document.getElementById("tdEmail").contentEditable = true;
+					document.getElementById("tdWeb").contentEditable = true;
+					document.getElementById("tdAddress").contentEditable = true;
+					document.getElementById("tdAddress2").contentEditable = true;
+					document.getElementById("tdCity").contentEditable = true;
+					document.getElementById("tdState").contentEditable = true;
+					document.getElementById("tdCountry").contentEditable = true;
+					document.getElementById("tdZIP").contentEditable = true;
+					document.getElementById("tdPoBox").contentEditable = true;
+					document.getElementById("tdDescription").contentEditable = true;
+					
+					document.getElementById("btn_edit").style.display = "none";
+					document.getElementById("btn_save").style.display = "";
+					document.getElementById("btn_cancel").style.display = "";
+					document.getElementById("caption").style.display = "block";
+					}	
+					
+					function cancelTable(){
+						location.reload();
+						
+					}
+			    </script>
+					
+					
+           </div>
+	   </div>
+   </div>
+</div>
+   
+</fieldset>
+</div>
+</div>
+</div>
+
+
+</section>
+      
+
+
+        </div><!-- END CONTAINER -->
+        <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+  <% include ../generals/endFiles.ejs%>
+
+        <!-- modal end -->
+ 
+        
+    </body>
+	
+</html>
