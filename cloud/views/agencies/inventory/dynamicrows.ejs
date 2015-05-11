@@ -1,0 +1,15 @@
+<div id="dynamicrows">
+    <% results.forEach(function(label){%>
+             
+        <tr>
+            <th><%=label["Key"]%></th>
+            <td><%=label["Name"]%></td>
+            <td><%=label["Prices"]%></td>
+            <td><%=label["Existence"]%></td>
+            <td><%=label["Max"]%></td>
+            <td><%=label["Min"]%></td>
+            <td><%=label["Tags"]%></td>
+        </tr>
+		
+    <% }) %>   
+</div>
