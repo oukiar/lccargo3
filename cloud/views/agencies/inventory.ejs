@@ -53,36 +53,7 @@
                             <div class="content-body">    <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th width=50>Key</th>
-                                                    <th>Product</th>
-                                                    <th>Prices</th>
-                                                    <th width=50>Existence</th>
-                                                    <th width=50 value=100>Max</th>
-                                                    <th width=50 value=1>Min</th>
-                                                    <th>Tags</th>
-                                                    <th>Add</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th width=50><input id="Key" type="text" style="width:50px;"></th>
-                                                    <td><input id="Name" type="text"></td>
-                                                    <td><input id="Prices" type="text"></td>
-                                                    <td width=50><input id="Existence" type="text" style="width:50px;"></td>
-                                                    <td width=50><input id="Max" type="text" style="width:50px;"></td>
-                                                    <td width=50><input id="Min" type="text" style="width:50px;"></td>
-                                                    <td><input id="Tags" type="text"></td>
-                                                    
-                                                    <td><img src="web/img/icons/newtab.png" id="btn_add" alt="Add Box" width="28" height="28" class="lower-right-button" ></td>
-                                                </tr>
-                                                
-                                                <% include inventory/dynamicrows.ejs %>
-                                                
-                                            </tbody>
-                                        </table>
+                                        <% include inventory/table.ejs %>
 
                                     </div>
                                 </div>
@@ -101,35 +72,6 @@
     <script>
     agencyID = "<%= user.get("AgencyID").id %>";
     
-    $("#btn_add").click(function(){
-            alert("add reg");
-            
-                
-            $.post("/extends", 
-                {
-                    values:
-                    {
-                        /*Transaction: {__type: "Autoincrement"},*/
-                        Store: {__type: "Pointer", className: "Agencies", objectId: agencyID},
-                        Key: $("#Key").val(),
-                        Name: $("#Name").val(),
-                        Prices:         $("#Prices").val(),
-                        Existence:         $("#Existence").val(),
-                        Max:         $("#Max").val(),
-                        Min:         $("#Min").val(),
-                        Tags:         $("#Tags").val()
-                    },
-                    collection: "Inventories",
-                    document: "agencies/inventory/dynamicrows",
-                    }, 
-                    
-                    function(data)
-                    {
-                        $("#" + kwargs["itemid"]).replaceWith(data);
-                    }
-            ); 
-            
-        });
     
     </script>
     
