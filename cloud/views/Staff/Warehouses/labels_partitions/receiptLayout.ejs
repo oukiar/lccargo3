@@ -4,9 +4,7 @@
 		  	            <a href="#close" title="Close" class="closeB">X</a>
 		  	     
 				  
-				  
-				  <div id="section-to-print">
-				  
+	  
 				    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                        
                     </div>
@@ -17,10 +15,9 @@
                             <header class="panel_header">
                   
                                     <div class="text-center" style="margin-top:5px; margin-bottom:5px;">
-                                        <a href="#" target="_blank" class="btn btn-purple btn-md"><i class="fa fa-print"></i> &nbsp; Print </a>        
+                                        <a onclick="printReceipt()" class="btn btn-purple btn-md"><i class="fa fa-print"></i> &nbsp; Print </a>        
                                         <a href="#" target="_blank" class="btn btn-orange btn-md"><i class="fa fa-send"></i> &nbsp; Send </a>        
                                     </div>
-                           
                                
                             </header>
 							
@@ -29,11 +26,13 @@
                             <div class="content-body">    <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                     
+                                     	<div id="section-to-print">
 
                                         <!-- start -->
 
                                         <div class="row">
+										
+											
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <div class="invoice-head">
                                                     <div class="col-md-2 col-sm-12 col-xs-12 invoice-title">
@@ -147,15 +146,16 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
+													<div class="page-break"></div>
                                                 </div>
                                             </div>
                                         </div>
 
 
 
-                                        <div class="clearfix"></div><br>
+                                 
 
-                                  
+                                   </div>
 
                                         <!-- end -->
 
@@ -165,8 +165,12 @@
                             </div>
                         </section></div>
 						
-						 </div>
-					
+						
+					<script>
+					function printReceipt() {
+					    window.print();
+					}
+					</script>
 					      
 					        </div>
 					    </div>

@@ -1,11 +1,16 @@
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,400,300,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Oswald:100,400,300,600,700);
+
+
+@media all {
+	.page-break	{ display: none; }
+}
 
 @media print {
   body * {
     visibility: hidden;
   }
+  .page-break	{ display: block; page-break-before: always; }
   #section-to-print, #section-to-print * {
     visibility: visible;
 	
@@ -17,6 +22,8 @@
     top: 0;
   }
 }
+
+
 /*-----------------------------------------
 
 Table of Contents:
