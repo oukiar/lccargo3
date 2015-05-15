@@ -2,26 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:100,400,300,600,700);
 
 
-@media all {
-	.page-break	{ display: none; }
-}
-
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  .page-break	{ display: block; page-break-before: always; }
-  #section-to-print, #section-to-print * {
-    visibility: visible;
-	
-  }
-  #section-to-print {
-    position: absolute;
-	width:100%;
-    left: 0;
-    top: 0;
-  }
-}
 
 
 /*-----------------------------------------
