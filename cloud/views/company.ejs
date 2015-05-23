@@ -36,7 +36,8 @@
      
         <script type="text/javascript" src="login/js/vendor/modernizr.custom.js"></script>
 			
-			
+		
+            	
 			  <style>
 			  
 			  .modalDialogB {
@@ -366,7 +367,7 @@
 
 
                             <!-- form -->
-                            <form role="form" id="contactform" class="contactform" method="post" action="#">
+                            <form id="contactform" class="contactform" method="post" action="/neurons">
                                 <!-- col-md-4 -->
                                 <div class="col-md-4">
                                     <!-- Contact Name -->
@@ -456,8 +457,14 @@
                                 <!-- col-md-12 -->
                                 <div class="col-md-12">
                                     <!-- Submit Button -->
+                                    
+                                    
+                                    <!-- DONT WORK   
+                                    <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
+                                    -->
+                                    
                                     <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o">
-                                        <span>Send Now</span>
+                                        Send Now
                                     </button>
                                 </div><!-- /col-md-12 -->
 
@@ -466,7 +473,8 @@
                                     <!-- Form Message -->
                                     <div id="contact-form-message"></div>
                                 </div><!-- /col-md-12 -->
-
+                                    
+                                <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
 
                             </form><!-- /form -->
 
@@ -565,23 +573,15 @@
             </div><!-- /footer-section-container -->
 			
         </div><!-- /footer-section -->
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-        <script src="cod/js/jquery.geocomplete.js"></script>
-		<script>
-		$.noConflict();
-		</script>
-        <script type="text/javascript" src="login/js/vendor/jquery-1.11.0.min.js"></script>
+        
+
+        <script type="text/javascript" src="login/js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="login/js/vendor/bootstrap.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/jquery.placeholder.js"></script>
-        <script type="text/javascript" src="login/js/plugins/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="login/js/plugins/smoothscroll/smooth-scroll.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/okvideo/okvideo.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/nivo/nivo-lightbox.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/owl-carousel/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/ajaxchimp/jquery.ajaxchimp.min.js"></script>
-        <script type="text/javascript" src="login/js/plugins/retina-1.1.0.js"></script>
-        <script type="text/javascript" src="login/js/plugins/wow/wow.min.js"></script>
-        <script type="text/javascript" src="login/js/1322.js"></script>
+    
+        
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+        <script src="cod/js/jquery.geocomplete.js"></script>
+        
         <script>
 		
 		var nwarehouses = 1;
@@ -613,47 +613,59 @@
 	  
 	  
 	  $.log = function(message){
-	    var $logger = $("#logger");
-	    $logger.html($logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='warehouse" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
+	    var logger = $("#logger");
+	    logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='store" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
 		nwarehouses += 1;
 		
-	  }
+	  };
 	  
-	 
-		// JavaScript Document
+        </script>
+        
+        
+        <script type="text/javascript" src="login/js/plugins/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="login/js/plugins/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="login/js/plugins/smoothscroll/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="login/js/plugins/okvideo/okvideo.min.js"></script>
+        <script type="text/javascript" src="login/js/plugins/nivo/nivo-lightbox.min.js"></script>
+        <script type="text/javascript" src="login/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="login/js/plugins/ajaxchimp/jquery.ajaxchimp.min.js"></script>
+        <script type="text/javascript" src="login/js/plugins/retina-1.1.0.js"></script>
+        <script type="text/javascript" src="login/js/plugins/wow/wow.min.js"></script>
+        <script type="text/javascript" src="login/js/1322.js"></script>
+      
+      
+<script>        
+    // JavaScript Document
 
-
-
-		$(document).ready(function(){
+    $(document).ready(function(){
 	
 			$(window).resize(changeSize.init);
 			$(window).load(changeSize.init);
 
+            function initSlider() 
+            {
+                $('#layerslider').layerSlider({
+                            skinsPath : 'skins/',
+                            skin : 'fullwidth',
+                            thumbnailNavigation : 'hover',
+                            hoverPrevNext : false,
+                            responsive : false,
+                            responsiveUnder : 1200,
+                            sublayerContainer : 1000,
+                            autoStart : true,
+                            pauseOnHover : false,
+                            firstLayer : 1,
+                            animateFirstLayer : true,
+                    });
+            }
 
-	
-		 	function initSlider() {
-	
-			$('#layerslider').layerSlider({
-							skinsPath : 'skins/',
-							skin : 'fullwidth',
-							thumbnailNavigation : 'hover',
-							hoverPrevNext : false,
-							responsive : false,
-							responsiveUnder : 1200,
-							sublayerContainer : 1000,
-							autoStart : true,
-							pauseOnHover : false,
-							firstLayer : 1,
-							animateFirstLayer : true,
-						});
-			}			
-
-
+    
 		// Plugin que calcula el offset top de los elementos para poder animarlos al hacer scroll
 		     var wpOffset = 85;
 		     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 		        wpOffset = 100;
 		     }
+             
 		     $.fn.waypoint.defaults = {
 		        context: window,
 		        continuous: true,
