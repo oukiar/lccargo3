@@ -1,5 +1,8 @@
-<html> 
-  
+<!DOCTYPE html>
+<html lang="en" class="no-js"> <!--<![endif]-->
+    <!-- =========================================
+    head
+    ========================================== -->
     <head>
 
 
@@ -190,13 +193,14 @@
                         <div class="col-md-12">
                             <!-- navbar-header -->
                             <div class="navbar-header">
-                            <!-- Mobile Menu -->
-                            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                            <i class="fa fa-bars"></i>
-                            </button><!-- / mobile Menu -->
-                            <!-- logo -->
-                            <a href="#home-section" class="navbar-brand" data-scroll title="Thirteen22">        
-                            </a><!-- /logo -->
+                                <!-- Mobile Menu -->
+                                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                    <i class="fa fa-bars"></i>
+                                </button><!-- / mobile Menu -->
+                                
+                                <!-- logo -->
+                                <a href="#home-section" class="navbar-brand" data-scroll title="Thirteen22">        
+                                </a><!-- /logo -->
                             </div><!-- /navbar-header -->
 
                             <!-- navbar-collapse -->
@@ -215,7 +219,7 @@
                                  
                                     <!-- Download -->
                                     <li>
-                                        <a href="#pricing-tables-section" title="Download" data-scroll class="scrollto">
+                                        <a href="#contact-section" title="Download" data-scroll class="scrollto">
                                           Register as a Client
                                         </a>
                                     </li><!-- /Download -->
@@ -253,374 +257,567 @@
         <div id="home-section">
             <!-- home-section-wrapper -->
             <div id="home-section-wrapper"></div>
-            <!-- home-section-container -->
-            <div id="home-section-container">
+                <!-- home-section-container -->
+                <div id="home-section-container">
 
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-						
-						
-					   <div class="col-lg-12 loginset">
-					   <div class="col-lg-12 col-md-12">
-						   <h1 align="center" style="margin-top:21px; margin-bottom:42px; font-size: 6em;"><%= company.get("companyLink") %> </h1></div>
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            
+                            
+                            <div class="col-lg-12 loginset">
+                                <div class="col-lg-12 col-md-12">
+                                    <h1 align="center" style="margin-top:21px; margin-bottom:42px; font-size: 6em;"><%= company.get("companyLink") %> </h1></div>
             	
-			 <form class="formlog" method="post" action="/logins">
-	   <p class="input-field"><input type="text" name="usrname" id="user_login" placeholder="Username" /></p>
-	   <input type="hidden" name="company" id="compLink" value="@<%=company.get("companyLink")%>" />
-	   <p class="input-field" ><input type="password" name="pwd" id="user_pass" placeholder="Password" /></p>        
-	   
-       <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o center-block" style="float:center; margin-top:3px;">
-           <span>Log In</span>
-       </button>
-	 <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:rgba(50, 50, 58, 1.0);" />Forgot?</a>
+                                    <form class="formlog" method="post" action="/logins">
+                                        
+                                        <p class="input-field"><input type="text" name="usrname" id="user_login" placeholder="Username" /></p>
+                                        <input type="hidden" name="company" id="compLink" value="@<%=company.get("companyLink")%>" />
+                                        <p class="input-field" ><input type="password" name="pwd" id="user_pass" placeholder="Password" /></p>        
+
+                                        <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o center-block" style="float:center; margin-top:3px;">
+                                            <span>Log In</span>
+                                        </button>
+                                        
+                                        <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:rgba(50, 50, 58, 1.0);" />Forgot?</a>
 	
-			</form>
+                                    </form>
 			   
 					            </div>
 								
 	
-					<!--MODAL PARA MOSTAR LABEL-->
-				    <div id="openModal" class="modalDialog">
-			        <div>
-							            <a href="#close" title="Close" class="close">X</a>
+                                <!--MODAL PARA MOSTAR LABEL-->
+                                <div id="openModal" class="modalDialog">
+                                    <div>
+                                        <a href="#close" title="Close" class="close">X</a>
 										</br></br>
 										<form method="post" action="/reset">
-						            <p>
-						            <label><font color="#35353C">E-mail address:</font></label></br></br>
-						           <input type="email" name="re_email" id="re_email" class="input" placeholder="e-mail" size="34" />
-						            </p></br>
-						            <p class="submit">
-						                <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-orange" value="Recover" />  &nbsp &nbsp<a href="#close" style="color:black;" >Cancel</a>
-						            </p>
+                                            <p>
+                                                <label><font color="#35353C">E-mail address:</font></label></br></br>
+                                                <input type="email" name="re_email" id="re_email" class="input" placeholder="e-mail" size="34" />
+                                            </p>
+
+                                            </br>
+                                            <p class="submit">
+                                                <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-orange" value="Recover" />  &nbsp &nbsp<a href="#close" style="color:black;" >Cancel</a>
+                                            </p>
 									
-							           </form> 
+                                        </form> 
 									  
 							        </div>
 							    </div>
 								
 					     
 
-                        <!-- col-md-8 -->
-                        <div class="col-md-8">
-							
+                                <!-- col-md-8 -->
+                                <div class="col-md-8">
+                                    
 
-                            <!-- slogan -->
-                            <div class="slogan wow fadeInLeft" data-wow-duration="1.5s">
-								Register</br>
-                            </div><!-- /slogan -->
+                                    <!-- slogan -->
+                                    <div class="slogan wow fadeInLeft" data-wow-duration="1.5s">
+                                        Register</br>
+                                    </div><!-- /slogan -->
 
-                            <!-- slogan-desc -->
-                           </br>
+                                    <!-- slogan-desc -->
+                                    </br>
 
-                            <!-- home-buttons -->
-                            <div class="home-buttons wow fadeInLeft" data-wow-duration="1.5s">
-                                <a href="#pricing-tables-section" title="Download Now" class="btn btn-lg btn-nesto-home-o" data-scroll>
-                               As a Client
-                                </a>
-                                or
-                                <a href="#features-section-page-2" title="Read More" class="btn btn-lg btn-nesto-home-o" data-scroll>
-                                As a Store
-                                </a>
-                            </div><!-- /home-buttons -->
+                                    <!-- home-buttons -->
+                                    <div class="home-buttons wow fadeInLeft" data-wow-duration="1.5s">
+                                        <a href="#contact-section" title="Download Now" class="btn btn-lg btn-nesto-home-o" data-scroll>
+                                        As a Client
+                                        </a>
+                                        or
+                                        <a href="#store-section" title="Read More" class="btn btn-lg btn-nesto-home-o" data-scroll>
+                                        As a Store
+                                        </a>
+                                    </div><!-- /home-buttons -->
 
-                        </div><!-- /col-md-8 -->
+                                </div><!-- /col-md-8 -->
+
 						
 						
-						
+                                <!-- AQUIIII -->
+
+
+                            </div><!-- /row -->
+                        </div><!-- /container -->
+
+                    </div><!-- /home-section-container -->
+                </div><!-- /home-section -->
 
 
 
-                    </div><!-- /row -->
-                </div><!-- /container -->
+                <!-- contact-section -->
+                <div id="contact-section">
 
-            </div><!-- /home-section-container -->
-        </div><!-- /home-section -->
-
-
-
-        <!-- contact-section -->
-        <div id="contact-section">
-
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-
-
-                    <!-- col-md-12 -->
-                    <div class="col-md-12">
-
-                        <!-- section-title -->
-                        <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
-                           <font color="#35353C">Client Registration</font>
-                        </div><!-- /section-title -->
-
-                    </div><!-- /col-md-12 -->
-
-
-                    <!-- col-md-12 -->
-                    <div class="col-md-12">
+                    <!-- container -->
+                    <div class="container">
                         <!-- row -->
                         <div class="row">
 
 
-                            <!-- form -->
-                            <form id="contactform" class="contactform" method="post" action="/neurons">
-                                <!-- col-md-4 -->
-                                <div class="col-md-4">
-                                    <!-- Contact Name -->
-                                    <div class="form-group">
-                                        <div class="controls">
-											<label class="form-label" for="field-1"><font color="#35353C">Full Name:</font></label>
-                                           <input type="text" class="form-control" maxlength="55" id="usr_fullName" name="usrFullName">
-                                        </div>
-                                    </div><!-- /Contact Name -->
-                                </div><!-- /col-md-4 -->
+                            <!-- col-md-12 -->
+                            <div class="col-md-12">
 
-                                <!-- col-md-4 -->
-                                <div class="col-md-4">
-                                    <!-- Contact Email -->
-                                    <div class="form-group">
-                                        <div class="controls">
-									 <label class="form-label" for="field-1"><font color="#35353C">Language:</font></label>
-		  								<select  class="form-control" id="usr_Language" name="usrLanguage">
-		  					            <option value="Spanish">Spanish</option>
-		  					            <option value="English">English</option>
-		  					            </select>
-                                        </div>
-                                    </div><!-- /Contact Email -->
-                                </div><!-- /col-md-4 -->
+                                <!-- section-title -->
+                                <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
+                                   <font color="#35353C">Client Registration</font>
+                                </div><!-- /section-title -->
 
-                                <!-- col-md-4 -->
-                                <div class="col-md-4">
-                                    <!-- Contact Subject -->
-                                    <div class="form-group">
-                                      <div class="controls">
-										   <label class="form-label" for="field-1"><font color="#35353C">ID1:</font></label>
-                                       <input type="text" class="form-control" maxlength="55" id="usr_ID1" name="usrID1">
-                                      </div>
-                                    </div><!-- /Contact Subject -->
-                                </div><!-- /col-md-4 -->
+                            </div><!-- /col-md-12 -->
 
 
-                             
+                            <!-- col-md-12 -->
+                            <div class="col-md-12">
+                                <!-- row -->
+                                <div class="row">
 
 
-                                <!-- col-md-12 -->
-                                <div class="col-md-4">
-                                    <!-- Contact Message -->
-                                    <div class="form-group">
-                                        <div class="controls">
-								<label class="form-label" for="field-1"><font color="#35353C">Telephone:</font></label>
-                                  <input type="text" class="form-control" maxlength="21" id="usr_Tel" name="usrTel">
-                                        </div>
-                                    </div><!-- /Contact Message -->
-                                </div><!-- /col-md-12 -->
+                                    <!-- form -->
+                                    <form id="contactform" class="contactform" method="post" action="/<%= company.get("companyLink") %>">
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Name -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Full Name:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="usrFullName" name="usrFullName">
+                                                </div>
+                                            </div><!-- /Contact Name -->
+                                        </div><!-- /col-md-4 -->
+
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Email -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Language:</font></label>
+                                                    <select  class="form-control" id="usrLanguage" name="usrLanguage">
+                                                    <option value="Spanish">Spanish</option>
+                                                    <option value="English">English</option>
+                                                    </select>
+                                                </div>
+                                            </div><!-- /Contact Email -->
+                                        </div><!-- /col-md-4 -->
+
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Subject -->
+                                            <div class="form-group">
+                                              <div class="controls">
+                                                   <label class="form-label" for="field-1"><font color="#35353C">ID1:</font></label>
+                                               <input type="text" class="form-control" maxlength="55" id="usrID1" name="usrID1">
+                                              </div>
+                                            </div><!-- /Contact Subject -->
+                                        </div><!-- /col-md-4 -->
+
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Telephone:</font></label>
+                                                    <input type="text" class="form-control" maxlength="21" id="usrTel" name="usrTel">
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
+                                        
+								
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Email:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="usrEmail" name="usrEmail">
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
 								
 								
-                                <!-- col-md-12 -->
-                                <div class="col-md-4">
-                                    <!-- Contact Message -->
-                                    <div class="form-group">
-                                        <div class="controls">
-								<label class="form-label" for="field-1"><font color="#35353C">Email:</font></label>
-                                  <input type="text" class="form-control" maxlength="55" id="usr_Email" name="usrEmail">
-                                        </div>
-                                    </div><!-- /Contact Message -->
-                                </div><!-- /col-md-12 -->
-								
-								
-                                <div class="col-md-12">
-                                    <!-- Contact Message -->
-                                    <div class="form-group">
-                                        <div class="controls">
-											
-				<label class="form-label" for="field-1"><h4><b>Add Destionations:</b></b></h4></label></br>
-				 <form>
-					 <label class="form-label" for="field-1"><b>Destionations:</b></label></br>
-					 <input id="geocomplete" type="text" placeholder="Type in an address" size="90"/>
-					 <input id="find" type="button" value="Add warehouse"  class="pure-button pure-button-primary"/>
-				 </form></br></br>
-								<pre><b>Destinations List:</b>
-									<table id="logger">
-		
-								</table>
-								</pre>
-								  <div class="map_canvas" ></div>
-								
-                                        </div>
-                                    </div><!-- /Contact Message -->
-                                </div><!-- /col-md-12 -->
+                                        <div class="col-md-12">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    
+                                                    <label class="form-label" for="field-1"><h4><b>Add Destionations:</b></b></h4></label></br>
+                                                    <!--<form>-->
+                                                        <label class="form-label" for="field-1"><b>Destionations:</b></label></br>
+                                                        <input id="geocomplete" type="text" placeholder="Type in an address" size="90"/>
+                                                        <input id="find" type="button" value="Add warehouse"  class="pure-button pure-button-primary"/>
+                                                    <!--</form>--></br></br>
+                                                    
+                                                    <pre><b>Destinations List:</b>
+                                            
+                                                        <table id="logger">
+                    
+                                                        </table>
+                                                    </pre>
+                                                    <div class="map_canvas" >
+                                                    
+                                                    </div>
+                                        
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
 
-                                <!-- col-md-12 -->
-                                <div class="col-md-12">
-                                    <!-- Submit Button -->
-                                    
-                                    
-                                    <!-- DONT WORK   
-                                    <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
-                                    -->
-                                    
-                                    <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o">
-                                        Send Now
-                                    </button>
-                                </div><!-- /col-md-12 -->
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-12">
+                                            <!-- Submit Button -->
+                                            
+                                            
+                                            <!-- DONT WORK   
+                                            <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
+                                            -->
+                                            
+                                            <input type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o" value="Send Now">
+                                                
+                                            
+                                        </div><!-- /col-md-12 -->
 
-                                <!-- col-md-12 -->
-                                <div class="col-md-12">
-                                    <!-- Form Message -->
-                                    <div id="contact-form-message"></div>
-                                </div><!-- /col-md-12 -->
-                                    
-                                <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-12">
+                                            <!-- Form Message -->
+                                            <div id="contact-form-message"></div>
+                                        </div><!-- /col-md-12 -->
+                                            
+                                        <input type="hidden" name="companyID" value="<%= company.id%>">
 
-                            </form><!-- /form -->
+                                    </form><!-- /form -->
+
+
+                                </div><!-- /row -->
+                            </div><!-- /col-md-12 -->
 
 
                         </div><!-- /row -->
-                    </div><!-- /col-md-12 -->
+                    </div><!-- /container -->
+
+                </div><!-- /contact-section -->
+                
+                <br><br>
+                
+                <!-- store-section -->
+                <div id="store-section">
+
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
 
 
-                </div><!-- /row -->
-            </div><!-- /container -->
+                            <!-- col-md-12 -->
+                            <div class="col-md-12">
 
-        </div><!-- /contact-section -->
-		
-		
-		
-		
-		
+                                <!-- section-title -->
+                                <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
+                                   <font color="#FFFFFF">Store Registration</font>
+                                </div><!-- /section-title -->
 
-
-        <!-- footer-section -->
-        <div id="footer-section">
-            <!-- footer-section-container -->
-            <div id="footer-section-container">
+                            </div><!-- /col-md-12 -->
 
 
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-						
-                        <!-- col-md-12 -->
-                        <div class="col-md-12">
-                            <div id="footer-logo">
-                                <a href="#home-section" title="Home" data-scroll>
-                                    <img src="login/images/logo.png" alt="Logo" width="55" height="55" />
-                                </a>
-                            </div>
-                        </div><!-- /col-md-12 -->
+                            <!-- col-md-12 -->
+                            <div class="col-md-12">
+                                <!-- row -->
+                                <div class="row">
 
 
-                        <!-- col-md-12 -->
-                        <div class="col-md-12">
+                                    <!-- form -->
+                                    <form id="storeform" class="storeform" method="post" action="/<%= company.get("companyLink") %>">
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Name -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="storeName"><font color="#FFFFFF">Full Name:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="storeName" name="storeName">
+                                                </div>
+                                            </div><!-- /Contact Name -->
+                                        </div><!-- /col-md-4 -->
 
-                            <!-- social-icons -->
-                            <div id="social-icons">
-                                <ul>
-                                    <li>
-                                        <!-- Facebook -->
-                                        <a href="#" title="Facebook">
-                                            <i class="fa fa-facebook"></i>
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Email -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="storeLanguage"><font color="#FFFFFF">Language:</font></label>
+                                                    <select  class="form-control" id="storeLanguage" name="storeLanguage">
+                                                        <option value="Spanish">Spanish</option>
+                                                        <option value="English">English</option>
+                                                    </select>
+                                                </div>
+                                            </div><!-- /Contact Email -->
+                                        </div><!-- /col-md-4 -->
+
+                                        <!-- col-md-4 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Subject -->
+                                            <div class="form-group">
+                                              <div class="controls">
+                                                   <label class="form-label" for="field-1"><font color="#FFFFFF">ID1:</font></label>
+                                               <input type="text" class="form-control" maxlength="55" id="storeID1" name="storeID1">
+                                              </div>
+                                            </div><!-- /Contact Subject -->
+                                        </div><!-- /col-md-4 -->
+
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="field-1"><font color="#FFFFFF">Telephone:</font></label>
+                                                    <input type="text" class="form-control" maxlength="21" id="storeTel" name="storeTel">
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
+                                        
+								
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-4">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label class="form-label" for="storeEmail"><font color="#FFFFFF">Email:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="storeEmail" name="storeEmail">
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
+								
+								
+                                        <div class="col-md-12">
+                                            <!-- Contact Message -->
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    
+                                                    <label class="form-label" for="field-1"><h4><b>Add Store:</b></b></h4></label></br>
+                                                    <!--<form>-->
+                                                        <label class="form-label" for="field-1"><b>Address:</b></label></br>
+                                                        <input id="geocompleteStore" type="text" placeholder="Type in an address" size="90"/>
+                                                        <input id="findStore" type="button" value="Add store"  class="pure-button pure-button-primary"/>
+                                                    <!--</form>--></br></br>
+                                                    
+                                                    <pre><b>Destinations List:</b>
+                                            
+                                                        <table id="loggerStore">
+                    
+                                                        </table>
+                                                    </pre>
+                                                    <div class="map_canvasStore" >
+                                                    
+                                                    </div>
+                                        
+                                                </div>
+                                            </div><!-- /Contact Message -->
+                                        </div><!-- /col-md-12 -->
+
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-12">
+                                            <!-- Submit Button -->
+                                            
+                                            <input type="submit" id="storeSubmit" class="btn btn-lg btn-nesto-o" value="Send Now">
+                                                
+                                            
+                                        </div><!-- /col-md-12 -->
+
+                                        <!-- col-md-12 -->
+                                        <div class="col-md-12">
+                                            <!-- Form Message -->
+                                            <div id="contact-form-message"></div>
+                                        </div><!-- /col-md-12 -->
+                                            
+                                        <input type="hidden" name="companyIDStore" value="<%= company.id%>">
+
+                                    </form><!-- /form -->
+
+
+                                </div><!-- /row -->
+                            </div><!-- /col-md-12 -->
+
+
+                        </div><!-- /row -->
+                    </div><!-- /container -->
+
+                </div><!-- /store-section -->
+                
+                
+                <!-- footer-section -->
+                <div id="footer-section">
+                    <!-- footer-section-container -->
+                    <div id="footer-section-container">
+
+
+                        <!-- container -->
+                        <div class="container">
+                            <!-- row -->
+                            <div class="row">
+                                
+                                <!-- col-md-12 -->
+                                <div class="col-md-12">
+                                    <div id="footer-logo">
+                                        <a href="#home-section" title="Home" data-scroll>
+                                            <img src="login/images/logo.png" alt="Logo" width="55" height="55" />
                                         </a>
-                                    </li><li>
-                                        <!-- Twitter -->
-                                        <a href="#" title="Twitter">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li><li>
-                                        <!-- Google Plus -->
-                                        <a href="#" title="Google Plus">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </li><li>
-                                        <!-- Dribbble -->
-                                        <a href="#" title="Dribbble">
-                                            <i class="fa fa-dribbble"></i>
-                                        </a>
-                                    </li><li>
-                                        <!-- Youtube -->
-                                        <a href="#" title="Youtube">
-                                            <i class="fa fa-youtube-play"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div><!-- /social-icons -->
+                                    </div>
+                                </div><!-- /col-md-12 -->
 
-                        </div><!-- /col-md-12 -->
+
+                                <!-- col-md-12 -->
+                                <div class="col-md-12">
+
+                                    <!-- social-icons -->
+                                    <div id="social-icons">
+                                        <ul>
+                                            <li>
+                                                <!-- Facebook -->
+                                                <a href="#" title="Facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li><li>
+                                                <!-- Twitter -->
+                                                <a href="#" title="Twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li><li>
+                                                <!-- Google Plus -->
+                                                <a href="#" title="Google Plus">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li><li>
+                                                <!-- Dribbble -->
+                                                <a href="#" title="Dribbble">
+                                                    <i class="fa fa-dribbble"></i>
+                                                </a>
+                                            </li><li>
+                                                <!-- Youtube -->
+                                                <a href="#" title="Youtube">
+                                                    <i class="fa fa-youtube-play"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div><!-- /social-icons -->
+
+                                </div><!-- /col-md-12 -->
 
 
                        
 
 
-                        <!-- col-md-12 -->
-                        <div class="col-md-12">
-                            <!-- copyright -->
-                            <div id="copyright">
-                                &copy; Copyright 2014  |  All rights reserved to Neurons Art & Technology  |  designed by <a href="http://themeforest.net/user/vishnusathyan" title="Vishnu Sathyan" target="_blank">Waven Art</a>  |  developed by <a href="http://NestoLab.com" title="NestoLab" target="_blank">c0deBreakers</a>
-								Made in California
-                            </div><!-- /copyright -->
-                        </div><!-- /col-md-12 -->
+                                <!-- col-md-12 -->
+                                <div class="col-md-12">
+                                    <!-- copyright -->
+                                    <div id="copyright">
+                                        &copy; Copyright 2014  |  All rights reserved to Neurons Art & Technology  |  designed by <a href="http://themeforest.net/user/vishnusathyan" title="Vishnu Sathyan" target="_blank">Waven Art</a>  |  developed by <a href="http://NestoLab.com" title="NestoLab" target="_blank">c0deBreakers</a>
+                                        Made in California
+                                    </div><!-- /copyright -->
+                                </div><!-- /col-md-12 -->
 
 
-                    </div><!-- /row -->
-                </div><!-- /container -->
+                            </div><!-- /row -->
+                        </div><!-- /container -->
 
 
-            </div><!-- /footer-section-container -->
-			
-        </div><!-- /footer-section -->
+                    </div><!-- /footer-section-container -->
+                    
+                </div><!-- /footer-section -->
         
-
-        <script type="text/javascript" src="login/js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="login/js/vendor/bootstrap.min.js"></script>
-    
+            </div>
+        </div>
+        
+        <script src="/cod/js/jquery-1.11.2.min.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
         <script src="cod/js/jquery.geocomplete.js"></script>
+     
+        
+
         
         <script>
-		
-		var nwarehouses = 1;
-		
-      $(function(){
-        
-        var options = {
-          map: ".map_canvas"
-        };
-        
-        $("#geocomplete").geocomplete(options)
-          .bind("geocode:result", function(event, result){
-            $.log(result.formatted_address);
-          })
-		  
-          .bind("geocode:error", function(event, status){
-            $.log("ERROR: " + status);
-          })
-		  
-          .bind("geocode:multiple", function(event, results){
-            $.log("Multiple: " + results.length + " results found");
-          });
-       
-      });
-	  
-      $("#find").click(function(){
-        $("#geocomplete").val('');
-      });
-	  
-	  
-	  $.log = function(message){
-	    var logger = $("#logger");
-	    logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='store" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
-		nwarehouses += 1;
-		
-	  };
-	  
+            
+            var $j = jQuery.noConflict();
+            
+            var nwarehouses = 1;
+            
+            $j(function(){
+                
+                var options = {
+                  map: ".map_canvas"
+                };
+                
+                $j("#geocomplete").geocomplete(options)
+                  .bind("geocode:result", function(event, result){
+                    $j.log(result.formatted_address);
+                  })
+                  
+                  .bind("geocode:error", function(event, status){
+                    $j.log("ERROR: " + status);
+                  })
+                  
+                  .bind("geocode:multiple", function(event, results){
+                    $j.log("Multiple: " + results.length + " results found");
+                  });
+               
+              });
+              
+              $j("#find").click(function(){
+                $j("#geocomplete").val('');
+              });
+              
+              
+              $j.log = function(message){
+                
+                var logger = $j("#logger");
+                logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='store" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
+                nwarehouses += 1;
+                
+              };
+              
+            
         </script>
         
+        <script>
+            
+            var nwarehousesStore = 1;
+            
+            $j(function(){
+                
+                var options = {
+                  map: ".map_canvasStore"
+                };
+                
+                $j("#geocompleteStore").geocomplete(options)
+                
+                  .bind("geocode:result", function(event, result){
+                    $j.logStore(result.formatted_address);
+                  })
+                  
+                  .bind("geocode:error", function(event, status){
+                    $j.logStore("ERROR: " + status);
+                  })
+                  
+                  .bind("geocode:multiple", function(event, results){
+                    $j.logStore("Multiple: " + results.length + " results found");
+                  });
+                  
+               
+              });
+              
+          $j("#findStore").click(function(){
+                $j("#geocompleteStore").val('');
+            });
+          
+          
+          $j.logStore = function(message){
+                var logger = $j("#loggerStore");
+                logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='shop" + nwarehousesStore.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehousesStore.toString() +"'></td></tr>");
+                nwarehousesStore += 1;
+              };
+            
+        </script>
+
+        <script type="text/javascript" src="login/js/vendor/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="login/js/vendor/bootstrap.min.js"></script>
         
         <script type="text/javascript" src="login/js/plugins/jquery.placeholder.js"></script>
         <script type="text/javascript" src="login/js/plugins/jquery.easing.1.3.js"></script>
@@ -634,35 +831,35 @@
         <script type="text/javascript" src="login/js/1322.js"></script>
       
       
-<script>        
-    // JavaScript Document
+        <script>        
+        // JavaScript Document
 
-    $(document).ready(function(){
-	
-			$(window).resize(changeSize.init);
-			$(window).load(changeSize.init);
+        $(document).ready(function(){
+        
+                $(window).resize(changeSize.init);
+                $(window).load(changeSize.init);
 
-            function initSlider() 
-            {
-                $('#layerslider').layerSlider({
-                            skinsPath : 'skins/',
-                            skin : 'fullwidth',
-                            thumbnailNavigation : 'hover',
-                            hoverPrevNext : false,
-                            responsive : false,
-                            responsiveUnder : 1200,
-                            sublayerContainer : 1000,
-                            autoStart : true,
-                            pauseOnHover : false,
-                            firstLayer : 1,
-                            animateFirstLayer : true,
-                    });
-            }
+                function initSlider() 
+                {
+                    $('#layerslider').layerSlider({
+                                skinsPath : 'skins/',
+                                skin : 'fullwidth',
+                                thumbnailNavigation : 'hover',
+                                hoverPrevNext : false,
+                                responsive : false,
+                                responsiveUnder : 1200,
+                                sublayerContainer : 1000,
+                                autoStart : true,
+                                pauseOnHover : false,
+                                firstLayer : 1,
+                                animateFirstLayer : true,
+                        });
+                }
 
     
-		// Plugin que calcula el offset top de los elementos para poder animarlos al hacer scroll
-		     var wpOffset = 85;
-		     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            // Plugin que calcula el offset top de los elementos para poder animarlos al hacer scroll
+            var wpOffset = 85;
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 		        wpOffset = 100;
 		     }
              
@@ -821,7 +1018,7 @@
 		
 				
 				}};
-				</script>
+        </script>
 
     
 
