@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 	
+        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
     
     </head>
     <!-- END HEAD -->
@@ -78,10 +79,66 @@
 <%include ../../generals/endFiles.ejs%>
 
 <script>
+    
+    Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+        
+    /* GLOBAL USER */
+    var user;
 
+    /* OBTENCION Y ALMACENAMIENTO DEL CURRENT USER PARA USARSE CLIENTSIDE */
+    var query = new Parse.Query("User");
+    
+    query.descending('createdAt');
+    query.include("Company");
+    
+    query.get("<%= user.id%>", {
+        success: 
+            function(object)
+            {
+                /* SAVE USER FOR FUTURE OPERATIONS */
+                user = object;
+                
+                
+                /* FILL THE WAREHOUSES SELECT FILTER */
+                var query = new Parse.Query("Cellars");
+                
+                query.equalTo("Company", {__type: "Pointer", className: "Companies", objectId: user.get("Company").id} );
+                query.descending('createdAt');
+                
+                query.find({
+                    success: 
+                        function(results)
+                        {
+                            for(i in results)
+                            {
+                                
+                                wareselect = document.getElementById("warehousefilter");
+                                wareselect.options[wareselect.options.length] = new Option(results[i].get("Name"), results[i].id);
+                                
+                            }
+                            
+                        }
+                    });
+                
+            }
+        });
+        
         
         function update_table()
         {
+            if($("#warehousefilter").val() == "All")
+                conditions = {contains:{"Status":"TransferOut"},
+                                equalTo:{"Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
+            else
+                conditions = {contains:{"Status":"TransferOut"}, 
+                                equalTo:
+                                {
+                                    "Warehouse":{__type: "Pointer", className: "Cellars", objectId: $("#warehousefilter").val()},
+                                    "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id} 
+                                }
+                            };
+            
+            /* alert(JSON.stringify( conditions )); */
                 
             InsertTable({
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
@@ -94,7 +151,7 @@
                             "ReceiptDate":"",
                             "Country":"",
                             "Transport":"",
-                            "Warehouse":"",
+                            "Warehouse":{"Name":""},
 			                "Shipment":"",
 			                "Status":"",
                             "objectId":""
@@ -104,9 +161,7 @@
                     collection: "Warehouses", /* COLLECCION PRINCIPAL */
                     
                     /* CONDICIONES */
-                    conditions: filter_conditions_with_dict({
-                                                conditions:{equalTo:{Warehouse:$("#warehousefilter").val()}, contains:{"Status":"TransferOut"}}
-                                                }),
+                    conditions: filter_conditions_with_dict({conditions:conditions}),
                     
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
                     like: filter_like(),

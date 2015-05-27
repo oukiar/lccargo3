@@ -5,6 +5,7 @@
     <tr>
             <th>Rcpt.</th>
             <th>Client</th>
+            <th>From</th>
             <th>To</th>
 			<!--ATTENTION WE NEED TO MAKE THIS-->
             <th>Date Sent</th><!--ATTENTION WE NEED TO MAKE THIS-->
@@ -22,6 +23,7 @@
             <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
             <td><%= label["Consignee"]%></td>
             <td><%= label["Warehouse"]%></td>
+            <td><%= label["TransferTo"]%></td>
             <td><%= label["ReceiptDate"]%></td><!--ATTENTION WE NEED DATE TRANSFERED-->
             <td><%= label["Shipment"]%></td>
 			 </tr>

@@ -11,8 +11,6 @@
    
             <select id="waretransfer" name="waretransfer" style="width:500px; height:34px; font-size:21px;">
                 <option value="-">Select the warehouse</option>
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="Miami">Miami</option>
             </select>
             </br></br>
        
@@ -31,7 +29,7 @@
         
             $.post("/update", {collection:"Warehouses", 
                     objectId:transferId, 
-                    values:{"Status":"TransferOut:"+warehouse}}, 
+                    values:{"Status":"TransferOut:"+warehouse}}, /* FIX HERE, NO MEZCLAR LA WAREHOUSE DESTINO CON EL STATUS, MEJOR GUARDA EN TransferTo */
                     function(data){
                         
                         $("#transfersection").replaceWith("<a id='btn_donetransfer' href='#close' class='pure-button pure-button-primary'>Done</a>");
