@@ -36,16 +36,22 @@
     <body>
   		<script>
       
-         Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
-   	  function Restore(receiptId){
-   		  Parse.Cloud.run('restore', { receiptId: receiptId}, {
-   		    success: function() {
-				$("#"+receiptId).parent().hide();
-   		    },
-   		    error: function() {
-   		    }
-   		  });
-   	  }
+            Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+            
+            function Restore(receiptId)
+            {
+                Parse.Cloud.run('restore', { receiptId: receiptId}, {
+                    success: 
+                        function() 
+                        {
+                            $("#"+receiptId).parent().hide();
+                        },
+                    error: 
+                        function()
+                        {
+                        }
+                    });
+            }
         </script>
 		<div class="screen">
 		<!--START TOPBAR-->
@@ -66,7 +72,7 @@
               <div class="page-title">
               <div class="pull-left">
 		  			
-              <h1 class="title">ZONES</h1>
+              <h1 class="title">TRASH</h1>
 			
             <div id="content">
 		   <div id="warehouses_content">
