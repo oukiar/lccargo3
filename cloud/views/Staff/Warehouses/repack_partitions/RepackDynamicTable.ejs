@@ -14,8 +14,8 @@
 
         <% results.forEach(function(label){%>
             <tr>
-                <td align="center"><input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['Receipt']})%>" name="checkware" type="checkbox"></td>
-                <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
+                <td align="center"><input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['Receipt']})%>" name="checkware" class="checkreceipt" type="checkbox"></td>
+                <td align="center"><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Country"]%></td>
@@ -29,3 +29,55 @@
     
     
 </div>
+
+<script>
+
+$(".checkreceipt").change(function(){
+        
+        dict = JSON.parse(this.id);
+
+        if(this.checked)
+        {
+            var query = new Parse.Query("Warehouses");
+            
+            query.get(dict["objectId"], {
+                success: 
+                    function(object)
+                    {
+                        boxes = JSON.parse(object.get("Boxes"));                    
+                        repack_receipts[object.id] = boxes;
+                    }
+                });
+        }
+        else
+        {
+            delete repack_receipts[dict["objectId"]];
+            /*alert("Deleted from repack: " + dict["objectId"]);*/
+        }
+    });
+
+function showboxes(objectId)
+{
+    openedreceipt = objectId;
+
+    var query = new Parse.Query("Warehouses");
+    
+    query.descending('createdAt');
+    
+    query.get(objectId, {
+        success: 
+            function(object)
+            {
+                boxes = JSON.parse(object.get("Boxes"));
+                
+                $("#boxes_table > tbody").html("");
+                
+                for(i in boxes)
+                {
+                    var row = "<tr><td><input type='checkbox' name='boxitems' id='"+JSON.stringify(boxes[i])+"'></td><td>"+boxes[i]["length"]+"</td><td>"+boxes[i]["width"]+"</td><td>"+boxes[i]["height"]+"</td><td>"+boxes[i]["weight"]+"</td><td>"+boxes[i]["boxes"]+"</td></tr>";
+                    $("#boxes_table > tbody").append(row);
+                }
+            }
+        });
+}
+</script>

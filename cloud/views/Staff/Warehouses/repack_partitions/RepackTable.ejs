@@ -186,10 +186,35 @@
 	        }
             
             
+            /* NEW BOXES REPACK */
+            if(Object.keys(repack_receipts).length == 0)
+	        {
+	            alert("You must select almost 2 boxes)");
+	            return false;
+	        }
+            
+            var repack_text = "Repack detail:\n\n";
+            
+            for(i in repack_receipts)
+            {
+                repack_text += "Receipt ID: " + i + "\n";
+                
+                for(j in repack_receipts[i])
+                {
+                    repack_text += "---- Weight: " + repack_receipts[i][j]["weight"] + "\n";
+                }
+                
+                repack_text += "\n";
+            }
+            
+            $("#InternalNotes").val(repack_text);
+            
+            return true;
+            
             repack_items = []; 
             repack_labels = []; 
         
-	        var repack_text = "Repack detail:\n\n";
+	        
         
 	        var checkboxes = document.getElementsByName("checkware");
       
