@@ -285,7 +285,7 @@ textarea { color: #000000; }
 .btn-nesto-home-o,
 .btn.btn-nesto-home-o {
     z-index: 1;
-    color: #ffffff;
+    color: rgba(50, 50, 58, 1.0);
     font-size: 20px;
     overflow: hidden;
     font-weight: 700;
@@ -328,7 +328,7 @@ textarea { color: #000000; }
 .btn.btn-nesto {
     z-index: 1;
     padding: 2px;
-    color: #ffffff;
+    color: rgba(50, 50, 58, 1.0);
     font-size: 20px;
     overflow: hidden;
     font-weight: 700;
@@ -929,7 +929,7 @@ strong { font-weight: 700; }
 -------------------------------------------------------------------------- */
 #home-section-container {
     z-index: 4;
-	background:rgba(50, 50, 58, 1.0);
+	background:white;
     width: 100%;
 	height:auto;
     overflow: hidden;
@@ -971,7 +971,7 @@ strong { font-weight: 700; }
 -------------------------------------------------------------------------- */
 .slogan {
    
-    color: #ffffff;
+    color: rgba(50, 50, 58, 1.0);
     font-size: 34px;
     font-weight: 100;
     word-spacing: 2px;
@@ -1016,7 +1016,7 @@ strong { font-weight: 700; }
 /* 4.6 Home Buttons
 -------------------------------------------------------------------------- */
 .home-buttons {
-    color: #ffffff;
+    color: rgba(50, 50, 58, 1.0);
     font-size: 20px;
     overflow: hidden;
     font-weight: 400;
@@ -3328,9 +3328,6 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
 
       
    }
-
-
-
 
 
 

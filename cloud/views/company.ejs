@@ -182,7 +182,7 @@
         <!-- nav-wrapper -->
         <div id="nav-wrapper">
             <!-- navbar -->
-            <div class="navbar">
+            <div class="navbar" style="background:rgba(50, 50, 58, 1.0); top:-40px;">
 
                 <!-- container -->
                 <div class="container">
@@ -268,7 +268,7 @@
                             
                             <div class="col-lg-12 loginset">
                                 <div class="col-lg-12 col-md-12">
-                                    <h1 align="center" style="margin-top:21px; margin-bottom:42px; font-size: 6em;"><%= company.get("companyLink") %> </h1></div>
+                                    <h1 align="center" style="margin-top:21px; margin-bottom:42px; font-size: 6em; color:rgba(50, 50, 58, 1.0);"><%= company.get("companyLink") %> </h1></div>
             	
                                     <form class="formlog" method="post" action="/logins">
                                         
@@ -280,7 +280,7 @@
                                             <span>Log In</span>
                                         </button>
                                         
-                                        <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:rgba(50, 50, 58, 1.0);" />Forgot?</a>
+                                        <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:white; color:rgba(50, 50, 58, 1.0);" />Forgot?</a>
 	
                                     </form>
 			   
@@ -316,7 +316,7 @@
 
                                     <!-- slogan -->
                                     <div class="slogan wow fadeInLeft" data-wow-duration="1.5s">
-                                        Register</br>
+                                       <b> Register</b></br>
                                     </div><!-- /slogan -->
 
                                     <!-- slogan-desc -->
@@ -375,104 +375,86 @@
 
 
                                     <!-- form -->
-                                    <form id="contactform" class="contactform" method="post" action="/<%= company.get("companyLink") %>">
+                                    <form id="contactform" class="contactform" method="post" action="/<%= company.get("companyLink") %>" align="center">
                                         <!-- col-md-4 -->
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
                                             <!-- Contact Name -->
                                             <div class="form-group">
                                                 <div class="controls">
                                                     <label class="form-label" for="field-1"><font color="#35353C">Full Name:</font></label>
                                                     <input type="text" class="form-control" maxlength="55" id="usrFullName" name="usrFullName">
-                                                </div>
-                                            </div><!-- /Contact Name -->
-                                        </div><!-- /col-md-4 -->
+                                              
 
-                                        <!-- col-md-4 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Email -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                    
                                                     <label class="form-label" for="field-1"><font color="#35353C">Language:</font></label>
                                                     <select  class="form-control" id="usrLanguage" name="usrLanguage">
                                                     <option value="Spanish">Spanish</option>
                                                     <option value="English">English</option>
                                                     </select>
-                                                </div>
-                                            </div><!-- /Contact Email -->
-                                        </div><!-- /col-md-4 -->
-
-                                        <!-- col-md-4 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Subject -->
-                                            <div class="form-group">
-                                              <div class="controls">
+                                            
+                                       
                                                    <label class="form-label" for="field-1"><font color="#35353C">ID1:</font></label>
                                                <input type="text" class="form-control" maxlength="55" id="usrID1" name="usrID1">
-                                              </div>
-                                            </div><!-- /Contact Subject -->
-                                        </div><!-- /col-md-4 -->
-
-                                        <!-- col-md-12 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Message -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                            
                                                     <label class="form-label" for="field-1"><font color="#35353C">Telephone:</font></label>
                                                     <input type="text" class="form-control" maxlength="21" id="usrTel" name="usrTel">
-                                                </div>
-                                            </div><!-- /Contact Message -->
-                                        </div><!-- /col-md-12 -->
-                                        
-								
-                                        <!-- col-md-12 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Message -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                    
                                                     <label class="form-label" for="field-1"><font color="#35353C">Email:</font></label>
                                                     <input type="text" class="form-control" maxlength="55" id="usrEmail" name="usrEmail">
-                                                </div>
-                                            </div><!-- /Contact Message -->
-                                        </div><!-- /col-md-12 -->
-								
-								
-                                        <div class="col-md-12">
-                                            <!-- Contact Message -->
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    
-                                                    <label class="form-label" for="field-1"><h4><b>Add Destionations:</b></b></h4></label></br>
-                                                    <!--<form>-->
-                                                        <label class="form-label" for="field-1"><b>Destionations:</b></label></br>
-                                                        <input id="geocomplete" type="text" placeholder="Type in an address" size="90"/>
-                                                        <input id="find" type="button" value="Add warehouse"  class="pure-button pure-button-primary"/>
-                                                    <!--</form>--></br></br>
-                                                    
-                                                    <pre><b>Destinations List:</b>
                                             
-                                                        <table id="logger">
+                                       
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Create username:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="usrEmail" name="usrEmail">
+                                               
+										
+                                        <!-- col-md-12 -->
+                                      
+                                                    <label class="form-label" for="field-1"><font color="#35353C">Create password:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="usrEmail" name="usrEmail">
+                                   
+                                     <label class="form-label" for="field-1"><font color="#35353C">Re-type password:</font></label>
+                                      <input type="text" class="form-control" maxlength="55" id="usrEmail" name="usrEmail">
+                                                  </div>
+                                              </div><!-- /Contact Name -->
+                                          </div><!-- /col-md-4 --> 
+								
+								
+                                   <div class="col-md-12">
+                                   <!-- Contact Message -->
+                                   <div class="form-group">
+                                   <div class="controls">
+                                                    
+                                 
+                                 <!--<form>-->
+                       <label class="form-label" for="field-1"><font color="#35353C"><b>Destionations:</b></label></br>
+			   
+                      <input id="geocomplete" type="text" placeholder="Type in an address" size="90" class="form-control" style="width:80%; margin-right:5px;"/>
+					  <button id="find" type="button"  id="nesto-submit" class="btn btn-lg btn-nesto-o" style="top:-80px; left:40%;"/><span>Add Destination</span></button>
+					  <div style="position:relative; top:-34px; ">
+                                                    <!--</form>-->
+                                                    <pre><b>Destinations List:</b> To add another destination click on the Add Destination button and write a new address.
+															
+                                            
+                                                        <table id="logger" style="position:relative; top:-34px;">
                     
                                                         </table>
                                                     </pre>
                                                     <div class="map_canvas" >
                                                     
                                                     </div>
-                                        
+                                        </div>
                                                 </div>
                                             </div><!-- /Contact Message -->
                                         </div><!-- /col-md-12 -->
 
                                         <!-- col-md-12 -->
                                         <div class="col-md-12">
-                                            <!-- Submit Button -->
-                                            
-                                            
-                                            <!-- DONT WORK   
-                                            <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
+                                        <!-- Submit Button --> 
+                            <!-- DONT WORK   
+                                    <input type="hidden" name="companyID" value="<%= company.get('objectId')%>">
                                             -->
                                             
-                                            <input type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o" value="Send Now">
-                                                
+                       <button id="find"  type="submit"  id="clientSubmit" class="btn btn-lg btn-nesto-o"/><span>Register</span></button> 
                                             
                                         </div><!-- /col-md-12 -->
 
@@ -525,62 +507,45 @@
 
 
                                     <!-- form -->
-                                    <form id="storeform" class="storeform" method="post" action="/<%= company.get("companyLink") %>">
-                                        <!-- col-md-4 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Name -->
+                                    <form id="storeform" class="storeform" method="post" action="/<%= company.get("companyLink") %>" align="center">
+                                   <!-- col-md-4 -->
+                                   <div class="col-md-12">
+                                    <!-- Contact Name -->
                                             <div class="form-group">
                                                 <div class="controls">
                                                     <label class="form-label" for="storeName"><font color="#FFFFFF">Full Name:</font></label>
                                                     <input type="text" class="form-control" maxlength="55" id="storeName" name="storeName">
-                                                </div>
-                                            </div><!-- /Contact Name -->
-                                        </div><!-- /col-md-4 -->
-
-                                        <!-- col-md-4 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Email -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                              
+                                      
                                                     <label class="form-label" for="storeLanguage"><font color="#FFFFFF">Language:</font></label>
                                                     <select  class="form-control" id="storeLanguage" name="storeLanguage">
                                                         <option value="Spanish">Spanish</option>
                                                         <option value="English">English</option>
                                                     </select>
-                                                </div>
-                                            </div><!-- /Contact Email -->
-                                        </div><!-- /col-md-4 -->
-
-                                        <!-- col-md-4 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Subject -->
-                                            <div class="form-group">
-                                              <div class="controls">
+                                            
                                                    <label class="form-label" for="field-1"><font color="#FFFFFF">ID1:</font></label>
                                                <input type="text" class="form-control" maxlength="55" id="storeID1" name="storeID1">
-                                              </div>
-                                            </div><!-- /Contact Subject -->
-                                        </div><!-- /col-md-4 -->
-
-                                        <!-- col-md-12 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Message -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                       
                                                     <label class="form-label" for="field-1"><font color="#FFFFFF">Telephone:</font></label>
                                                     <input type="text" class="form-control" maxlength="21" id="storeTel" name="storeTel">
-                                                </div>
-                                            </div><!-- /Contact Message -->
-                                        </div><!-- /col-md-12 -->
-                                        
-								
-                                        <!-- col-md-12 -->
-                                        <div class="col-md-4">
-                                            <!-- Contact Message -->
-                                            <div class="form-group">
-                                                <div class="controls">
+                                          
                                                     <label class="form-label" for="storeEmail"><font color="#FFFFFF">Email:</font></label>
                                                     <input type="text" class="form-control" maxlength="55" id="storeEmail" name="storeEmail">
+													
+                                   <label class="form-label" for="storeEmail"><font color="#FFFFFF">Website:</font></label>
+                                 <input type="text" class="form-control" maxlength="55" id="storeWebsite" name="storeWebsite">
+													
+													
+                                                    <label class="form-label" for="storeEmail"><font color="#FFFFFF">Create Username:</font></label>
+                                                    <input type="text" class="form-control" maxlength="55" id="storeUsername" name="storeUsername">
+													
+													
+                                                    <label class="form-label" for="storeEmail"><font color="#FFFFFF">Password:</font></label>
+                                                    <input type="password" class="form-control" maxlength="55" id="storePassword" name="storePasword">
+													
+													
+                                                    <label class="form-label" for="storeEmail"><font color="#FFFFFF">Re-type Password:</font></label>
+                                                    <input type="password" class="form-control" maxlength="55" id="storeRTpassword" name="storeRTpassword">
                                                 </div>
                                             </div><!-- /Contact Message -->
                                         </div><!-- /col-md-12 -->
@@ -591,19 +556,12 @@
                                             <div class="form-group">
                                                 <div class="controls">
                                                     
-                                                    <label class="form-label" for="field-1"><h4><b>Add Store:</b></b></h4></label></br>
-                                                    <!--<form>-->
-                                                        <label class="form-label" for="field-1"><b>Address:</b></label></br>
-                                                        <input id="geocompleteStore" type="text" placeholder="Type in an address" size="90"/>
-                                                        <input id="findStore" type="button" value="Add store"  class="pure-button pure-button-primary"/>
+                                                    <label class="form-label" for="field-1"><h4><b>Store Address:</b></b></h4></label></br>
+                         <input id="geocompleteStore" type="text" placeholder="Type in an address" size="90" name="storeAddress"/>
+                                                       
                                                     <!--</form>--></br></br>
                                                     
-                                                    <pre><b>Destinations List:</b>
-                                            
-                                                        <table id="loggerStore">
-                    
-                                                        </table>
-                                                    </pre>
+                                                   
                                                     <div class="map_canvasStore" >
                                                     
                                                     </div>
@@ -616,7 +574,7 @@
                                         <div class="col-md-12">
                                             <!-- Submit Button -->
                                             
-                                            <input type="submit" id="storeSubmit" class="btn btn-lg btn-nesto-o" value="Send Now">
+                                            <input type="submit" id="storeSubmit" class="btn btn-lg btn-nesto-o" value="Register as Store">
                                                 
                                             
                                         </div><!-- /col-md-12 -->
@@ -740,7 +698,7 @@
             var nwarehouses = 1;
             
             $j(function(){
-                
+   
                 var options = {
                   map: ".map_canvas"
                 };
@@ -749,7 +707,8 @@
                   .bind("geocode:result", function(event, result){
                     $j.log(result.formatted_address);
                   })
-                  
+				  
+  
                   .bind("geocode:error", function(event, status){
                     $j.log("ERROR: " + status);
                   })
@@ -768,7 +727,7 @@
               $j.log = function(message){
                 
                 var logger = $j("#logger");
-                logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='store" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
+                logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;' align='left'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Destination Name:</font></b>" + "\n" + "<input type='text' name='store" + nwarehouses.toString() + "' placeholder='Destination Name' style='width:34%; background:white; height:34px;'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
                 nwarehouses += 1;
                 
               };
