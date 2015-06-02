@@ -1,13 +1,16 @@
 <div id="modalmessage">
 	<div style="position:relative; left:18%;">
+    
+
 		<table>
 			<tr>
 				<th>
-                    <h2>New receipt created!</h2></th>
+                    <h1>New receipt created!</h1></th>
             </tr>
             <tr>
                 <td>
-                    <div id="qrcode"></div>
+                    <a onclick="window.open('/printreceipt/' + '<%= newreg.id%>','Microsoft')" class="btn btn-purple btn-md"><i class="fa fa-print"></i> &nbsp; Print receipt </a>        
+                    <a onclick="window.open('/printlabels/' + '<%= newreg.id%>','Microsoft')" class="btn btn-orange btn-md"><i class="fa fa-send"></i> &nbsp; Print labels </a>  
                 <td>
             </tr>
             
@@ -18,11 +21,14 @@
                 </td>
             </tr>
         </table>
+        
+
+        
     </div>
 </div>
 
 <script>
 
     new QRCode(document.getElementById("qrcode"), "<%= newreg.id %>");
-
+    
 </script>

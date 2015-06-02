@@ -6,7 +6,7 @@
             <th>Shipper</th>
             <th>Date</th>
             <th>Country</th>
-            <th>Invoice</th>
+            <th>Boxes</th>
             <th>Transport</th>
             <th>Volume</th>
             <th>WareHouse</th>
@@ -19,7 +19,7 @@
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Country"]%></td>
-                <td><%= label["Invoice"]%></td>
+                <td><%= label["TotalBoxes"]%></td>
                 <td><%= label["Transport"]%></td>
                 <td><%= label["Volume"]%></td>
                 <td><%= label["Warehouse"]%></td>
@@ -56,6 +56,7 @@ $(".checkreceipt").change(function(){
         }
     });
 
+/* ESTA FUNCION INICIALIZA LOS BOXES DEL RECEIPT AL QUE SE LE DIO CLICK QUE SERAN MOSTRADOS EN EL MODALBOX */
 function showboxes(objectId)
 {
     openedreceipt = objectId;
@@ -74,6 +75,7 @@ function showboxes(objectId)
                 
                 for(i in boxes)
                 {
+                    /*if( object.id )*/
                     var row = "<tr><td><input type='checkbox' name='boxitems' id='"+JSON.stringify(boxes[i])+"'></td><td>"+boxes[i]["length"]+"</td><td>"+boxes[i]["width"]+"</td><td>"+boxes[i]["height"]+"</td><td>"+boxes[i]["weight"]+"</td><td>"+boxes[i]["boxes"]+"</td></tr>";
                     $("#boxes_table > tbody").append(row);
                 }
