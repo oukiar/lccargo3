@@ -399,8 +399,9 @@
 	  
 	  
 	  $.log = function(message){
+          var wareName = message.split(" ")[0] + message.split(" ")[1];
 	    var logger = $("#logger");
-	    logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='warehouse" + nwarehouses.toString() + "' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
+	    logger.html(logger.html()+ "<tr><td style='white-space: nowrap; padding-top: 2px;'>" + "<input type='button' value='Delete' class='pure-button pure-button-primary' style='background:#E08566;' onclick='deleteRow(this)'>"  + "\n * " + message + "\n" + "<b><font color='#E08566'>Warehouse Name:</font></b>" + "\n" + "<input type='text' name='warehouse" + nwarehouses.toString() + "' value='"+ wareName +"' placeholder='Warehouse Name'><input type='hidden' value='" + message +"' name='Address"+ nwarehouses.toString() +"'></td></tr>");
 		nwarehouses += 1;
 		
 	  }
