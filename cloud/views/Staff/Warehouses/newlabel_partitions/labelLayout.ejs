@@ -30,16 +30,18 @@
         
     </head>
 <body>
-    <% for(var i=0; i<parseInt(receipt.get("TotalBoxes")); i++){ var nbox = (i+1).toString() + "/" + receipt.get("TotalBoxes");  %>
-		<!--MODAL PARA MOSTAR LABEL-->
+    <% var i=0; boxes.forEach(function(box){ %>
+
+        <!--MODAL PARA MOSTAR LABEL-->
 	    <div id="openModalP" class="modalDialogLabel">
 	        <div>
 				 <a href="#close" title="Close" class="closeB">X</a>
             
 			<h4><b>Company Name: <div id="CompanyLabel"><%= receipt.get("Company").get("name")%></div></b></h4>
-			<h4><b>Destination: <div id="DestinationLabel"><%= receipt.get("Country")%></div></b></h4>
-			<h4><b>Receipt#: <div id="ReceiptNum"></div><%= receipt.get("Receipt")%></b></h4>
-			
+			<h4><b>Destination: <div id="DestinationLabel"><%= receipt.get("Destination")%></div></b></h4>
+			<h4><b>Receipt#: <div id="ReceiptNum"></div><%= receipt.get("ReceiptNum")%></b></h4>
+            
+            
 			<table align="center">
 				<tr>
 						<th style="padding: 13px;" align="center">Weight</th>
@@ -53,7 +55,7 @@
 	        
 			<h5><b>Shipper:</b></h5><div id="ShipperLabel"><%= receipt.get("Shipper").get("Name")%></div>
 			<h5><b>Consignee:</b></h5><div id="ConsigneeLabel"><%= receipt.get("Consignee").get("Name")%></div>
-			<h5><b>Box:</b></h5><div id="BoxLabel"><%= nbox%></div>
+			<h5><b>Box:</b></h5><div id="BoxLabel"><%= box.get("Num")%></div>
 			<h5><b>Zone:</b></h5><div id="ZoneLabel"><%= receipt.get("Zone")%></div>
 
 			  <div style="position:relative; left:233px;  top: -206px;">
@@ -65,9 +67,9 @@
         <br><br><br>
 
 
-		<script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), "<%= receipt.id %>"); </script>
+		<script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), "<%= JSON.stringify({Receipt:receipt.id, NumBox:box.get("Num")}) %>"); </script>
 
-    <%}%>
+    <% i+=1; }) %>
 
 
 </body>

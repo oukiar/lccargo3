@@ -272,9 +272,9 @@
             	
                                     <form class="formlog" method="post" action="/logins">
                                         
-                                        <p class="input-field"><input type="text" name="usrname" id="user_login" placeholder="Username" /></p>
-                                        <input type="hidden" name="company" id="compLink" value="@<%=company.get("companyLink")%>" />
-                                        <p class="input-field" ><input type="password" name="pwd" id="user_pass" placeholder="Password" /></p>        
+                                        <p class="input-field"><input type="text" name="username" id="username" placeholder="Username" /></p>
+                                        <input type="hidden" name="company" id="company" value="<%=company.get("companyLink")%>" />
+                                        <p class="input-field" ><input type="password" name="password" id="password" placeholder="Password" /></p>        
 
                                         <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o center-block" style="float:center; margin-top:3px;">
                                             <span>Log In</span>
@@ -977,6 +977,9 @@
 		
 				
 				}};
+                
+                
+                
         </script>
 
     

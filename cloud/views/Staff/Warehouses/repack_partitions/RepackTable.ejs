@@ -81,8 +81,9 @@
                         </div>
 						
 		  	            <div class="col-md-6 col-xs-6">
-						<div style="float:right; margin-top:26px; margin-right:18px;">	
-							 <a class="pure-button pure-button-primary" href="#openModal" id='btn_repack' style="background:#E08566;"><b>Re-pack !</b></a>
+						<div style="float:right; margin-top:26px; margin-right:18px;">
+                            <h3 id="boxes_text">Selected boxes for repack: 0</h3>
+                            <a class="pure-button pure-button-primary" href="#openModalC" id='btn_repack' style="background:#E08566;"><b>Re-pack !</b></a>
 			
 	                    </div>
 	                    </div>     
@@ -185,13 +186,30 @@
 	            return false;
 	        }
             
-            
             /* NEW BOXES REPACK */
             if(Object.keys(repack_receipts).length == 0)
 	        {
 	            alert("You must select almost 2 boxes)");
 	            return false;
 	        }
+            
+            /* SHOW RECEIPT-BOXES SUMMARY */
+            $("#confirmation_boxes").html("");
+             
+            for(receipt in repack_receipts)
+            {
+                if(repack_receipts[receipt].length == 0)
+                    continue;
+                
+                $("#confirmation_boxes").append("<h2>Receipt #: " + repack_receipts[receipt][0]["Receipt"] + "</h2>");
+                
+                for(box in repack_receipts[receipt])
+                {
+                    $("#confirmation_boxes").append("<input type='checkbox' checked>    Box: " + repack_receipts[receipt][box]["Num"] + "<br>");
+                }
+            }     
+            
+            return;      
             
             var repack_text = "Repack detail:\n\n";
             
