@@ -205,57 +205,10 @@
                 
                 for(box in repack_receipts[receipt])
                 {
-                    $("#confirmation_boxes").append("<input type='checkbox' checked>    Box: " + repack_receipts[receipt][box]["Num"] + "<br>");
+                    $("#confirmation_boxes").append("    Box: " + repack_receipts[receipt][box]["Num"] + "<br>");
                 }
             }     
             
-            return;      
-            
-            var repack_text = "Repack detail:\n\n";
-            
-            for(i in repack_receipts)
-            {
-                repack_text += "Receipt ID: " + i + "\n";
-                
-                for(j in repack_receipts[i])
-                {
-                    repack_text += "---- Weight: " + repack_receipts[i][j]["weight"] + "\n";
-                }
-                
-                repack_text += "\n";
-            }
-            
-            $("#InternalNotes").val(repack_text);
-            
-            return true;
-            /* THE NEXT CODE IS DISABLED UNTIL THE END OF THIS FUNCTION ... ITS OUTDATED*/
-            
-            repack_items = []; 
-            repack_labels = []; 
-        
-	        
-        
-	        var checkboxes = document.getElementsByName("checkware");
-      
-	        for(i in checkboxes)
-	        {
-	            if(checkboxes[i].checked)
-	            {
-                    dict = JSON.parse(checkboxes[i].id);
-	                repack_items.push(dict["objectId"]);
-	                repack_labels.push(dict["Receipt"]);
-	                repack_text += "Receipt ID: " + dict["Receipt"] + "\n";
-	            }
-	        }
-        
-	        /* NOT CHECKBOXES SELECTED? */
-	        if(repack_items.length == 0)
-	        {
-	            alert("You must select almost one warehouse for repack");
-	            return false;
-	        }
-        
-	        $("#InternalNotes").val(repack_text);
         
 	    });
        

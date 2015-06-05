@@ -1,12 +1,12 @@
 <div id="repack_table">
     <table class="table table-bordered" id="blueRow">
         <tr>
-            <th>Check</th>
+            <th>State</th>
             <th>Rcpt. #</th>
+            <th>Packed</th>
             <th>Shipper</th>
             <th>Date</th>
             <th>Country</th>
-            <th>Boxes</th>
             <th>Transport</th>
             <th>Volume</th>
             <th>WareHouse</th>
@@ -14,12 +14,15 @@
 
         <% results.forEach(function(label){%>
             <tr>
-                <td align="center"><input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['ReceiptNum']})%>" name="checkware" class="checkreceipt" type="checkbox"></td>
-                <td align="center"><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB"><%= label["ReceiptNum"]%></a></td>
+                <td align="center">0/<%= label["TotalBoxes"]%></td>
+                <td align="center">
+                    <input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['ReceiptNum']})%>" name="checkware" class="checkreceipt" type="checkbox">
+                    <%= label["ReceiptNum"]%>
+                </td>
+                <td><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB">0/<%= label["TotalBoxes"]%></a></td>
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Destination"]%></td>
-                <td><%= label["TotalBoxes"]%></td>
                 <td><%= label["Transport"]%></td>
                 <td><%= label["Volume"]%></td>
                 <td><%= label["Warehouse"]%></td>
@@ -38,21 +41,33 @@ $(".checkreceipt").change(function(){
 
         if(this.checked)
         {
-            var query = new Parse.Query("Warehouses");
+            var query = new Parse.Query("Boxes");
             
-            query.get(dict["objectId"], {
+            query.equalTo("Receipt", {__type: "Pointer", className: "Receipts", objectId: dict["objectId"]});
+            query.include("Receipt");
+            
+            query.find({
                 success: 
-                    function(object)
+                    function(results)
                     {
-                        boxes = JSON.parse(object.get("Boxes"));                    
-                        repack_receipts[object.id] = boxes;
+                        boxes = [];
+                        
+                        for(i in results)
+                        {
+                            if(results[i].get("Status") != "Repacked")
+                                boxes.push({objectId:results[i].id, Receipt:results[i].get("Receipt").get("ReceiptNum"), Num:results[i].get("Num")});
+                        }
+                                           
+                        repack_receipts[dict["objectId"]] = boxes;
+                        
+                        update_totalboxes();
                     }
                 });
         }
         else
         {
             delete repack_receipts[dict["objectId"]];
-            /*alert("Deleted from repack: " + dict["objectId"]);*/
+            update_totalboxes();
         }
     });
 
@@ -78,7 +93,9 @@ function showboxes(objectId)
                     
                     boxindex = parseInt(box.get("Num")[0])-1;
                     
-                    if( isboxadded( box.get("Num") ) )
+                    if(box.get("Status") == "Repacked")
+                        row = "<tr><td>Repacked</td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
+                    else if( isboxadded( box.get("Num") ) )
                         row = "<tr><td><input type='checkbox' checked name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
                     else
                         row = "<tr><td><input type='checkbox' name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
