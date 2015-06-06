@@ -186,10 +186,18 @@
 	            return false;
 	        }
             
+            var nboxes = 0;
+            
+            /* COUNT ALL BOXES */
+            for(i in repack_receipts)
+            {
+                nboxes += repack_receipts[i].length;
+            }
+            
             /* NEW BOXES REPACK */
-            if(Object.keys(repack_receipts).length == 0)
+            if(nboxes < 2)
 	        {
-	            alert("You must select almost 2 boxes)");
+	            alert("You must select almost 2 boxes: " + Object.keys(repack_receipts).length.toString() );
 	            return false;
 	        }
             

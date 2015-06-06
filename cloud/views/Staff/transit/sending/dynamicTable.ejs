@@ -20,7 +20,7 @@
 					  <%}else if(label["Status"]==="NotProcessed"){%>
 				  <tr style="background:#F3FAF0">
 					  <%}%>
-            <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
+            <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["ReceiptNum"]%></a></td>
             <td><%= label["Consignee"]%></td>
             <td><%= label["Warehouse"]%></td>
             <td><%= label["TransferTo"]%></td>

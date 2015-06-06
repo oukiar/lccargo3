@@ -29,7 +29,7 @@
                     
                     /*
                     $.post("/deleterow", 
-                            {collection:"Warehouses", "objectId":wh["objectId"]},
+                            {collection:"Receipts", "objectId":wh["objectId"]},
                             function(data)
                             {
                                 res = JSON.parse(data);
@@ -38,9 +38,9 @@
                             });*/
 
                     /* SEND THIS WAREHOUSE TO TRASH */
-                    var Warehouses = Parse.Object.extend("Warehouses");
+                    var Receipts = Parse.Object.extend("Receipts");
                     
-                    var query = new Parse.Query(Warehouses);
+                    var query = new Parse.Query(Receipts);
                     
                     query.get(wh["objectId"], {
                         success: 

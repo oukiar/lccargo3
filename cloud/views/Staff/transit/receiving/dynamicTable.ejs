@@ -20,7 +20,7 @@
 					  <%}else if(label["Status"]==="NotProcessed"){%>
 				  <tr style="background:#F3FAF0">
 					  <%}%>
-            <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["Receipt"]%></a></td>
+            <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["ReceiptNum"]%></a></td>
             <td><%= label["Consignee"]%></td>
             <td><%= label["Warehouse"]%></td>
             <td><%= label["ReceiptDate"]%></td><!--ATTENTION WE NEED DATE TRANSFERED-->
@@ -49,7 +49,7 @@
     {
         
         $.post("/getby", 
-                {by:"objectId", value:objectId, classvar:"Warehouses"}, 
+                {by:"objectId", value:objectId, classvar:"Receipts"}, 
                 function(data){
                 
                     wh = JSON.parse(data);
@@ -90,7 +90,7 @@
                     
                     $("#receive_items").append( str );
                     
-                    $.post("/update", {collection:"Warehouses", 
+                    $.post("/update", {collection:"Receipts", 
                                         objectId:checkboxes[i].id, 
                                         values:
                                             {

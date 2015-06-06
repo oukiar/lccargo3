@@ -14,12 +14,12 @@
 
         <% results.forEach(function(label){%>
             <tr>
-                <td align="center">0/<%= label["TotalBoxes"]%></td>
+                <td align="center" id="staterepack-<%=label['objectId']%>">0/<%= label["TotalBoxes"]%></td>
                 <td align="center">
                     <input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['ReceiptNum']})%>" name="checkware" class="checkreceipt" type="checkbox">
                     <%= label["ReceiptNum"]%>
                 </td>
-                <td><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB">0/<%= label["TotalBoxes"]%></a></td>
+                <td><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB"><%= label["PackedBoxes"]%>/<%= label["TotalBoxes"]%></a></td>
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Destination"]%></td>
@@ -61,6 +61,8 @@ $(".checkreceipt").change(function(){
                         repack_receipts[dict["objectId"]] = boxes;
                         
                         update_totalboxes();
+                        
+                        update_boxestorepack(boxes);
                     }
                 });
         }
@@ -68,6 +70,7 @@ $(".checkreceipt").change(function(){
         {
             delete repack_receipts[dict["objectId"]];
             update_totalboxes();
+            update_boxestorepack([]);
         }
     });
 

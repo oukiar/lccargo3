@@ -41,7 +41,7 @@
                     if(checkboxes[i].checked)
                     {        
                         /*
-                        var ObjClass = Parse.Object.extend("Warehouses");
+                        var ObjClass = Parse.Object.extend("Receipts");
                         var obj = new ObjClass();
                         
                         obj.id = checkboxes[i].id;
@@ -54,13 +54,13 @@
                         
                         wh = JSON.parse(checkboxes[i].id);
                     
-                        var str = "Saving receipt: " + wh["Receipt"] + " <img id='save-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16><br>";
+                        var str = "Saving receipt: " + wh["ReceiptNum"] + " <img id='save-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16><br>";
                             
                             
                         $("#div_classify").append( str );
                         
                         kwargs = {
-                                    collection:"Warehouses", 
+                                    collection:"Receipts", 
                                     objectId: wh["objectId"],
                                     values:{Status:"NotProcessed", "Shipment":shipment}
                                 };                                               
@@ -84,7 +84,7 @@
                 
                 $.post("/update", 
                             {
-                                collection:"Warehouses", 
+                                collection:"Receipts", 
                                 objectId: classifyId,
                                 values:{Status:"NotProcessed", "Shipment":shipment}
                             }, 

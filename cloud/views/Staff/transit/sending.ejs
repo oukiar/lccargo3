@@ -144,7 +144,7 @@
                     cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
                          {
                             
-                            "Receipt":"",
+                            "ReceiptNum":"",
                             "Consignee":{"Name":""}, /*This is the sintax for return fields of pointers showed on table*/
                             "Shipper":{"Name":""}, /*This is the sintax for return fields of pointers showed on table*/
                             "Invoice":"",
@@ -158,7 +158,7 @@
                         },
                         
                     /* AL PASAR EL PARAMETRO COLLECTION INDICAMOS QUE NECESITAMOS BUSQUEDA CON LISTA DE RESULTADOS */
-                    collection: "Warehouses", /* COLLECCION PRINCIPAL */
+                    collection: "Receipts", /* COLLECCION PRINCIPAL */
                     
                     /* CONDICIONES */
                     conditions: filter_conditions_with_dict({conditions:conditions}),
@@ -186,7 +186,7 @@
                     $("#classify_items").append( str );
                     
                     kwargs = {
-                                collection:"Warehouses", 
+                                collection:"Receipts", 
                                 objectId: checkboxes[i].id,
                                 values:{Status:"NotProcessed", "Shipment":$("#shipment").val()}
                             };                                               
@@ -214,7 +214,7 @@
             var warehouse = $("#waretransfer").val();
             $("#transfersection").replaceWith("<img id='transfersection' src='/web/img/icons/loader_grey.gif'>");
         
-            $.post("/update", {collection:"Warehouses", 
+            $.post("/update", {collection:"Receipts", 
                     objectId:transferId, 
                     values:{"Status":"InTransfer", "Warehouse":warehouse }}, 
                     function(data){

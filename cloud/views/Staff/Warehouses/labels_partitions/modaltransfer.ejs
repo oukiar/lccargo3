@@ -27,7 +27,7 @@
             var warehouse = $("#waretransfer").val();
             $("#transfersection").replaceWith("<img id='transfersection' src='/web/img/icons/loader_grey.gif'>");
         
-            $.post("/update", {collection:"Warehouses", 
+            $.post("/update", {collection:"Receipts", 
                     objectId:transferId, 
                     values:{"Status":"TransferOut:"+warehouse}}, /* FIX HERE, NO MEZCLAR LA WAREHOUSE DESTINO CON EL STATUS, MEJOR GUARDA EN TransferTo */
                     function(data){
