@@ -29,7 +29,7 @@
         
             $.post("/update", {collection:"Receipts", 
                     objectId:transferId, 
-                    values:{"Status":"TransferOut:"+warehouse}}, /* FIX HERE, NO MEZCLAR LA WAREHOUSE DESTINO CON EL STATUS, MEJOR GUARDA EN TransferTo */
+                    values:{"Status":"TransferOut", TransferTo:{__type:"Pointer", className: "Cellars", objectId: warehouse}}}, /* FIX HERE, NO MEZCLAR LA WAREHOUSE DESTINO CON EL STATUS, MEJOR GUARDA EN TransferTo */
                     function(data){
                         
                         $("#transfersection").replaceWith("<a id='btn_donetransfer' href='#close' class='pure-button pure-button-primary'>Done</a>");

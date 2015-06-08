@@ -69,7 +69,7 @@
                                                 795 Folsom Ave, Suite 600<br>
                                                 San Francisco, CA 94107<br>
                                                 P: (123) 456-7890</br></br>
-                                                <b>Receipt # <div id="NumReceipt"></div></b></br><div id="DateReceipt">21st October 2014</div>
+                                                <b>Receipt # <div id="NumReceipt"><%= receipt.get("ReceiptNum")%></div></b></br><div id="DateReceipt"><%=receipt.get("ReceiptDate")%></div>
                                         
                                             </span>
                                         </div>
@@ -102,7 +102,7 @@
                                         <address>
                                             <h4><div id="ConsigneeReceipt"><%= receipt.get("Consignee").get("Name")%></div></h4>
                                             <span class='text-muted'>
-                                                <div id="ConsigneeAddrReceipt"><%= receipt.get("Consignee").get("Address")%></div>
+                                                <div id="ConsigneeAddrReceipt"><%= receipt.get("Consignee").get("Destinations")%></div>
                                             </span>
                                         </address>
                                     </div>
@@ -114,8 +114,7 @@
                                 <div class="pull-right">
                                     <table>
                                         <tr>
-                                            <td style="padding:0 4px 0 4px"><b>Destination:</b>  <div id="DestReceipt"><%= receipt.get("Consignee").get("Destination")%></div></td>
-                                            <td style="padding:0 4px 0 4px"><b>Country:</b>  <div id="CountryReceipt"><%= receipt.get("Consignee").get("Country")%></div></td> 
+                                            <td style="padding:0 4px 0 4px"><b>Destination:</b>  <div id="DestReceipt"><%= receipt.get("Destination")%></div></td>
                                             <td style="padding:0 4px 0 4px"><b>Declared value:</b>  <div id="PriceReceipt">$ <%= receipt.get("Value")%></div></td>
                                         </tr>
                                     </table>         
@@ -162,22 +161,20 @@
                                                 <tr style="background:#FF8080;">
                                                     <td>Total Pieces:</td>
                                                     <td class="text-center">Total Weight</td>
-                                                    <td class="text-center">Total Weight-Volume</td>
                                                     <td class="text-right">Total Volume</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-center"><h5><b><div id="TotalPieces"></div></b></h5></td>
-                                                    <td class="text-center"><h5><b><div id="TotalWeight"></div></b></h5></td>
-                                                    <td class="text-center"><h5><b><div id="TotalWeightVol"></div></b></h5></td>
-                                                    <td class="text-right"><h5><b><div id="TotalVolume"></div></b></h5></td>
+                                                    <td class="text-center"><h5><b><div id="TotalPieces"><%= receipt.get("TotalBoxes")%></div></b></h5></td>
+                                                    <td class="text-center"><h5><b><div id="TotalWeight"><%= receipt.get("Weight")%></div></b></h5></td>
+                                                    <td class="text-right"><h5><b><div id="TotalVolume"><%= receipt.get("Volume")%></div></b></h5></td>
                                                 </tr>
                                             <tr><td></td><td></td></tr>
                                                 <tr><td></td><td></td></tr>
                                                     <tr>
-                                                        <td style="padding:0 7px 0 7px">Printed: <div id="PrintedReceipt"></div></td>
-                                                        <td style="padding:0 7px 0 7px">User who made the Receipt: <div id="UserReceipt"></div></td>
+                                                        <td style="padding:0 7px 0 7px">Printed: <div id="PrintedReceipt"><%= new Date()%></div></td>
+                                                        <td style="padding:0 7px 0 7px">User who made the Receipt: <div id="UserReceipt"><%=receipt.get("Consignee").get("Name")%></div></td>
                                                     </tr>
                                                 </tbody>
                                             </tr>

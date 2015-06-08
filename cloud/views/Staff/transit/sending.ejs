@@ -127,8 +127,8 @@
         function update_table()
         {
             if($("#warehousefilter").val() == "All")
-                conditions = {contains:{"Status":"TransferOut"},
-                                equalTo:{"Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
+                conditions = {/*contains:{"Status":"TransferOut"},*/
+                                equalTo:{"Status":"TransferOut", "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
             else
                 conditions = {contains:{"Status":"TransferOut"}, 
                                 equalTo:
@@ -149,11 +149,11 @@
                             "Shipper":{"Name":""}, /*This is the sintax for return fields of pointers showed on table*/
                             "Invoice":"",
                             "ReceiptDate":"",
-                            "Country":"",
                             "Transport":"",
                             "Warehouse":{"Name":""},
 			                "Shipment":"",
 			                "Status":"",
+			                "TransferTo":{"Name":""},
                             "objectId":""
                         },
                         
