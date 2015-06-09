@@ -39,6 +39,8 @@ $(".checkreceipt").change(function(){
         
         dict = JSON.parse(this.id);
 
+        openedreceipt = dict["objectId"];
+
         if(this.checked)
         {
             var query = new Parse.Query("Boxes");
