@@ -34,25 +34,6 @@
 
     <!-- BEGIN BODY -->
     <body>
-  		<script>
-      
-            Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
-            
-            function Restore(receiptId)
-            {
-                Parse.Cloud.run('restore', { receiptId: receiptId}, {
-                    success: 
-                        function() 
-                        {
-                            $("#"+receiptId).parent().hide();
-                        },
-                    error: 
-                        function()
-                        {
-                        }
-                    });
-            }
-        </script>
 		<div class="screen">
 		<!--START TOPBAR-->
 		 <% include ../../generals/topbar.ejs %>
@@ -85,7 +66,7 @@
 		   	           <div class="row">
 				  
 		   			    <div class="col-md-6 col-xs-6" style="margin-top:21px; margin-bottom:34px;">
-							<button id="btn_back" class="pure-button pure-button-primary" style="background:#E08566;" name="">Empty Trash!</button>
+							<a id="btn_emptytrash" class="pure-button pure-button-primary" style="background:#E08566;" name="">Empty Trash!</a>
 		 
 		   	           </div>
 
@@ -108,19 +89,21 @@
 					   <th>Client</th>
 					   <th>Store</th>
 					   <th>Date</th>          
+					   <th>Restoration</th>          
+					   <th>Permanent deletion</th>          
 					   </tr>
 							<% results.forEach(function(label){%>
 							<tr>
-							  <td><%=label.get("Receipt")%></td>
+							  <td><%=label.get("ReceiptNum")%></td>
 							  <td><%=label.get("Consignee").get("Name")%></td>
-							  <td><%=label.get("Shipper").get("Name")%></td>
+							  <td><%if(typeof label.get("Shipper") != "undefined"){%><%=label.get("Shipper").get("Name")%><%}%></td>
 							  <td><%=label.updatedAt%></td>
 							  <td id='<%=label.id%>'><button class="pure-button pure-button-primary" onclick="Restore('<%=label.id%>');">Restore</button></td>
-							  <td><button id="btn_back" class="pure-button pure-button-primary" style="background:#E08566;" name="<%= label.id %>">Delete Permanently</button></td>
+							  <td><a id="<%= label.id %>" class="pure-button pure-button-primary deleteperm" style="background:#E08566;">Delete Permanently</a></td>
 							</tr>
 							  <% }) %>   
 					   </table>
-					   <button onclick="myfunction();">hola</button>
+                       
 					   
 				  
 								 </div>
@@ -158,6 +141,78 @@
 
 	
     </div>
+    
+<script>
+    Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+    
+    /* GLOBAL USER */
+    var user;
+
+    /* OBTENCION Y ALMACENAMIENTO DEL CURRENT USER PARA USARSE CLIENTSIDE */
+    var query = new Parse.Query("User");
+    
+    query.descending('createdAt');
+    query.include("Company");
+    
+    query.get("<%= user.id%>", {
+        success: 
+            function(object)
+            {
+                /* SAVE USER FOR FUTURE OPERATIONS */
+                user = object;
+                
+            }
+        });
+        
+            
+    function Restore(receiptId)
+    {
+        Parse.Cloud.run('restore', { receiptId: receiptId}, {
+            success: 
+                function(result) 
+                {
+                    /*alert(result);*/
+                    $("#"+receiptId).parent().hide();
+                },
+            error:
+                function()
+                {
+                }
+            });
+    }
+
+    $(".deleteperm").click(function(){
+            
+            var Receipts = Parse.Object.extend("Receipts");
+            var receipt = new Receipts();
+            receipt.id = this.id;
+
+            receipt.destroy();
+            
+            $("#"+this.id).parent().hide();
+        });
+        
+    $("#btn_emptytrash").click(function(){
+            var qreceipts = new Parse.Query("Receipts");
+            qreceipts.contains("Status", "Deleted");
+            /*qreceipts.equalTo("Company", user.get("Company"));*/
+            
+            qreceipts.find(function(results){
+
+                    for(i in results)
+                    {
+                        var Receipts = Parse.Object.extend("Receipts");
+                        var receipt = new Receipts();
+                        receipt.id = results[i].id;
+
+                        receipt.destroy();
+                        
+                        $("#"+results[i].id).parent().hide();
+                    }
+                });
+        });
+</script>
+    
         <!-- modal end -->
     </body>
 </html>

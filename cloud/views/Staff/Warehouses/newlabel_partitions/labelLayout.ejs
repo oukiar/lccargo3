@@ -53,7 +53,7 @@
 				 </tr>
 			 </table>			    
 	        
-			<h5><b>Shipper:</b></h5><div id="ShipperLabel"><%= receipt.get("Shipper").get("Name")%></div>
+			<h5><b>Shipper:</b></h5><div id="ShipperLabel"><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></div>
 			<h5><b>Consignee:</b></h5><div id="ConsigneeLabel"><%= receipt.get("Consignee").get("Name")%></div>
 			<h5><b>Box:</b></h5><div id="BoxLabel"><%= box.get("Num")%></div>
 			<h5><b>Zone:</b></h5><div id="ZoneLabel"><%= receipt.get("Zone")%></div>

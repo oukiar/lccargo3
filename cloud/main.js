@@ -7,7 +7,7 @@ require('cloud/app.js');
 
 Parse.Cloud.define("restore", function(request, response) {
     Parse.Cloud.useMasterKey();
-    var queryWarehouse = new Parse.Query("Warehouses");
+    var queryWarehouse = new Parse.Query("Receipts");
     queryWarehouse.equalTo("objectId", request.params.receiptId);
     
     queryWarehouse.first().then(function(results) 
@@ -18,6 +18,6 @@ Parse.Cloud.define("restore", function(request, response) {
         
         results.set("Status", oldstat.split(":")[1] );
         results.save();
-        response.success("works");
+        response.success("Receipt restored");
     });
 });

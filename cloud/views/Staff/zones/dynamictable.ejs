@@ -1,0 +1,22 @@
+<div id="zonestable">
+    <table class="table table-bordered" id="blueRow">
+        <style>
+            #not:nth-child(even) {background: white}
+            #not:nth-child(odd) {background: #FBFBFC}
+        </style>
+        
+        <tr>
+            <th>Client</th>
+            <th>Zone</th>
+            <th>Boxes</th>          
+        </tr>
+
+        <% results.forEach(function(label){%>
+            <tr>
+                <td><%= label["Consignee"]%></td>
+                <td><%= label["Zone"]%></td>
+                <td><%= label["TotalBoxes"]%></td>
+            </tr>
+        <% }) %> 
+    </table>
+</div>

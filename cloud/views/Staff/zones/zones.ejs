@@ -58,8 +58,44 @@
 		   <div id="warehouses_content">
                 
 		   	  <fieldset class="container">
-	  			 		
-						
+
+                <table >
+                    <tr>
+                        <th style="text-align: center;">Warehouse</th>
+                        <th style="text-align: center;">By</th>
+                        <th style="text-align: center;">Date</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select  id="warehousefilter" name="warehousefilter">
+                                <option value="All">All</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="filterby" name="filterby" >
+                                <option value="All">All</option>
+                                <option value="Consignee">Client</option>
+                                <option value="Zone">Zone</option>
+                            </select>
+                            
+                            <input type="hidden" placeholder="Search"  id="searchtext" name="searchtext">
+                        </td>
+                        <td>
+                            <select id="filterdate" name="filterdate">
+                                <option value="">All</option>
+                                <option value="Today">Today</option>
+                                <option value="Yesterday">Yesterday</option>
+                                <option value="This week">This week</option>
+                                <option value="This month">This month</option>
+                                <option value="Last month">Last month</option>	
+                                <option value="Current year">Current Year</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                    
+                <button id="btn_search" class="pure-button pure-button-primary">Search</button>
+                    
 		   		  <div class="pull-right"></div>
 	 
 		   	           <div class="row">
@@ -75,29 +111,9 @@
 
 		   	              <ul id="list">
                                  
-		                         
 								 
+                                     <% include dynamictable.ejs%>
 								 
-								 <div id="ware_table"> 
-								       <table class="table table-bordered" id="blueRow">
-								 	  	<style>
-								 		#not:nth-child(even) {background: white}
-								 		#not:nth-child(odd) {background: #FBFBFC}
-								 		</style>
-								        <tr>
-								         <th>Client</th>
-								         <th>Zone</th>
-								         <th>Boxes</th>          
-									 </tr>
-									 <tr>
-										 <td>Juan</td>
-										 <td>A-17</td>
-										 <td>3</td>
-								       </table>
-								 </div>
-								 
-								 
-                  
 		   	              </ul>
 		   	            </div>
 		   	          </div>
@@ -131,5 +147,114 @@
 	
     </div>
         <!-- modal end -->
+        
+<script>
+
+
+    Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+        
+    /* GLOBAL USER */
+    var user;
+
+    /* OBTENCION Y ALMACENAMIENTO DEL CURRENT USER PARA USARSE CLIENTSIDE */
+    var query = new Parse.Query("User");
+    
+    query.descending('createdAt');
+    query.include("Company");
+    
+    query.get("<%= user.id%>", {
+        success: 
+            function(object)
+            {
+                /* SAVE USER FOR FUTURE OPERATIONS */
+                user = object;
+                
+                
+                /* FILL THE WAREHOUSES SELECT FILTER */
+                var query = new Parse.Query("Cellars");
+                
+                query.equalTo("Company", {__type: "Pointer", className: "Companies", objectId: user.get("Company").id} );
+                query.descending('createdAt');
+                
+                query.find({
+                    success: 
+                        function(results)
+                        {
+                            for(i in results)
+                            {
+                                
+                                wareselect = document.getElementById("warehousefilter");
+                                wareselect.options[wareselect.options.length] = new Option(results[i].get("Name"), results[i].id);
+                                
+                            }
+                            
+                        }
+                    });
+                
+            }
+        });
+
+        
+    function update_table()
+    {
+        /*alert(JSON.stringify(user) );*/
+            
+        if($("#warehousefilter").val() == "All")
+            conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]},
+                            equalTo:{"Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
+        else
+            conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]}, 
+                            equalTo:
+                            {
+                                "Warehouse":{__type: "Pointer", className: "Cellars", objectId: $("#warehousefilter").val()},
+                                "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id} 
+                            }
+                        };
+           
+           
+        InsertTable({
+                cols:   /*Columnas definidas FIELD:TITLE or FIELD:{FIELDNEEDED:FIELDTITLE}*/
+                     {
+                            "ReceiptNum":"",
+                            "Consignee":{"Name":""}, /*This is the sintax to return fields of pointers showed on table*/
+                            "ReceiptDate":"Date",
+                            "Zone":"",
+                            "TotalBoxes":"",
+                            "objectId":""
+                    },
+                    
+                /* AL PASAR EL PARAMETRO COLLECTION INDICAMOS QUE NECESITAMOS BUSQUEDA CON LISTA DE RESULTADOS */
+                collection: "Receipts", /* COLLECCION PRINCIPAL */
+                
+                /* CONDICIONES */
+                conditions: filter_conditions_with_dict({
+                                            conditions:conditions
+                                            }),
+                
+                /*BUSQUEDA DE SEARCH TIPO LIKE*/
+                like: filter_like(),
+                
+                document: "Staff/zones/dynamictable",
+                itemid: "zonestable"
+            });        
+    }
+
+    $("#btn_search").click(function(){
+        update_table();
+    });
+    
+    $("#warehousefilter").change(function(){
+        update_table();
+    });
+
+
+    $("#filterby").change(function()
+        {
+            filterby_changed("filterby", "searchtext", "filterdate", update_table); 
+        });
+
+</script>
+        
+        
     </body>
 </html>
