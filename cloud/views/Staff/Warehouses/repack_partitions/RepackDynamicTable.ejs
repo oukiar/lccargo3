@@ -1,9 +1,9 @@
 <div id="repack_table">
     <table class="table table-bordered" id="blueRow">
         <tr>
-            <th>State</th>
-            <th>Rcpt. #</th>
-            <th>Packed</th>
+            <th>Repacked Boxes</th>
+            <th>Repack All  in Rcpt. #</th>
+            <th>Repack by Boxes</th>
             <th>Shipper</th>
             <th>Date</th>
             <th>Country</th>
@@ -14,12 +14,12 @@
 
         <% results.forEach(function(label){%>
             <tr>
-                <td align="center" id="staterepack-<%=label['objectId']%>">0/<%= label["TotalBoxes"]%></td>
+                <td align="center" id="staterepack-<%=label['objectId']%>"><%= label["PackedBoxes"]%>/<%= label["TotalBoxes"]%></td>
                 <td align="center">
                     <input id="<%=JSON.stringify({"objectId":label['objectId'], "Receipt":label['ReceiptNum']})%>" name="checkware" class="checkreceipt" type="checkbox">
-                    <%= label["ReceiptNum"]%>
+                    &nbsp #<%= label["ReceiptNum"]%>
                 </td>
-                <td><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB"><%= label["PackedBoxes"]%>/<%= label["TotalBoxes"]%></a></td>
+                <td><a onclick="showboxes('<%=label['objectId']%>')" href="#openModalB">Choose Boxes</a></td>
                 <td><%= label["Shipper"]%></td>
                 <td><%= label["ReceiptDate"]%></td>
                 <td><%= label["Destination"]%></td>

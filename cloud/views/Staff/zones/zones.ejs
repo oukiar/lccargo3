@@ -13,29 +13,24 @@
 	
    <!--ADMIN REQUIREMENTS-->   
   <% include ../../generals/ultraAdmin.ejs %>
-	
-    
-        <script src="/cod/js/common.js"></script>
-        <script src="/cod/js/moment.js"></script>
-        
-        <!-- QR CODE GENERATOR -->
-        <script src="/cod/js/qrcode/qrcode.js"></script>
-    
-        <script src="/cod/js/jquery-1.11.2.min.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-        <script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
-        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print" />
+     <script src="/cod/js/common.js"></script>
+     <script src="/cod/js/moment.js"></script>
+     <!-- QR CODE GENERATOR -->
+     <script src="/cod/js/qrcode/qrcode.js"></script>
+     <script src="/cod/js/jquery-1.11.2.min.js"></script>
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+     <script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+     <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print" />
 
     </head>
     <!-- END HEAD -->
-
     <!-- BEGIN BODY -->
     <body>
-		<div class="screen">
-		<!--START TOPBAR-->
-		 <% include ../../generals/topbar.ejs %>
+	<div class="screen">
+	<!--START TOPBAR-->
+	<% include ../../generals/topbar.ejs %>
 		 
         <!-- START CONTAINER -->
         <div class="page-container row-fluid">
@@ -58,20 +53,20 @@
 		   <div id="warehouses_content">
                 
 		   	  <fieldset class="container">
-
-                <table >
+<div style="margin-top:34px;">
+                <table>
                     <tr>
                         <th style="text-align: center;">Warehouse</th>
                         <th style="text-align: center;">By</th>
                         <th style="text-align: center;">Date</th>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="padding: 5px;">
                             <select  id="warehousefilter" name="warehousefilter">
                                 <option value="All">All</option>
                             </select>
                         </td>
-                        <td>
+                        <td style="padding: 5px;">
                             <select id="filterby" name="filterby" >
                                 <option value="All">All</option>
                                 <option value="Consignee">Client</option>
@@ -80,7 +75,7 @@
                             
                             <input type="hidden" placeholder="Search"  id="searchtext" name="searchtext">
                         </td>
-                        <td>
+                        <td style="padding: 5px;">
                             <select id="filterdate" name="filterdate">
                                 <option value="">All</option>
                                 <option value="Today">Today</option>
@@ -91,10 +86,11 @@
                                 <option value="Current year">Current Year</option>
                             </select>
                         </td>
+						<td style="padding: 5px;"><button id="btn_search" class="pure-button pure-button-primary">Search</button></td>
                     </tr>
                 </table>
-                    
-                <button id="btn_search" class="pure-button pure-button-primary">Search</button>
+                    </div>
+                
                     
 		   		  <div class="pull-right"></div>
 	 

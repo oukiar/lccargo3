@@ -6,15 +6,15 @@
         </style>
         
         <tr>
-            <th>Client</th>
             <th>Zone</th>
+			<th>Client</th>
             <th>Boxes</th>          
         </tr>
 
         <% results.forEach(function(label){%>
             <tr>
+				<td><b><%= label["Zone"]%></b></td>
                 <td><%= label["Consignee"]%></td>
-                <td><%= label["Zone"]%></td>
                 <td><%= label["TotalBoxes"]%></td>
             </tr>
         <% }) %> 

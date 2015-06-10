@@ -2308,6 +2308,7 @@ ul.states li {
 }
 .panel-default>.panel-heading+.panel-collapse>.panel-body {
     border-top-color: #eaeaea;
+	
 }
 .panel-default>.panel-heading a {
     text-decoration: none;
@@ -7519,9 +7520,45 @@ background-image:linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1))
   }
   
   
+  
+  
+  
+  
+  .modalRPBoxes {
+  	position: absolute;
+  	font-family: Arial, Helvetica, sans-serif;
+  	top: 0px;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	height:150%;
+  	background: rgba(0,0,0,0.8);
+  	z-index: 99999;
+  	opacity:0;
+  	-webkit-transition: opacity 400ms ease-in;
+  	-moz-transition: opacity 400ms ease-in;
+  	transition: opacity 400ms ease-in;
+  	pointer-events: none;
+  }
+  
+  
+  .modalRPBoxes:target {
+  	opacity:1;
+  	pointer-events: auto;
+  }
 
+  .modalRPBoxes > div {
+  	width: 544px;
+  	position: relative;
+  	margin: 10% auto;
+	top:-55px;
+  	padding: 5px 20px 13px 20px;
+  	border-radius: 10px;
+  	background: white;
+  }
   
   
+ 
   .closeB {
   	background: #606061;
   	color: #FFFFFF;

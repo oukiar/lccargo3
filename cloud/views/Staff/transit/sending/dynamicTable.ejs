@@ -4,12 +4,13 @@
     <table class="table table-bordered" id="blueRow">
     <tr>
             <th>Rcpt.</th>
-            <th>Client</th>
-            <th>From</th>
-            <th>To</th>
+            
+            <th>Warehouse Sending:</th>
+            <th>Warehouse Receiving:</th>
+			<th>Client</th>
 			<!--ATTENTION WE NEED TO MAKE THIS-->
             <th>Date Sent</th><!--ATTENTION WE NEED TO MAKE THIS-->
-            <th>Shipment</th>
+            <th>Receive</th>
     </tr>
 
     <% results.forEach(function(label){%>
@@ -21,11 +22,11 @@
 				  <tr style="background:#F3FAF0">
 					  <%}%>
             <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["ReceiptNum"]%></a></td>
-            <td><%= label["Consignee"]%></td>
             <td><%= label["Warehouse"]%></td>
             <td><%= label["TransferTo"]%></td>
+			   <td><%= label["Consignee"]%></td>
             <td><%= label["ReceiptDate"]%></td><!--ATTENTION WE NEED DATE TRANSFERED-->
-            <td><%= label["Shipment"]%></td>
+             <td align="center"> <a id="btn_process2" class="btn btn-orange btn-md myclass"> &nbsp; Received </a>  </td>
 			 </tr>
 		
     <% }) %>   
