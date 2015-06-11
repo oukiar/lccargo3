@@ -46,6 +46,7 @@ $(".checkreceipt").change(function(){
             var query = new Parse.Query("Boxes");
             
             query.equalTo("Receipt", {__type: "Pointer", className: "Receipts", objectId: dict["objectId"]});
+            query.ascending('BoxNum');
             query.include("Receipt");
             
             query.find({
@@ -83,7 +84,7 @@ function showboxes(objectId)
 
     var query = new Parse.Query("Boxes");
     
-    query.ascending('Num');
+    query.ascending('BoxNum');
     query.include('Receipt')
     query.equalTo("Receipt", {__type: "Pointer", className: "Receipts", objectId: openedreceipt});
     

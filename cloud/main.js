@@ -21,3 +21,36 @@ Parse.Cloud.define("restore", function(request, response) {
         response.success("Receipt restored");
     });
 });
+
+Parse.Cloud.define("sendMail", function(request, response) {
+    var Mandrill = require('mandrill');
+    Mandrill.initialize('HyML8A-jJEV4rGScp2w2Sw');
+
+    Mandrill.sendEmail(
+    {
+        message: 
+        {
+            text: request.params.text,
+            subject: request.params.subject,
+            from_email: request.params.from_email,
+            from_name: request.params.from_name,
+            to: [
+            {
+                email: request.params.to_email,
+                name: request.params.to_name
+            }]
+        },
+        async: true
+    },
+        
+    {
+        success: function(httpResponse) {
+        console.log(httpResponse);
+        response.success("Email sent!");
+        },
+        error: function(httpResponse) {
+        console.error(httpResponse);
+        response.error("Uh oh, something went wrong");
+        }
+    });
+});

@@ -13,9 +13,9 @@
 
         <% results.forEach(function(label){%>
             <tr>
-				<td><b><%= label["Zone"]%></b></td>
-                <td><%= label["Consignee"]%></td>
-                <td><%= label["TotalBoxes"]%></td>
+				<td><b><%= label.get("Zone")%></b></td>
+                <td><%= label.get("Consignee").get("Name")%></td>
+                <td><%= label.get("TotalBoxes")%></td>
             </tr>
         <% }) %> 
     </table>
