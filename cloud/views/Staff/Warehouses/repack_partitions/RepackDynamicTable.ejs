@@ -85,7 +85,7 @@ function showboxes(objectId)
     var query = new Parse.Query("Boxes");
     
     query.ascending('BoxNum');
-    query.include('Receipt')
+    query.include('Receipt');
     query.equalTo("Receipt", {__type: "Pointer", className: "Receipts", objectId: openedreceipt});
     
     query.find({
@@ -97,7 +97,7 @@ function showboxes(objectId)
                 
                 results.forEach(function(box){
                     
-                    boxindex = parseInt(box.get("Num")[0])-1;
+                    /*boxindex = parseInt(box.get("Num")[0])-1;*/
                     
                     if(box.get("Status") == "Repacked")
                         row = "<tr><td>Repacked</td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
