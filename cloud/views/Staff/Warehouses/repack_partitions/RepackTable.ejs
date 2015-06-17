@@ -157,11 +157,7 @@
 	  	$("#warehousefilter").change(function(){
                 update_table();
             });
-        
-        function searchtext_keyup()
-        {
-            update_table();
-        }
+      
         
             
         $("#filterdate").change(function(){
@@ -265,31 +261,5 @@
                     }
                 });
     }
-    
-    $( "#btn_addboxLabel" ).click(
-                function()
-                {
-                    
-                    totalrows += 1; 
-                    
-                    var newrow = "<div class=\"cont-106\">";
-                    var beforestr0 = "<div class=\"colwrapper-60\"><div class=\"cont-107\"><input type=\"text\" name=\"";
-                    var beforestr1 = "<div class=\"colwrapper-61\"><div class=\"cont-107\"><input type=\"text\" name=\"";
-                    var beforestr2 = "<div class=\"colwrapper-62\"><div class=\"cont-107\"><input type=\"text\" name=\"";
-                    var beforestr3 = "<div class=\"colwrapper-63\"><div class=\"cont-107\"><input type=\"text\" name=\"";
-                    var beforestr4 = "<div class=\"colwrapper-64\"><div class=\"cont-107\"><input type=\"text\" name=\"";
-                    var afterstr = "\" class=\"input-35\"></div></div>";
-
-                    newrow += beforestr0 + "LengthLabel-" + totalrows.toString() + "\" id=\"LengthLabel-" + totalrows.toString() + afterstr;
-                    newrow += beforestr1 + "WidthLabel-" + totalrows.toString() + "\" id=\"WidthLabel-" + totalrows.toString() + afterstr;
-                    newrow += beforestr2 + "HeightLabel-" + totalrows.toString() + "\" id=\"HeightLabel-" + totalrows.toString() + afterstr;
-                    newrow += beforestr3 + "WeightLabel-" + totalrows.toString() + "\" id=\"WeightLabel-" + totalrows.toString() + afterstr;
-                    newrow += beforestr4 + "BoxesLabel-" + totalrows.toString() + "\" id=\"BoxesLabel-" + totalrows.toString() + afterstr;
-                                    
-                    newrow += "</div>";
-
-                    $(newrow).appendTo("#dyntableLabel");
-
-                });
        
 </script>

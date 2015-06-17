@@ -82,10 +82,16 @@ function showboxes(objectId)
 {
     openedreceipt = objectId;
 
+    var q=new Parse.Query("Receipts");
+    q.get(openedreceipt, {success: function(receipt){
+            $("#receiptBoxes").html(receipt.get("ReceiptNum") );
+        }});
+        
     var query = new Parse.Query("Boxes");
     
     query.ascending('BoxNum');
     query.include('Receipt');
+    query.include('PackedIn');
     query.equalTo("Receipt", {__type: "Pointer", className: "Receipts", objectId: openedreceipt});
     
     query.find({
@@ -97,14 +103,19 @@ function showboxes(objectId)
                 
                 results.forEach(function(box){
                     
-                    /*boxindex = parseInt(box.get("Num")[0])-1;*/
-                    
+                        
                     if(box.get("Status") == "Repacked")
-                        row = "<tr><td>Repacked</td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
+                        row = "<tr bgcolor='#FFF5E7'><td>"+box.get("Status")+
+                                " in receipt# <a onclick=\"showboxes('"+box.get("PackedIn").get("ReceiptNum")+
+                                "')\" href='#openReceiptBoxes'>#"+ box.get("PackedIn").get("ReceiptNum") +
+                                "</a></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+
+                                "</td><td>"+box.get("Height")+"</td><td>"+box.get("Num")+"</td><td>"+
+                                box.get("RPrice")+"</td></tr>";
+                    
                     else if( isboxadded( box.get("Num") ) )
-                        row = "<tr><td><input type='checkbox' checked name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
+                        row = "<tr><td><input type='checkbox' checked name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Num")+"</td><td>"+box.get("RPrice")+"</td></tr>";
                     else
-                        row = "<tr><td><input type='checkbox' name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Weight")+"</td><td>"+box.get("Num")+"</td></tr>";
+                        row = "<tr><td><input type='checkbox' name='boxitems' id='"+ JSON.stringify({objectId:box.id, Receipt:box.get("Receipt").get("ReceiptNum"), Num:box.get("Num")}) +"'></td><td>"+box.get("Length")+"</td><td>"+box.get("Width")+"</td><td>"+box.get("Height")+"</td><td>"+box.get("Num")+"</td><td>"+box.get("RPrice")+"</td></tr>";
                     
                     
                     $("#boxes_table > tbody").append(row);
