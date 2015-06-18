@@ -76,25 +76,54 @@
 
 <script>
 
+
     Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
 
-    agencyID = "<%= user.get("AgencyID").id %>";
+    /* GLOBAL USER */
+    var user;
 
+    /* OBTENCION Y ALMACENAMIENTO DEL CURRENT USER PARA USARSE CLIENTSIDE */
+    var query = new Parse.Query("User");
     
-    $("#btn_test").click(function(){
-            
-            alert(JSON.stringify(agencyID) );            
-        });
+    query.descending('createdAt');
+    query.include("Company");
     
-    /*
-    query.get(,
-    {
+    query.get("<%= user.id%>", {
         success: 
-            function(result)
+            function(object)
             {
-                alert(JSON.stringify(agencyID) );
+                /*
+                alert("User retrieved: " + object.get("username") );
+                alert("Main cellar: " + object.get("CellarID").id );
+                */
+                
+                
+                /* SAVE USER FOR FUTURE OPERATIONS */
+                user = object;
+                
+                /* LLENADO DINAMICO DE SELECT DE BODEGAS DE ESTA EMPRESA */
+                var query = new Parse.Query("Cellars");
+                
+                query.equalTo("Company", {__type: "Pointer", className: "Companies", objectId: user.get("Company").id} );
+                query.ascending('createdAt');
+                
+                query.find({
+                    success: 
+                        function(results)
+                        {
+                            for(i in results)
+                            {   
+                                wareselect = document.getElementById("Warehouse");
+                                wareselect.options[wareselect.options.length] = new Option(results[i].get("Name"), results[i].id);
+                            }
+                            
+                        }
+                    });
+                
+                
             }
-    });*/
+        });
+
 
 </script>
 

@@ -4,12 +4,13 @@
     <table class="table table-bordered" id="blueRow">
     <tr>
             <th>Rcpt.</th>
-            <th>Client</th>
-            <th>From</th>
+            
+            <th>Store Sending:</th>
+            <th>Warehouse Receiving:</th>
+			<th>Client</th>
 			<!--ATTENTION WE NEED TO MAKE THIS-->
             <th>Date Sent</th><!--ATTENTION WE NEED TO MAKE THIS-->
-            <th>Shipment</th>
-            <th style="width:5px;">Receive</th>
+            <th>Receive</th>
     </tr>
 
     <% results.forEach(function(label){%>
@@ -21,11 +22,11 @@
 				  <tr style="background:#F3FAF0">
 					  <%}%>
             <td align="center"><a onclick="wareceipt('<%=label['objectId']%>')" href="#openModalB"><%= label["ReceiptNum"]%></a></td>
-            <td><%= label["Consignee"]%></td>
+            <td><%= label["Shipper"]%></td>
             <td><%= label["Warehouse"]%></td>
+			   <td><%= label["Consignee"]%></td>
             <td><%= label["ReceiptDate"]%></td><!--ATTENTION WE NEED DATE TRANSFERED-->
-            <td><%= label["Shipment"]%></td>
-            <td align="center"><input name="checkship" id="<%=label['objectId']%>" type="checkbox"></td>
+             <td align="center"> <a id="<%=label['objectId']%>" class="btn btn-orange btn-md myclass"> &nbsp; Receive </a>  </td>
 			 </tr>
 		
     <% }) %>   
@@ -33,23 +34,30 @@
     </table>
 </div>
 
-		<!--MODAL PARA MOSTAR PROGRESO DE GUARDADO DE INPUT TRANSIT-->
-	    <div id="openModalC" class="modalDialogB">
-	        <div>
-	            <a href="#close" title="Close" class="closeB">X</a>
-	            <div id="receive_items">
-				
-	            </div>
-	        </div>
-	    </div>
 
 <script>
+    $(".myclass").click(function(){
+    
+            var query = new Parse.Query("Receipts");
+            
+            /*query.include("TransferTo");*/
+            
+            query.get(this.id, {success: function(obj){
+            
+                    /*obj.set("Warehouse", obj.get("TransferTo") );*/
+                    obj.set("Status", "Received" );
+                    
+                    obj.save(null, {success:function(){update_table();}});
+                }});
+
+        });
+        
 
     function wareceipt(objectId)
     {
         
         $.post("/getby", 
-                {by:"objectId", value:objectId, classvar:"Receipts"}, 
+                {by:"objectId", value:objectId, classvar:"Warehouses"}, 
                 function(data){
                 
                     wh = JSON.parse(data);
@@ -76,38 +84,6 @@
                 });
     }
 
-		
-    $("#btn_receive").click(
-        function()
-        {
-            checkboxes = document.getElementsByName("checkship");
-            
-            for(i in checkboxes)
-            {
-                if(checkboxes[i].checked)
-                {        
-                    var str = "<img id='save-" + checkboxes[i].id + "' src='/web/img/icons/loader_grey.gif' width=16 height=16>  " + checkboxes[i].id + "<br>";
-                    
-                    $("#receive_items").append( str );
-                    
-                    $.post("/update", {collection:"Receipts", 
-                                        objectId:checkboxes[i].id, 
-                                        values:
-                                            {
-                                                Status:"Received", Warehouse:$("#warehousefilter").val() 
-                                            }
-                                        },
-                                            
-                                        function(data)
-                                        {
-                                            kwargs = JSON.parse(data);
-                                            $("#save-" + kwargs["objectId"]).replaceWith("SAVED");
-                                        }
-                                    );
-                }
-            }
-            
-        });
 
 
 </script>
