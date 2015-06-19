@@ -12,7 +12,7 @@
        
 	
    <!--ADMIN REQUIREMENTS-->   
-  <% include ../../generals/ultraAdmin.ejs %>
+  <% include ../../../generals/ultraAdmin.ejs %>
 	
     
         <script src="/cod/js/common.js"></script>
@@ -41,16 +41,16 @@
 			
             <!-- START CONTENT -->
           
-           <section class="wrapper" style='margin-top:60px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
+           <section class="wrapper" style='margin-top:60px;margin-left:200px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
               
               <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
               <div class="page-title">
               <div class="pull-left">
-		  			  <% include transitMenu.ejs %>
-              <h1 class="title">In Transit - Receiving from stores</h1>
+                  
+              <h1 class="title">Sent history</h1>
 			
             <div id="content">
-            <% include storestransit/table.ejs %>
+            <% include table.ejs %>
             </div>
 
 		      </div>
@@ -65,7 +65,7 @@
             <div>
                 <a id="btn_closeclassifydialog" href="#closeB" title="Close" class="close">X</a>
                 
-                <% include storestransit/labelform.ejs %>
+                <% include labelform.ejs %>
             </div>
         </div>
       
@@ -78,7 +78,7 @@
 			
 			</div>
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
-<%include ../../generals/endFiles.ejs%>
+<%include ../../../generals/endFiles.ejs%>
 
 <script>
 
@@ -131,12 +131,15 @@
 
             if($("#warehousefilter").val() == "All")
                 conditions = {/*contains:{"Status":"TransferOut"},*/
-                                equalTo:{"Status":"StoreInTransit", "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
+                                equalTo:{"Status":"Received", 
+                                    "Shipper":{__type: "Pointer", className: "Agencies", objectId: user.get("AgencyID").id},
+                                    "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
             else
                 conditions = {
                                 equalTo:
                                 {
-                                    "Status":"StoreInTransit",
+                                    "Status":"Received",
+                                    "Shipper":{__type: "Pointer", className: "Agencies", objectId: user.get("AgencyID").id},
                                     "Warehouse":{__type: "Pointer", className: "Cellars", objectId: $("#warehousefilter").val()},
                                     "Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id} 
                                 }
@@ -168,7 +171,7 @@
                     /*BUSQUEDA DE SEARCH TIPO LIKE*/
                     like: filter_like(),
                     
-                    document: "Staff/transit/storestransit/dynamicTable",
+                    document: "agencies/Records/Sent/dynamicTable",
                     itemid: "ware_table"
                 });        
         }

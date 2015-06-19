@@ -1,4 +1,4 @@
-
+<%moment = require('cloud/moment')%>
 <!doctype html>
 <html lang="en">
     <head>
@@ -32,21 +32,22 @@
 <body>
     <% var i=0; boxes.forEach(function(box){ %>
         <!--MODAL PARA MOSTAR LABEL-->
-			<h2><%= receipt.get("Company").get("name")%></b></h2>
-		</br></br>
-			<h4><b>Receipt#:<%= receipt.get("ReceiptNum")%></b></h4></br>
-			<h4><b>Destination:<%= receipt.get("Destination")%></b></h4>
+			<h2><%= receipt.get("Company").get("name")%></h2>
+            
 			
-            
-            
-			<table align="center">
+            <h4><b>Receipt#: <%= receipt.get("ReceiptNum")%></b></h4>
+			<h4><b>User: <%= receipt.get("ReceiptBy").get("Name")%></b></h4>
+			<h4><b>Destination: <%= receipt.get("Destination")%></b></h4>
+			<h4><b>Hour: <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></b></h4>
+			
+			<table style="margin-left:250px;">
 				<tr>
-			    <th style="padding: 5px;" align="center">Weight</th>
-			    <th style="padding: 5px;" align="center">Volume</th>
-					 </tr>
-					 <tr>
-					 <td style="padding: 5px;" align="center" id="WeightLabel"><%= receipt.get("Weight")%></td>
-					 <td style="padding: 5px;" align="center" id="VolumeLabel"><%= receipt.get("Volume")%></td>
+                    <th style="padding: 5px;" align="center">Weight</th>
+                    <th style="padding: 5px;" align="center">Volume</th>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;" align="center" id="WeightLabel"><%= receipt.get("Weight")%></td>
+                    <td style="padding: 5px;" align="center" id="VolumeLabel"><%= receipt.get("Volume")%></td>
 				 </tr>
 			 </table>			    
 	        
@@ -55,13 +56,20 @@
 			<h5><b>Box:</b></h5><div id="BoxLabel"><%= box.get("Num")%></div>
 			<h5><b>Zone:</b></h5><div id="ZoneLabel"><%= receipt.get("Zone")%></div>
 
-			  <div style="position:relative; left:233px;  top: -206px;">
+            <div style="position:relative; left:233px;  top: -206px;">
 			<div id="qrcodeLabel-<%=i%>"></div>
+            </div>
 		
         <br><br><br>
 
 
-		<script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), "<%= JSON.stringify({Receipt:receipt.id, NumBox:box.get("Num")}) %>"); </script>
+		<script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), 
+                                {
+                                    text:"<%= JSON.stringify({Receipt:receipt.id, NumBox:box.get("Num")}) %>",
+                                    width: 200,
+                                    height: 200,
+                                }); 
+        </script>
 
     <% i+=1; }) %>
 
