@@ -1,0 +1,35 @@
+Print Receipt:
+*-* Print/ Send -> Delete
+*-* add address to company in receipts.
+*-* Correct Time.
+*-* Change SHipper to Store and add address.
+*-* Tabla de Pieces y weight esta mal.
+*-* User who made the receipt tiene que ser el user no el consignee.
+
+*-* Print Label/ Print Receipt/ Print warehouse table.
+
+*-* Client Session.
+
+*-* Los receipts cuando ya todas sus cajas fueron reempacadas debe seguir apareciendo en la warehouse list hasta que todos sus repacks sean enviados.
+Dira 0 Cajas de tantas y cuando lo abres te dira en que repacks estan.
+
+
+*-* Error el cliente registra aunque ya haya uno y hace duplicados.
+*-* Igual en las tiendas.
+
+
+*-* Filtro by client y store deben salir autofill.
+
+*-* Filtro Receipt no sirve.
+
+*-* Quitar Transport en filtros.
+*-* Quitar invoice en filtros.
+
+
+*-* Corregir Country en filtro.
+*-* Emails.
+
+
+Add/Delete Staff.
+Add/ Delete Warehouses.
+Repack que pida Transportation afuerza.

@@ -296,6 +296,7 @@
                                             <p>
                                                 <label><font color="#35353C">E-mail address:</font></label></br></br>
                                                 <input type="email" name="re_email" id="re_email" class="input" placeholder="e-mail" size="34" />
+												<input type="hidden" value="<%= company.get("companyLink") %>" name="companyLink">
                                             </p>
 
                                             </br>
@@ -372,7 +373,6 @@
                             <div class="col-md-12">
                                 <!-- row -->
                                 <div class="row">
-
 
                                     <!-- form -->
                                     <form id="contactform" class="contactform" method="post" action="/<%= company.get("companyLink") %>" align="center">
@@ -694,7 +694,7 @@
         <script>
             
             var $j = jQuery.noConflict();
-            
+   
             var nwarehouses = 1;
             
             $j(function(){
