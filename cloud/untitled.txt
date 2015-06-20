@@ -1,35 +1,64 @@
+
+
+DONE - Repack que pida Transportation afuerza.
+DONE *-* Agregar Address a las companies al momento de suscribirse
+
+DONE *-* Error el cliente registra aunque ya haya uno y hace duplicados.
+DONE *-* Igual en las tiendas.
+DONE *-* Igual en las COMPANIES.
+
+
+*-* Emails.
+DONE *-* Al registrar correctamente company, enviar email a root y contact email
+DONTWORK *-* Al registrar correctamente store y client
+
+
 Print Receipt:
 *-* Print/ Send -> Delete
-*-* add address to company in receipts.
-*-* Correct Time.
-*-* Change SHipper to Store and add address.
+DONE *-* add address to company in receipts.
+DONE *-* Correct Time.
+DONE *-* Change SHipper to Store and add address.
 *-* Tabla de Pieces y weight esta mal.
-*-* User who made the receipt tiene que ser el user no el consignee.
+DONE *-* User who made the receipt tiene que ser el user no el consignee.
 
 *-* Print Label/ Print Receipt/ Print warehouse table.
 
-*-* Client Session.
+DONE *-* Client Session.
+    ¿Que va en esa seccion?
 
 *-* Los receipts cuando ya todas sus cajas fueron reempacadas debe seguir apareciendo en la warehouse list hasta que todos sus repacks sean enviados.
 Dira 0 Cajas de tantas y cuando lo abres te dira en que repacks estan.
 
 
-*-* Error el cliente registra aunque ya haya uno y hace duplicados.
-*-* Igual en las tiendas.
 
+
+    FILTROS
 
 *-* Filtro by client y store deben salir autofill.
-
 *-* Filtro Receipt no sirve.
-
 *-* Quitar Transport en filtros.
 *-* Quitar invoice en filtros.
-
-
 *-* Corregir Country en filtro.
-*-* Emails.
+
+
 
 
 Add/Delete Staff.
 Add/ Delete Warehouses.
-Repack que pida Transportation afuerza.
+
+
+
+---------
+LA TABLA DE SELECTBOXES EN REPACK DEBE TENER LOS CAMPOS QUE SALEN AL DAR NEWRECEIPT
+
+MOSTRAR RESULT AL ACEPTAR REPACK Y PERMITIR IMPRIMIR LABEL Y RECEIPT (IGUAL QUE EN NEWRECEIPT)
+
+
+
+DETALLES
+    newlabel
+        Internal notes?
+        
+    el email no se puede repetir en Users
+
+LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
