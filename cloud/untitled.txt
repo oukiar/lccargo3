@@ -1,4 +1,33 @@
 
+Mejorar los mensajes de error de registros y que los campos reaparezcan con la informacion 
+que ya se habia introducido previamente por el usuario
+
+El consigne sale undefined en destination de cliente, checar que onda ahi
+
+Hacer que el print receipt sea lo mas detallado similar al de stephy
+
+Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
+
+En repack mostrar instrucciones sobre como usar esa parte, osea que diga busca un user
+para seleccionar sus cajas o algo asi
+
+En seleccion de cajas de repack cambiar RPrice por Weight o algo de la boxes que se necesita al reempacar
+
+En repack que weight lb y kb esten ligados y se autoactualizen
+
+En save repack, verificar que almenos metan una linea de boxes, es erroneo hacer un receipt sin cajas
+
+Al hacer save, cerrar form de repack y mostrar modal dialog de imprimir label y receipt
+
+En warehouses porque un repack marca  ??? ... verificar en dynamictable
+
+IMPORTANTE: Actualizar terrestral y sea que al dar process sea cuando se cheque si ya fueron reempacadas las cajas de 
+los reeipt que pertenezcan al repack
+
+En warehouses si el repackprice esta undefined, mostrar un -
+
+Manejar hasta 2 decimales
+
 
 DONE - Repack que pida Transportation afuerza.
 DONE *-* Agregar Address a las companies al momento de suscribirse

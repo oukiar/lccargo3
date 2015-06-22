@@ -89,10 +89,14 @@
                                         <div class="col-xs-6 invoice-infoblock pull-left">
                                         <h3><b>Store:</b></h3>
                                         <address>
+                                            <%if(typeof( receipt.get("Shipper") ) == "undefined"){%>
+                                            <h4><div id="ShipperReceipt">Repack</div></h4>
+                                            <%}else{%>
                                             <h4><div id="ShipperReceipt"><%= receipt.get("Shipper").get("Name")%></div></h4>
                                             <span class='text-muted'>
                                                 <div id="AddrReceipt"><%= receipt.get("Shipper").get("Address")%></div>
                                             </span>
+                                            <%}%>
                                         </address>
                                     </div>
 
@@ -159,14 +163,24 @@
                                                 <tr>
                                                 <tr style="background:#FF8080;">
                                                     <td>Total Pieces:</td>
-                                                    <td class="text-center">Total Weight</td>
+                                                    <%if(typeof( receipt.get("Shipper") ) == "undefined"){%>
+                                                        <td class="text-center">Total Price</td>
+                                                    <%}else{%>
+                                                        <td class="text-center">Total Weight</td>
+                                                    <%}%>
                                                     <td class="text-right">Total Volume</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td class="text-center"><h5><b><div id="TotalPieces"><%= receipt.get("TotalBoxes")%></div></b></h5></td>
-                                                    <td class="text-center"><h5><b><div id="TotalWeight"><%= receipt.get("Weight")%></div></b></h5></td>
+                                                    <td class="text-center"><h5><b><div id="TotalWeight">
+                                                        <%if(typeof( receipt.get("Shipper") ) == "undefined"){%>
+                                                            <%= receipt.get("Value")%></div></b></h5>
+                                                        <%}else{%>
+                                                            <%= receipt.get("Weight")%></div></b></h5>
+                                                        <%}%>
+                                                    </td>
                                                     <td class="text-right"><h5><b><div id="TotalVolume"><%= receipt.get("Volume")%></div></b></h5></td>
                                                 </tr>
                                             <tr><td></td><td></td></tr>
