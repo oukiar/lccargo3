@@ -1,18 +1,20 @@
 
+DONE - Funcion de guardar en forms de editar receipt y repack
+DONE - Auto fill de client y store en filtro.
+
 Unpack
-Poder ver la info de los clientes y stores seleccionados en el new receipt.Agregar un boton junto a shiper y consigne para ver el detalle de su info
-
-Abrir la cajita de store y client info que tenemos en los stores y clients pending sections para también poder ver la info de los clientes y tiendas desde la tabla.
-Receipt # en filtro no sirve.
-Auto fill de client y store en filtro.
-
-
-Poner imagen de loading al mostrar editar receipt y repack
-
-
-Funcion de guardar en forms de editar receipt y repack
 
 Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
+
+Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
+    un boton junto a shiper y consigne para ver el detalle de su info
+
+Abrir la cajita de store y client info que tenemos en los stores y clients pending sections 
+    para también poder ver la info de los clientes y tiendas desde la tabla.
+
+Receipt # en filtro no sirve.
+
+Poner imagen de loading al mostrar editar receipt y repack
 
 En print receipt el consigne destination sale undefined en destination de cliente, checar que onda ahi
 
@@ -32,7 +34,6 @@ En lista de warehouses al mostrar las cajas de repacks algo raro pasa con el num
 DONTWORK *-* Al registrar correctamente store y client
 
 LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
-
 
 Print Receipt:
 *-* Print/ Send -> Delete
