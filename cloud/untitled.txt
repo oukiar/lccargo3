@@ -38,6 +38,9 @@ DONE *-* Al registrar correctamente company, enviar email a root y contact email
 
 DONE - En repack que weight lb y kb esten ligados y se autoactualizen
 
+
+Poner imagen de loading al mostrar editar receipt y repack
+
 Agregar un boton junto a shiper y consigne para ver el detalle de su info
 
 Funcion de guardar en forms de editar receipt y repack
