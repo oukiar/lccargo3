@@ -5,31 +5,16 @@ DONE - En save repack, verificar que almenos metan una linea de boxes, es errone
 
 DONE - En seleccion de cajas de repack cambiar RPrice por Weight o algo de la boxes que se necesita al reempacar
 
+DONE - Limpiar forms de new client y shipper en newlabel
 
-- Forms de editar receipt en warehouses
+DONE - Forms de editar receipt en warehouses
 
-Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
-
-El consigne sale undefined en destination de cliente, checar que onda ahi
-
-Hacer que el print receipt sea lo mas detallado similar al de stephy
-
-IMPORTANTE: Actualizar terrestral y sea que al dar process sea cuando se cheque si ya fueron reempacadas las cajas de 
+DONE - IMPORTANTE: Actualizar terrestral y sea que al dar process sea cuando se cheque si ya fueron reempacadas las cajas de 
 los reeipt que pertenezcan al repack
 
-
-Mejorar los mensajes de error de registros y que los campos reaparezcan con la informacion 
-que ya se habia introducido previamente por el usuario
-
-En repack mostrar instrucciones sobre como usar esa parte, osea que diga busca un user
-para seleccionar sus cajas o algo asi
-
-En repack que weight lb y kb esten ligados y se autoactualizen
-
-Mostrar hasta 2 decimales en los lugares donde salen numeros floats
-
-En lista de warehouses al mostrar las cajas de repacks algo raro pasa con el numero del receipt en el modaldialog
-
+DONE *-* add address to company in receipts.
+DONE *-* Correct Time.
+DONE *-* Change SHipper to Store and add address.
 DONE - Repack que pida Transportation afuerza.
 DONE *-* Agregar Address a las companies al momento de suscribirse
 
@@ -37,30 +22,54 @@ DONE *-* Error el cliente registra aunque ya haya uno y hace duplicados.
 DONE *-* Igual en las tiendas.
 DONE *-* Igual en las COMPANIES.
 
+DONE *-* Client Session.
+    ¿Que va en esa seccion?
+
+DONE *-* Los receipts cuando ya todas sus cajas fueron reempacadas debe seguir apareciendo en la warehouse list hasta que todos sus repacks sean enviados.
+     Dira 0 Cajas de tantas y cuando lo abres te dira en que repacks estan.
+
+DONE *-* User who made the receipt tiene que ser el user no el consignee.
+
+DONE - LA TABLA DE SELECTBOXES EN REPACK DEBE TENER LOS CAMPOS QUE SALEN AL DAR NEWRECEIPT
+
+DONE - MOSTRAR RESULT AL ACEPTAR REPACK Y PERMITIR IMPRIMIR LABEL Y RECEIPT (IGUAL QUE EN NEWRECEIPT)
+
+DONE *-* Al registrar correctamente company, enviar email a root y contact email
+
+DONE - En repack que weight lb y kb esten ligados y se autoactualizen
+
+Agregar un boton junto a shiper y consigne para ver el detalle de su info
+
+Funcion de guardar en forms de editar receipt y repack
+
+Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
+
+En print receipt el consigne destination sale undefined en destination de cliente, checar que onda ahi
+
+Hacer que el print receipt sea lo mas detallado similar al de stephy
+
+Mejorar los mensajes de error de registros y que los campos reaparezcan con la informacion 
+que ya se habia introducido previamente por el usuario
+
+En repack mostrar instrucciones sobre como usar esa parte, osea que diga busca un user
+para seleccionar sus cajas o algo asi
+
+Mostrar hasta 2 decimales en los lugares donde salen numeros floats
+
+En lista de warehouses al mostrar las cajas de repacks algo raro pasa con el numero del receipt en el modaldialog
 
 *-* Emails.
-DONE *-* Al registrar correctamente company, enviar email a root y contact email
 DONTWORK *-* Al registrar correctamente store y client
+
+LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
 
 
 Print Receipt:
 *-* Print/ Send -> Delete
-DONE *-* add address to company in receipts.
-DONE *-* Correct Time.
-DONE *-* Change SHipper to Store and add address.
+
 *-* Tabla de Pieces y weight esta mal.
-DONE *-* User who made the receipt tiene que ser el user no el consignee.
 
 *-* Print Label/ Print Receipt/ Print warehouse table.
-
-DONE *-* Client Session.
-    ¿Que va en esa seccion?
-
-*-* Los receipts cuando ya todas sus cajas fueron reempacadas debe seguir apareciendo en la warehouse list hasta que todos sus repacks sean enviados.
-Dira 0 Cajas de tantas y cuando lo abres te dira en que repacks estan.
-
-
-
 
     FILTROS
 
@@ -70,25 +79,6 @@ Dira 0 Cajas de tantas y cuando lo abres te dira en que repacks estan.
 *-* Quitar invoice en filtros.
 *-* Corregir Country en filtro.
 
-
-
-
 Add/Delete Staff.
 Add/ Delete Warehouses.
 
-
-
----------
-DONE - LA TABLA DE SELECTBOXES EN REPACK DEBE TENER LOS CAMPOS QUE SALEN AL DAR NEWRECEIPT
-
-DONE - MOSTRAR RESULT AL ACEPTAR REPACK Y PERMITIR IMPRIMIR LABEL Y RECEIPT (IGUAL QUE EN NEWRECEIPT)
-
-
-
-DETALLES
-    newlabel
-        Internal notes?
-        
-    el email no se puede repetir en Users
-
-LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
