@@ -1,10 +1,13 @@
 
 DONE - Funcion de guardar en forms de editar receipt y repack
-DONE - Auto fill de client y store en filtro.
 DONE - Unpack
+DONE - Receipt # en filtro no sirve.
+DONE - En warehouses si el receipt no tiene destination, mostrar el Country del consignee
+DONE - Componer el data provider que no maneja bien cuando el campo es null
 
+Auto fill de client y store en filtro.
 
-Receipt # en filtro no sirve.
+Poder elejir destination Custom en destinations
 
 Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
 
