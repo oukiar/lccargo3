@@ -279,12 +279,65 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
         
         /* CLIENT AUTOFILL ON FILTER */    
         if($("#"+filterby).val() == "Consignee")
-        {
-            
+        {            
+            $("#"+searchtext).keyup(function(){
+                                    
+                    if($("#"+searchtext).val().length <= 2)
+                        return;
+                    
+                    var myval = $("#"+searchtext).val();
+                    
+                    var query = new Parse.Query("Clients");
+                    query.descending('createdAt');
+                    query.equalTo("Company", {__type: "Pointer", className: "Companies", objectId: user.get("Company").id} );
+                    query.startsWith("Name", myval.toUpperCase());
+                    
+                    query.find({
+                        success: 
+                            function(results)
+                            {
+                                var newresult = [];
+                                
+                                for(i in results)
+                                    newresult.push({label:results[i].get("Name"), idx:results[i].id});
+                                    
+                                $("#"+searchtext).autocomplete({source: newresult});   
+                                $("#"+searchtext).trigger("keydown");
+                            }
+                        });
+                
+                });
+        }
+        else if($("#"+filterby).val() == "Shipper")
+        {            
+            $("#"+searchtext).keyup(function(){
+                                    
+                    if($("#"+searchtext).val().length <= 2)
+                        return;
+                    
+                    var myval = $("#"+searchtext).val();
+                    
+                    var query = new Parse.Query("Agencies");
+                    query.descending('createdAt');
+                    query.equalTo("Company", {__type: "Pointer", className: "Companies", objectId: user.get("Company").id} );
+                    query.startsWith("Name", myval.toUpperCase());
+                    
+                    query.find({
+                        success: 
+                            function(results)
+                            {
+                                var newresult = [];
+                                
+                                for(i in results)
+                                    newresult.push({label:results[i].get("Name"), idx:results[i].id});
+                                    
+                                $("#"+searchtext).autocomplete({source: newresult});   
+                                $("#"+searchtext).trigger("keydown");
+                            }
+                        });
+                
+                });
         }
     }
 }
-
-
- 
 

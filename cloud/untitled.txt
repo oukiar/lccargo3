@@ -4,10 +4,25 @@ DONE - Unpack
 DONE - Receipt # en filtro no sirve.
 DONE - En warehouses si el receipt no tiene destination, mostrar el Country del consignee
 DONE - Componer el data provider que no maneja bien cuando el campo es null
+DONE - Auto fill de client y store en filtro.
+DONE - Poder elejir destination Custom en destinations, util para cuando el cliente no tiene destinations
 
-Auto fill de client y store en filtro.
+FILTROS
+    DONE *-* Filtro by client y store deben salir autofill.
+    DONE *-* Filtro Receipt no sirve.
+    DONE *-* Quitar Transport en filtros.
+    DONE *-* Quitar invoice en filtros.
+    DONE *-* Corregir Country en filtro.
+    *-* Filtro en seccion Clients/Warehouse no funciona
+    *-* Filtro en seccion Stores/Warehouse no funciona
 
-Poder elejir destination Custom en destinations
+USEFUL? - Poner como primer opcion de destination el Country del cliente en newreceipt
+
+Add/Delete Staff.
+
+Add/Delete Warehouses.
+
+Agregar paginador cada 100 registros en TODAS las tablas
 
 Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
 
@@ -45,14 +60,5 @@ Print Receipt:
 
 *-* Print Label/ Print Receipt/ Print warehouse table.
 
-    FILTROS
 
-*-* Filtro by client y store deben salir autofill.
-*-* Filtro Receipt no sirve.
-*-* Quitar Transport en filtros.
-*-* Quitar invoice en filtros.
-*-* Corregir Country en filtro.
-
-Add/Delete Staff.
-Add/ Delete Warehouses.
 
