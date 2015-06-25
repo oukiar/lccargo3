@@ -177,6 +177,7 @@ function filter_conditions(filterby, searchtext, filterdate)
     if(typeof filterby == "undefined") filterby = "filterby";
     if(typeof searchtext == "undefined") searchtext = "searchtext";
     if(typeof filterdate == "undefined") filterdate = "filterdate";
+
     
     //DATE INTERVAL
     if($("#"+filterby).val() == "Date")

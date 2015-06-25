@@ -1,8 +1,10 @@
 
 DONE - Funcion de guardar en forms de editar receipt y repack
 DONE - Auto fill de client y store en filtro.
+DONE - Unpack
 
-Unpack
+
+Receipt # en filtro no sirve.
 
 Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
 
@@ -11,8 +13,6 @@ Poder ver la info de los clientes y stores seleccionados en el new receipt, agre
 
 Abrir la cajita de store y client info que tenemos en los stores y clients pending sections 
     para también poder ver la info de los clientes y tiendas desde la tabla.
-
-Receipt # en filtro no sirve.
 
 Poner imagen de loading al mostrar editar receipt y repack
 
