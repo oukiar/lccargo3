@@ -276,6 +276,12 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
         $("#"+filterdate).change(function(){
                 updatetable();
             }); 
+        
+        /* CLIENT AUTOFILL ON FILTER */    
+        if($("#"+filterby).val() == "Consignee")
+        {
+            
+        }
     }
 }
 
