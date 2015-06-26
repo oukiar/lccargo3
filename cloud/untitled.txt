@@ -6,6 +6,7 @@ DONE - En warehouses si el receipt no tiene destination, mostrar el Country del 
 DONE - Componer el data provider que no maneja bien cuando el campo es null
 DONE - Auto fill de client y store en filtro.
 DONE - Poder elejir destination Custom en destinations, util para cuando el cliente no tiene destinations
+DONE - Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
 
 FILTROS
     DONE *-* Filtro by client y store deben salir autofill.
@@ -16,18 +17,17 @@ FILTROS
     *-* Filtro en seccion Clients/Warehouse no funciona
     *-* Filtro en seccion Stores/Warehouse no funciona
 
-USEFUL? - Poner como primer opcion de destination el Country del cliente en newreceipt
+- Poner como primer opcion de destination el Country del cliente en newreceipt
+
+- Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
+    un boton junto a shiper y consigne para ver el detalle de su info
+
 
 Add/Delete Staff.
 
 Add/Delete Warehouses.
 
 Agregar paginador cada 100 registros en TODAS las tablas
-
-Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
-
-Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
-    un boton junto a shiper y consigne para ver el detalle de su info
 
 Abrir la cajita de store y client info que tenemos en los stores y clients pending sections 
     para también poder ver la info de los clientes y tiendas desde la tabla.

@@ -26,48 +26,117 @@
         <% include ../../../generals/ultraAdmin.ejs %>
     
         <script src="/cod/js/common.js"></script>
-        
+    
+<style type="text/css">
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 6pt "Tahoma";
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        width: 6in;
+        min-height: 4in;
+        padding: 20mm;
+        margin: 10mm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .subpage {
+        padding: 2mm;
+        border: 3px red solid;
+        height: 3.7in;
+        outline: 2cm #FFEAEA solid;
+    }
+    
+    @page {
+        size: 6in 4in;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 6in;
+            height: 4in;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+</style>
         
     </head>
 <body>
     <% var i=0; boxes.forEach(function(box){ %>
-        <!--MODAL PARA MOSTAR LABEL-->
-			<h2><%= receipt.get("Company").get("name")%></h2>
+    
+    
+    <div class="page">
+        <div class="subpage">
+    
+            <!--MODAL PARA MOSTAR LABEL-->
+			<h2><b><%= receipt.get("Company").get("name")%></b></h2>
             
-			
-            <h4><b>Receipt#: <%= receipt.get("ReceiptNum")%></b></h4>
-			<h4><b>User: <%= receipt.get("ReceiptBy").get("Name")%></b></h4>
-			<h4><b>Destination: <%= receipt.get("Destination")%></b></h4>
-			<h4><b>Hour: <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></b></h4>
-			
-			<table style="margin-left:250px;">
-				<tr>
-                    <th style="padding: 5px;" align="center">Weight</th>
-                    <th style="padding: 5px;" align="center">Volume</th>
-                </tr>
+            <table width="400">
                 <tr>
-                    <td style="padding: 5px;" align="center" id="WeightLabel"><%= receipt.get("Weight")%></td>
-                    <td style="padding: 5px;" align="center" id="VolumeLabel"><%= receipt.get("Volume")%></td>
-				 </tr>
-			 </table>			    
-	        
-			<h5><b>Shipper:</b></h5><div id="ShipperLabel"><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></div>
-			<h5><b>Consignee:</b></h5><div id="ConsigneeLabel"><%= receipt.get("Consignee").get("Name")%></div>
-			<h5><b>Box:</b></h5><div id="BoxLabel"><%= box.get("Num")%></div>
-			<h5><b>Zone:</b></h5><div id="ZoneLabel"><%= receipt.get("Zone")%></div>
-
-            <div style="position:relative; left:233px;  top: -206px;">
-			<div id="qrcodeLabel-<%=i%>"></div>
-            </div>
-		
-        <br><br><br>
-
+                    <td>
+                        <table>
+                            <tr><td><h4>Receipt#: <%= receipt.get("ReceiptNum")%></h4></td></tr>
+                            <tr><td><h6>User: <%= receipt.get("ReceiptBy").get("Name")%></h6></td></tr>
+                            <tr><td><h6>Destination: <%= receipt.get("Destination")%></h6></td></tr>
+                            <tr><td><h6>Hour: <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h6></td></tr>
+                                                 
+                            <tr><td><h6>Shipper: <%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h6></td></tr>
+                            <tr><td><h6>Consignee: <%= receipt.get("Consignee").get("Name")%></h6></td></tr>
+                            <tr><td><h6>Box: <%= box.get("Num")%></h6></td></tr>
+                            <tr><td><h6>Zone: <%= receipt.get("Zone")%></h6></td></tr>
+                        </table>
+                    </td>
+                    <td valign="top">
+                        <table>
+                            <tr>
+                                <td style="padding: 5px;" align="center">Weight</td>
+                                <td style="padding: 5px;" align="center">Volume</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;" align="center"><%= receipt.get("Weight")%></td>
+                                <td style="padding: 5px;" align="center"><%= receipt.get("Volume")%></td>
+                             </tr>
+                            <tr>
+                                <td align="right" valign="bottom" colspan=2>
+                                    <div id="qrcodeLabel-<%=i%>"></div>
+                                </td>
+                            </tr>
+                             
+                        </table>   
+                        
+                        
+                                     
+                    </td>
+                </tr>
+			</table>
+            
+        </div>
+    </div>
 
 		<script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), 
                                 {
                                     text:"<%= JSON.stringify({Receipt:receipt.id, NumBox:box.get("Num")}) %>",
-                                    width: 200,
-                                    height: 200,
+                                    width: 128,
+                                    height: 128,
                                 }); 
         </script>
 
