@@ -24,122 +24,184 @@
 		  <% include generals/topbar.ejs %>
          <!-- START CONTAINER -->
          <div class="page-container row-fluid">
-		<% include generals/sidebar.ejs %>
+		<% include generals/sideBar.ejs %>
          <!-- SIDEBAR - START -->
  		
          <!--  SIDEBAR - END -->
 			
+		
 			
-             <!-- START CONTENT -->
-         
-            <section class="wrapper" style='margin-top:60px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
+	              <!-- START CONTENT -->
+         <div style="position:relative; left:144px;">
+	             <section class="wrapper" style='margin-top:60px;display:inline-block;width:100%;'>
 
-               <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-               <div class="page-title">
-               <div class="pull-left">
+	                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+	                <div class="page-title">
+	                <div class="pull-left">
  			
-               <h1 class="title">Information</h1>
- 		       <div style="margin-left:30%; width:500px;">
+	              <div style="position:relative; left:144px;">  <h1 class="title">Personal Information</h1></div>
+	  		       <div style="margin-left:30%; width:500px;">
 			  
- 	<form name="regClientform" action="/addStaff" method="post">
-      <div class="content-body">    <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+	  	<form name="clientEmails" action="/">
+	       <div class="content-body">    <div class="row">
+	               <div class="col-md-12 col-sm-12 col-xs-12">
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">Full Name:</label>
-                      <div class="controls">
-                          <input type="text" class="form-control" maxlength="55" id="storeName" name="storeName" value="<%= client.get('Name') %>" >
-                      </div>
-                  </div>
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">Language:</label>
-                      <div class="controls">
-                          <input type="text" class="form-control"  id="storeContact" name="storeContact">
-                      </div>
-                  </div>
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">Full Name:</label>
+	                       <div class="controls">
+	                           <input type="text" class="form-control" maxlength="55" id="clientName" name="clientName" value="<%= client.get('Name') %>" >
+	                       </div>
+	                   </div>
+
+	                   <div class="form-group">
+                           <label class="form-label" for="field-1">Language:</label>
+                           <div class="controls">
+							<select  class="multi-select" id="clientLanguage" name="clientLanguage">
+				            <option value="Spanish">Spanish</option>
+				            <option value="English">English</option>
+				            </select>
+                           </div>
+	                   </div>
 
                   
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">ID:</label>
-                      <div class="controls">
-                          <input type="text" class="form-control" maxlength="55" id="storeID" name="storeID" value="<%= client.get('ID1') %>">
-                      </div>
-                  </div>
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">ID:</label>
+	                       <div class="controls">
+	                           <input type="text" class="form-control" maxlength="55" id="clientID1" name="clientID1" value="<%= client.get('ID1') %>">
+	                       </div>
+	                   </div>
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">Telephone:</label>
-                      <div class="controls">
-                          <input maxlength="55" id="storeTelephone" name="storeTelephone" type="text" class="form-control"  value="<%= client.get('Telephone') %>">
-                      </div>
-                  </div>
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">Telephone:</label>
+	                       <div class="controls">
+	                           <input maxlength="55" id="clientTelephone" name="clientTelephone" type="text" class="form-control"  value="<%= client.get('Telephone') %>">
+	                       </div>
+	                   </div>
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">Email:</label>
-                      <div class="controls">
-                          <input type="text" class="form-control" maxlength="55" id="storeEmail" name="storeEmail" value="<%= client.get('Email') %>" >
-                      </div>
-                  </div>
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">Email:</label>
+	                       <div class="controls">
+	                           <input type="text" class="form-control" maxlength="55" id="clientEmail" name="clientEmail" value="<%= client.get('Email') %>" >
+	                       </div>
+	                   </div>
 				  
-                 
+	                   
+	     
+	 	<div class="form-group">
+	 	<input type="button" id="btn_registerStore" style="length:50px;" value="Update Information" class="pure-button pure-button-primary">
+	    </div>
 
-                  <div class="form-group">
-                      <label class="form-label" for="field-1">Destinations:</label>
-                      <div class="controls">
-  			 	        <input type="text" class="form-control" maxlength="200" id="storeAddress" name="storeAddress">
-                          <input type="hidden" id="storeAlias" name="storeAlias">
-                          <input type="hidden" id="storeAddress" name="storeAddress">
-                          <input type="hidden" id="storeCountry" name="storeCountry">
-                          <input type="hidden" id="storeCountryCode" name="storeCountryCode">
-                          <input type="hidden" id="storeGeoCode" name="storeGeoCode">
-                      </div>
-                  </div>
-
-             
-				 <div class="form-group">
-				  <input type="button" id="btn_registerStore" style="length:50px;" value="submit" class="pure-button pure-button-primary">
-                 </div>
-
-                 </div>
-              </div>
-            </div>
-       </section>
-     </form>
-   </div>
- 		     </div>
-             </div>
-             </div>
-             </section>
-             </section>
-             <!-- END CONTENT -->
-             </div><!-- END CONTAINER -->
-             <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
-             <!-- modal end -->
-			
-<%include ../generals/endFiles.ejs%>
-
-<script>
-    /* REGISTRATION STORE PROCESS */
-    $("#btn_registerStore").click(function(){
-            var Agencies = Parse.Object.extend("Agencies");
-            var agency = new Agencies();
+	                  </div>
+	               </div>
+	             </div>
+	        </section>
+	      </form>
+	    </div>
+	  		     </div>
+	              </div>
+	              </div>
+	              </section>
+	             
+	              <!-- END CONTENT -->
+	              </div><!-- END CONTAINER -->
+	              <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+	              <!-- modal end -->
+		</div>
 		
-            agency.set("Name", $("#storeName").val() );
-            agency.set("Email", $("#storeEmail").val() );
-			agency.set("Contact", $("#storeContact").val() );
-			agency.set("ID1", $("#storeID").val() );
-            agency.set("Telephone", $("#storeTelephone").val() );
-            agency.set("Address", $("#storeAddress").val() );
-            agency.set("Country", $("#storeCountry").val() );
-            agency.set("CountryCode", $("#storeCountryCode").val() );
-            agency.set("GeoCode", $("#storeGeoCode").val() );
-            agency.set("Company", user.get("Company") );
-            agency.save({success:function(agency){
-            
-                }});
-        });
+		
+	              <!-- START CONTENT -->
+         <div style="position:relative; left:144px; top:5px;">
+	             <section class="wrapper" style='display:inline-block;width:100%;'>
 
-</script>
+	                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+	                <div class="page-title">
+	                <div class="pull-left">
+ 			
+	              <div style="position:relative; left:144px;">  <h1 class="title">Destinations</h1></div>
+	  		       <div style="margin-left:30%; width:500px;">
+			  
+	  	<form name="clientDestinations" action="/">
+	       <div class="content-body">
+			   <div class="row">
+	               <div class="col-md-12 col-sm-12 col-xs-12">
+
+	 	        <div class="form-group">
+	 	        <label class="form-label" for="field-1">Destination:</label>
+	 	        <div class="controls">
+	 	        <input type="text" class="form-control" maxlength="200" id="clientAddress" name="clientAddress">
+	 	        <input type="hidden" id="clientAlias" name="clientAlias">
+	 	        <input type="hidden" id="clientAddress" name="clientAddress">
+	 	        <input type="hidden" id="clientCountry" name="clientCountry">
+	 	        <input type="hidden" id="clientCountryCode" name="clientCountryCode">
+	 	        <input type="hidden" id="clientGeoCode" name="clientGeoCode">
+	 			
+	 	        </div>
+	 	        </div>
+				
+			 	<div class="form-group">
+			 	<input type="button" id="btn_registerStore" style="length:50px;" value="Update Destinations" class="pure-button pure-button-primary">
+			    </div>
+
+	  		     </div>
+	              </div>
+	              </div>
+	              </section>
+	             
+	              <!-- END CONTENT -->
+	              </div><!-- END CONTAINER -->
+	              <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+	              <!-- modal end -->
+				  
+				  
+		  	       <!-- START CONTENT -->
+		           <div style="position:relative; left:144px; top:5px;">
+		  	          <section class="wrapper" style='display:inline-block;width:100%;'>
+		  	                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+		  	                <div class="page-title">
+		  	                <div class="pull-left">
+ 			
+		  	              <div style="position:relative; left:144px;">  <h1 class="title">Password:</h1></div>
+		  	  		       <div style="margin-left:30%; width:500px;">
+			  
+		  	  	<form name="clientPass" action="/">
+		  	       <div class="content-body">
+		  			   <div class="row">
+		  	               <div class="col-md-12 col-sm-12 col-xs-12">
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">New Password:</label>
+	                       <div class="controls">
+	                           <input type="password" class="form-control" maxlength="55" id="clientPassword" name="clientPassword"  >
+	                       </div>
+	                   </div>
+					   
+	                   <div class="form-group">
+	                       <label class="form-label" for="field-1">Re-type New Password:</label>
+	                       <div class="controls">
+	                           <input type="password" class="form-control" maxlength="55" id="clientRTPassword" name="clientRTPassword"  >
+	                       </div>
+	                   </div>
+		  	 	     
+			 	 	<div class="form-group">
+			 	 	<input type="button" id="btn_registerStore" style="length:50px;" value="Change Password" class="pure-button pure-button-primary">
+			 	    </div>
+
+		  	  		     </div>
+		  	              </div>
+		  	              </div>
+		  	              </section>
+	             
+		  	              <!-- END CONTENT -->
+		  	              </div><!-- END CONTAINER -->
+		  	              <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+		  	              <!-- modal end -->		  
+		                  </div>
+		
+		
+		
+      <%include ../generals/endFiles.ejs%>
+	  
+	 
     </body>
 </html>
