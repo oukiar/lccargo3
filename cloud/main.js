@@ -54,3 +54,19 @@ Parse.Cloud.define("sendMail", function(request, response) {
         }
     });
 });
+
+
+Parse.Cloud.define("updateClientInfo", function(request, response) {
+    Parse.Cloud.useMasterKey();    
+    var user = Parse.User.current(); 
+    var query = new Parse.Query("User");
+    query.include("ClientID");
+    query.get(user.id, {success:function(usr){
+            usr.get("ClientID").set("Name", request.params.clientName );
+            usr.get("ClientID").save();
+        }});
+    
+    response.success("Update Successful!");
+	 response.error("Sorry!");
+ });
+
