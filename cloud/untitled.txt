@@ -17,10 +17,18 @@ FILTROS
     *-* Filtro en seccion Clients/Warehouse no funciona
     *-* Filtro en seccion Stores/Warehouse no funciona
 
-- Poner como primer opcion de destination el Country del cliente en newreceipt
+DONE - Poner como primer opcion de destination las Destinations, luego el Country del cliente y finalmente Custom en Destination newreceipt
 
 - Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
     un boton junto a shiper y consigne para ver el detalle de su info
+
+- En CSS hacer que el contenido derecho siempre se ajuste al centro de la pantalla
+
+- En repack, en opciones de destination llenar igual que en newreceipt
+
+- Checar trash en sesion lccargo
+
+- Checar de notprocessed a processed con lccargo
 
 
 Add/Delete Staff.
@@ -61,4 +69,57 @@ Print Receipt:
 *-* Print Label/ Print Receipt/ Print warehouse table.
 
 
+
+--------------------------  backup
+<style type="text/css">
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 6pt "Tahoma";
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        width: 6in;
+        min-height: 4in;
+        padding: 30mm;
+        margin: 10mm auto;
+        border: 1px #CCD6E0 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .subpage {
+        padding: 2mm;
+        border: 3px #718DA9 solid;
+        height: 3.7in;
+        outline: 2cm #CCD6E0 solid;
+    }
+    
+    @page {
+        size: 6in 4in;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 6in;
+            height: 4in;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+</style>
 
