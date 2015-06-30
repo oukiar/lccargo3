@@ -123,6 +123,12 @@ function date_condition(filterdate)
         nowbegin.setDate(1);
         
         var nowend = new Date();
+        nowend.setHours(23, 59);
+        
+        alert(JSON.stringify({
+                greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
+                lessThanOrEqualTo: {'ReceiptDate' : nowend}
+                }) );
         
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
