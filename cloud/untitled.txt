@@ -24,7 +24,7 @@ DONE - En repack, en opciones de destination llenar igual que en newreceipt
 DONE - Checar trash en sesion lccargo
 DONE - Checar de notprocessed a processed con lccargo
 DONE - En tabla de boxes hacer que sea scrollable para cuando son muchas cajas
-
+DONE - Icono de impresora en print labels
 
 - Asegurarse que la impresion es correcta de 6x4 y que les agrade
 
