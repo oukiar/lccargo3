@@ -23,6 +23,8 @@
     
         <script src="/cod/js/common.js"></script>
     
+
+
 <style type="text/css">
     body {
         width: 100%;
@@ -41,6 +43,10 @@
         min-height: 4in;
         padding: 30mm;
         margin: 10mm auto;
+        border: 1px #CCD6E0 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
     .subpage {
         padding: 2mm;
@@ -49,10 +55,7 @@
         outline: 2cm #CCD6E0 solid;
     }
     
-    @page {
-        size: 6in 4in;
-        margin: 0;
-    }
+    
     @media print {
         html, body {
             width: 6in;
@@ -70,6 +73,9 @@
         }
     }
 </style>
+
+
+
         
 		<script>
  function print(){
@@ -93,7 +99,7 @@
             <!--MODAL PARA MOSTAR LABEL-->
 			<h2><b><%= receipt.get("Company").get("name")%></b></h2>
             
-            <table width="400">
+            <table>
                 <tr>
                     <td>
                         <table>
@@ -101,7 +107,7 @@
                             <tr><td><h6>Receipt By: <%= receipt.get("ReceiptBy").get("Name")%></h6></td></tr>
                             <tr><td><h6>Destination: <%= receipt.get("Destination")%></h6></td></tr>
                             <tr><td><h6>Time: <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h6></td></tr>
-                                                 
+                            
                             <tr><td><h6>Shipper: <%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h6></td></tr>
                             <tr><td><h6>Consignee: <%= receipt.get("Consignee").get("Name")%></h6></td></tr>
                             <tr><td><h6>Box: <%= box.get("Num")%></h6></td></tr>
