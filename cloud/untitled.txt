@@ -19,12 +19,14 @@ FILTROS
 
 DONE - Poner como primer opcion de destination las Destinations, luego el Country del cliente y finalmente Custom en Destination newreceipt
 
-- Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
+DONE - Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
     un boton junto a shiper y consigne para ver el detalle de su info
 
-- En CSS hacer que el contenido derecho siempre se ajuste al centro de la pantalla
+DONE - En repack, en opciones de destination llenar igual que en newreceipt
 
-- En repack, en opciones de destination llenar igual que en newreceipt
+- Asegurarse que la impresion es correcta de 6x4 y que les agrade
+
+- En CSS hacer que el contenido derecho siempre se ajuste al centro de la pantalla
 
 - Checar trash en sesion lccargo
 
