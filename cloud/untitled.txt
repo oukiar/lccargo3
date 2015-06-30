@@ -28,7 +28,7 @@ DONE - Icono de impresora en print labels
 
 - Asegurarse que la impresion es correcta de 6x4 y que les agrade
 
-- En CSS hacer que el contenido derecho siempre se ajuste al centro de la pantalla
+- En CSS hacer que el contenido derecho (central) siempre se ajuste al centro de la pantalla al igual que lo hace facebook
 
 Add/Delete Staff.
 
