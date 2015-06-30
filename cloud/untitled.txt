@@ -18,16 +18,11 @@ FILTROS
     *-* Filtro en seccion Stores/Warehouse no funciona
 
 DONE - Poner como primer opcion de destination las Destinations, luego el Country del cliente y finalmente Custom en Destination newreceipt
-
 DONE - Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
     un boton junto a shiper y consigne para ver el detalle de su info
-
 DONE - En repack, en opciones de destination llenar igual que en newreceipt
-
 DONE - Checar trash en sesion lccargo
-
 DONE - Checar de notprocessed a processed con lccargo
-
 DONE - En tabla de boxes hacer que sea scrollable para cuando son muchas cajas
 
 
