@@ -38,21 +38,21 @@
         box-sizing: border-box;
         -moz-box-sizing: border-box;
     }
-    .page {
-        width: 6in;
+    .page{
+        width: 8.5in;
         min-height: 4in;
-        padding: 20mm;
+        padding: 8mm;
         margin: 5mm auto;
         border: 1px #CCD6E0 solid;
         border-radius: 5px;
         background: white;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
+           }
     .subpage {
         padding: 2mm;
         border: 3px #718DA9 solid;
         height: 3.7in;
-        outline: 1cm #CCD6E0 solid;
+        outline: .5cm #CCD6E0 solid;
     }
     
     
@@ -102,40 +102,41 @@
         <div class="subpage">
     
             <!--MODAL PARA MOSTAR LABEL-->
-			<h2><b><%= receipt.get("Company").get("name")%></b></h2>
+	   <table align="center" style="width:100%;">
+	   <tr>
+	   <td align="center">
+	   <h3><b><%= receipt.get("Company").get("name")%></b></h3></td>
+   </tr>
+	   <tr style="border-bottom:1pt solid black;">
+		   <td align="center"><h2><b>Rcpt#<%= receipt.get("ReceiptNum")%> - <%= receipt.get("Destination")%></b>
+		</h2></td>
+		</tr>
+	</table>
             
-            <table style="width:100%;">
-                <tr>
-                    <td>
-                        <table>
-                            <tr><td><h4>Receipt#: <%= receipt.get("ReceiptNum")%></h4></td></tr>
-                            <tr><td><h6>Receipt By: <%= receipt.get("ReceiptBy").get("Name")%></h6></td></tr>
-                            <tr><td><h6>Destination: <%= receipt.get("Destination")%></h6></td></tr>
-                            <tr><td><h6>Time: <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h6></td></tr>
-                            
-                            <tr><td><h6>Shipper: <%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h6></td></tr>
-                            <tr><td><h6>Consignee: <%= receipt.get("Consignee").get("Name")%></h6></td></tr>
-                            <tr><td><h6>Box: <%= box.get("Num")%></h6></td></tr>
-                            <tr><td><h6>Zone: <%= receipt.get("Zone")%></h6></td></tr>
-                        </table>
-                    </td>
-                    <td valign="top">
-                        <table>
-                            <tr>
-                                <td style="padding: 5px;" align="center">Weight</td>
-                                <td style="padding: 5px;" align="center">Volume</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 5px;" align="center"><%= receipt.get("Weight")%></td>
-                                <td style="padding: 5px;" align="center"><%= receipt.get("Volume")%></td>
-                             </tr>
-                            <tr>
-                                <td align="right" valign="bottom" colspan=2>
-                                    <div id="qrcodeLabel-<%=i%>"></div>
-                                </td>
-                            </tr>
-                             
-                        </table>   
+       <table align="right">
+       <tr>
+       <td style="padding: 5px;" align="center"><h5><b>Weight:</b> <%= receipt.get("Weight")%> lb</b></h5></td>
+       <td style="padding: 5px;" align="center"><h5><b>Volume:</b> <%= receipt.get("Volume")%> cuft</h5></td>
+       </tr>
+      
+	    </table>
+			 
+            <table>
+            <tr><td><h5 style="font-size: 17px;"><b>Shipper: </b><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h5></td></tr>
+            <tr><td><h5 style="font-size: 17px;"><b>Consignee:</b> <%= receipt.get("Consignee").get("Name")%></h5></td></tr>
+            <tr><td><h5 style="font-size: 17px;"><b>Box:</b> <%= box.get("Num")%></h5></td></tr>
+            <tr><td><h5 style="font-size: 17px;"><b>Zone:</b> <%= receipt.get("Zone")%></h5></td></tr>
+			<tr><td><h5 style="font-size: 17px;"><b>Receipt By:</b><%= receipt.get("ReceiptBy").get("Name")%></h5></td></tr>
+			<tr><td><h5 style="font-size: 17px;"><b>Time:</b> <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h5></td></tr>
+            </table>
+                    
+            <table align="right" style="position:relative; top:-180px; left:-30px;">
+            <tr>
+            <td colspan=2>
+            <div id="qrcodeLabel-<%=i%>"></div>
+            </td>
+            </tr>
+            </table>   
                         
                         
                                      
