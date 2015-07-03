@@ -26,6 +26,36 @@ DONE - Checar de notprocessed a processed con lccargo
 DONE - En tabla de boxes hacer que sea scrollable para cuando son muchas cajas
 DONE - Icono de impresora en print labels
 
+
+
+
+
+VIERNES BY OUKIAR **********
+
+DONE - Reparar tabla de Clients pending e inactive
+
+DONE - Funcion de Domestico e Internacional en newlabel y repack form
+
+DONE - Calculo de WeightVol en newlabel y repack
+
+DONE - Save en newlabel para informacion de clientes y stores
+
+DONE - Al registrarse nuevo cliente atravez de companyLink debe quedar en pendings y con user
+
+DONE - Al registrar cliente atravez de sesion staff en newlabel, debe aparecer en inactives
+
+DONE?- Checar y reparar unpacks
+
+*************
+
+
+
+
+
+- LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
+
+- Al hacer insert de nuevo registro en Clients y Agencies hacer UPPER al Name ... usar cloud before insert
+
 - Asegurarse que la impresion es correcta de 6x4 y que les agrade
 
 - En CSS hacer que el contenido derecho (central) siempre se ajuste al centro de la pantalla al igual que lo hace facebook
@@ -58,8 +88,6 @@ En lista de warehouses al mostrar las cajas de repacks algo raro pasa con el num
 *-* Emails.
 DONTWORK *-* Al registrar correctamente store y client
 
-LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
-
 Print Receipt:
 *-* Print/ Send -> Delete
 
@@ -67,94 +95,3 @@ Print Receipt:
 
 *-* Print Label/ Print Receipt/ Print warehouse table.
 
-
-
---------------------------  backup
-<style type="text/css">
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #FAFAFA;
-        font: 6pt "Tahoma";
-    }
-    * {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-    .page {
-        width: 6in;
-        min-height: 4in;
-        padding: 30mm;
-        margin: 10mm auto;
-        border: 1px #CCD6E0 solid;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-    .subpage {
-        padding: 2mm;
-        border: 3px #718DA9 solid;
-        height: 3.7in;
-        outline: 2cm #CCD6E0 solid;
-    }
-    
-    @page {
-        size: 6in 4in;
-        margin: 0;
-    }
-    @media print {
-        html, body {
-            width: 6in;
-            height: 4in;        
-        }
-        .page {
-            margin: 0;
-            border: initial;
-            border-radius: initial;
-            width: initial;
-            min-height: initial;
-            box-shadow: initial;
-            background: initial;
-            page-break-after: always;
-        }
-    }
-</style>
-
-
-
-------OK SIN ESTILO
-
-<style type="text/css">
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #FAFAFA;
-        font: 6pt "Tahoma";
-    }
-    * {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-    
-    
-    @media print {
-        html, body {
-            width: 6in;
-            height: 4in;        
-        }
-        .page {
-            margin: 0;
-            border: initial;
-            border-radius: initial;
-            width: initial;
-            min-height: initial;
-            box-shadow: initial;
-            background: initial;
-            page-break-after: always;
-        }
-    }
-</style>
