@@ -1,56 +1,15 @@
+* HAY UN BUG EN LOS FILTROS DE CLIENTES ACTIVOS- PENDING- INACTIVE. SI DEJAS EL CAMBO VACIO TE FILTRA TODO DE TODO.
+*PAGINATION EN TODAS LAS TABLAS.
 
-DONE - Funcion de guardar en forms de editar receipt y repack
-DONE - Unpack
-DONE - Receipt # en filtro no sirve.
-DONE - En warehouses si el receipt no tiene destination, mostrar el Country del consignee
-DONE - Componer el data provider que no maneja bien cuando el campo es null
-DONE - Auto fill de client y store en filtro.
-DONE - Poder elejir destination Custom en destinations, util para cuando el cliente no tiene destinations
-DONE - Imprimir en pdf con el tama;o especificado de 6x4 y que cada label salga en una hoja
 
 FILTROS
-    DONE *-* Filtro by client y store deben salir autofill.
-    DONE *-* Filtro Receipt no sirve.
-    DONE *-* Quitar Transport en filtros.
-    DONE *-* Quitar invoice en filtros.
-    DONE *-* Corregir Country en filtro.
+
     *-* Filtro en seccion Clients/Warehouse no funciona
     *-* Filtro en seccion Stores/Warehouse no funciona
 
-DONE - Poner como primer opcion de destination las Destinations, luego el Country del cliente y finalmente Custom en Destination newreceipt
-DONE - Poder ver la info de los clientes y stores seleccionados en el new receipt, agregar 
-    un boton junto a shiper y consigne para ver el detalle de su info
-DONE - En repack, en opciones de destination llenar igual que en newreceipt
-DONE - Checar trash en sesion lccargo
-DONE - Checar de notprocessed a processed con lccargo
-DONE - En tabla de boxes hacer que sea scrollable para cuando son muchas cajas
-DONE - Icono de impresora en print labels
-
-
-
-
-
 VIERNES BY OUKIAR **********
 
-DONE - Reparar tabla de Clients pending e inactive
-
-DONE - Funcion de Domestico e Internacional en newlabel y repack form
-
-DONE - Calculo de WeightVol en newlabel y repack
-
-DONE - Save en newlabel para informacion de clientes y stores
-
-DONE - Al registrarse nuevo cliente atravez de companyLink debe quedar en pendings y con user
-
-DONE - Al registrar cliente atravez de sesion staff en newlabel, debe aparecer en inactives
-
-DONE?- Checar y reparar unpacks
-
 *************
-
-
-
-
 
 - LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
 
