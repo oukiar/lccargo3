@@ -45,48 +45,33 @@
         <div class="page-container row-fluid">
         <!-- SIDEBAR - START -->
 		<% include ../../generals/sideBar.ejs %>
-        <!--  SIDEBAR - END -->
-			
-			
-        <!-- START CONTENT -->
-        <section class="wrapper" style='margin-top:60px;display:inline-block;width:100% !important;padding:15px 0 0 15px;'>
+           <!--  SIDEBAR - END -->	
+           <!-- START CONTENT -->
+      <section class="wrapper" style='margin-top:60px;display:inline-block;width:100%; padding:15px 0 0 15px;'>
          <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-         <div class="page-title">
-         <div class="pull-left" style="with:110% !important;">
+            <div class="page-title">
 		
          <h1 class="title" style="font-family: 'VT323', serif; font-size:50px; padding-left:13px;">Records</h1>
 			
            <div id="content">
-   			    
-
-   	         <div class="col-md-6 col-xs-6" style="margin-top:28px; left:21%;"></div>
-              
-   	          <div class="panel">
-   	            <div class="panel-body">
-
-   	              <ul id="list">
-                                 
+   			                    
                     <%include recordsTable.ejs%>
-                  
-   	              </ul>
-   	            </div>
-           </div>
-
-		      </div>
-              </div>
-              </div>
-            </section>
+	                             </div>   
+	                        </div>
+	                    </div>
+	                </section>
 		
-            <!-- END CONTENT -->
+	            <!-- END CONTENT -->
 
-        </div><!-- END CONTAINER -->
-
-    </div>
+	            </div><!-- END CONTAINER -->
+			</div>
+			
+   	          
     <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 
     <%include ../../generals/endFiles.ejs%>
 	
-</div>
+
 
 <script>
 

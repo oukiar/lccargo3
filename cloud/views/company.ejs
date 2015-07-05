@@ -38,7 +38,7 @@
 
      
         <script type="text/javascript" src="login/js/vendor/modernizr.custom.js"></script>
-			
+			<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=VT323">
 		
             	
 			  <style>
@@ -264,23 +264,23 @@
                     <div class="container">
                         <!-- row -->
                         <div class="row">
+                          
                             
-                            
-                            <div class="col-lg-12 loginset">
-                                <div class="col-lg-12 col-md-12">
-                                    <h1 align="center" style="margin-top:21px; margin-bottom:42px; font-size: 6em; color:rgba(50, 50, 58, 1.0);"><%= company.get("companyLink") %> </h1></div>
+                         <div class="col-lg-12 loginset">
+                           <div class="col-lg-12 col-md-12">
+                            <h1 align="center" style="margin-top:16px; margin-bottom:39px; font-size: 6em; color:rgba(50, 50, 58, 1.0);"><%= company.get("companyLink").toUpperCase() %></h1></div>
             	
                                     <form class="formlog" method="post" action="/logins">
                                         
-                                        <p class="input-field"><input type="text" name="username" id="username" placeholder="Username" /></p>
+                                        <p class="input-field"><input type="text" name="username" id="username" placeholder="Username" style="background:white;"/></p>
                                         <input type="hidden" name="company" id="company" value="<%=company.get("companyLink")%>" />
-                                        <p class="input-field" ><input type="password" name="password" id="password" placeholder="Password" /></p>        
+                                        <p class="input-field" ><input type="password" name="password" id="password" placeholder="Password" style="background:white;" /></p>        
 
                                         <button type="submit" id="nesto-submit" class="btn btn-lg btn-nesto-o center-block" style="float:center; margin-top:3px;">
                                             <span>Log In</span>
                                         </button>
                                         
-                                        <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:white; color:rgba(50, 50, 58, 1.0);" />Forgot?</a>
+                                        <a href="#openModal" class="btn btn-lg btn-nesto-o" style="position:float:right; z-index:9999; background:#eee; color:rgba(50, 50, 58, 1.0);" />Forgot?</a>
 	
                                     </form>
 			   
@@ -317,7 +317,7 @@
 
                                     <!-- slogan -->
                                     <div class="slogan wow fadeInLeft" data-wow-duration="1.5s">
-                                       <b> Register</b></br>
+                                       <b style="position:relative; top:-8px;"> Register</b></br>
                                     </div><!-- /slogan -->
 
                                     <!-- slogan-desc -->
@@ -325,11 +325,11 @@
 
                                     <!-- home-buttons -->
                                     <div class="home-buttons wow fadeInLeft" data-wow-duration="1.5s">
-                                        <a href="#contact-section" title="Download Now" class="btn btn-lg btn-nesto-home-o" data-scroll>
+                                        <a href="#contact-section" title="Download Now" class="btn btn-lg btn-nesto-home-o" style="border: black !important;" data-scroll>
                                         As a Client
                                         </a>
                                         or
-                                        <a href="#store-section" title="Read More" class="btn btn-lg btn-nesto-home-o" data-scroll>
+                                        <a href="#store-section" title="Read More" class="btn btn-lg btn-nesto-home-o" style="border: black !important;" data-scroll>
                                         As a Store
                                         </a>
                                     </div><!-- /home-buttons -->
@@ -480,8 +480,8 @@
                 
                 <br><br>
                 
-                <!-- store-section -->
-                <div id="store-section">
+              <!-- store-section -->
+              <div id="contact-section">
 
                     <!-- container -->
                     <div class="container">

@@ -929,7 +929,7 @@ strong { font-weight: 700; }
 -------------------------------------------------------------------------- */
 #home-section-container {
     z-index: 4;
-	background:white;
+	background:#eee;
     width: 100%;
 	height:auto;
     overflow: hidden;
