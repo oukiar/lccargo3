@@ -199,7 +199,7 @@ function filter_conditions(filterby, searchtext, filterdate)
     else
     { 
         return date_condition(filterdate);
-    }    
+    }
 }
 
 function filter_like_with_dict(kwargs)
@@ -230,7 +230,6 @@ function filter_like(filterby, searchtext)
         dic[$("#"+filterby).val()] = $("#"+searchtext).val();
         return dic;
     }
-    
     
 }
 	

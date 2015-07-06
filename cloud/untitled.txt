@@ -1,15 +1,21 @@
 * HAY UN BUG EN LOS FILTROS DE CLIENTES ACTIVOS- PENDING- INACTIVE. SI DEJAS EL CAMBO VACIO TE FILTRA TODO DE TODO.
 *PAGINATION EN TODAS LAS TABLAS.
 
+- Delete clients inactive, pendings y actives
+DONE - En clients information cambiar Destinations por Country
+DONE - En tabla de clients warehouse cuando es repack el shipper sale undefined
+DONE - En tabla clients warehouse las opciones del filtro Warehouse salen estaticas, deben llenarse a las bodegas de la compañia
+- Tabla de stores inactives y pending salen igual, corregir igual que se hizo con clients
+- Agregar filtro a tabla actives, inactives y pendings en clients y stores
+
 
 FILTROS
 
-    *-* Filtro en seccion Clients/Warehouse no funciona
-    *-* Filtro en seccion Stores/Warehouse no funciona
+    DONE *-* Filtro en seccion Clients/Warehouse no funciona
+    
+    DONE *-* Filtro en seccion Stores/Warehouse no funciona
+                *-* No funciona la busqueda por cliente
 
-VIERNES BY OUKIAR **********
-
-*************
 
 - LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
 
