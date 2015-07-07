@@ -15,7 +15,6 @@ Parse.Cloud.define("restore", function(request, response) {
         //obtenemos el status anterior
         oldstat = results.get("Status");
         
-        
         results.set("Status", oldstat.split(":")[1] );
         results.save();
         response.success("Receipt restored");
@@ -27,10 +26,10 @@ Parse.Cloud.define("sendMail", function(request, response) {
     Mandrill.initialize('HyML8A-jJEV4rGScp2w2Sw');
 
     Mandrill.sendEmail(
-    {
+     {
         message: 
         {
-            text: request.params.text,
+			html: "</br><img src='https://lccargoxpress.parseapp.com/login/images/logo.png' alt='Package' width='89' height='89' /><h3>LC Cargo Xpress</h3><br>" + request.params.text + "boxes </br><b>From:</b>" + request.params.shipper + "</br><b>Total Weight:</b> </br> <b>Receipt By:</b>" ,
             subject: request.params.subject,
             from_email: request.params.from_email,
             from_name: request.params.from_name,

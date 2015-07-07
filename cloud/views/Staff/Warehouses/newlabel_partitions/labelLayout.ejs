@@ -108,13 +108,13 @@
        </tr>
        </table>
    
-            <table style="position:relative; top:-13px;">
-            <tr><td><h5 style="font-size: 17px;"><b>Shipper: </b><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h5></td></tr>
-            <tr><td><h5 style="font-size: 17px;"><b>Consignee:</b> <%= receipt.get("Consignee").get("Name")%></h5></td></tr>
-            <tr><td><h5 style="font-size: 17px;"><b>Box:</b> <%= box.get("Num")%></h5></td></tr>
-            <tr><td><h5 style="font-size: 17px;"><b>Zone:</b> <%= receipt.get("Zone")%></h5></td></tr>
-            <tr><td><h5 style="font-size: 17px;"><b>Receipt By:</b><%= receipt.get("ReceiptBy").get("Name")%></h5></td></tr>
-            <tr><td><h5 style="font-size: 17px;"><b>Time:</b> <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h5></td></tr>
+       <table style="position:relative; top:-13px;">
+       <tr><td><h5 style="font-size: 17px;"><b>Shipper: </b><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h5></td></tr>
+       <tr><td><h5 style="font-size: 17px;"><b>Consignee:</b> <%= receipt.get("Consignee").get("Name")%></h5></td></tr>
+       <tr><td><h5 style="font-size: 17px;"><b>Box:</b> <%= box.get("Num")%></h5></td></tr>
+       <tr><td><h5 style="font-size: 17px;"><b>Zone:</b> <%= receipt.get("Zone")%></h5></td></tr>
+       <tr><td><h5 style="font-size: 17px;"><b>Receipt By:</b><%= receipt.get("ReceiptBy").get("Name")%></h5></td></tr>
+       <tr><td><h5 style="font-size: 17px;"><b>Time:</b> <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h5></td></tr>
 		</table>
 			 
 			      
