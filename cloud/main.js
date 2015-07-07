@@ -68,4 +68,15 @@ Parse.Cloud.define("updateClientInfo", function(request, response) {
     response.success("Update Successful!");
 	 response.error("Sorry!");
  });
+ 
+//UPPER CASE THE CLIENTS NAME BEFORE SAVE
+Parse.Cloud.beforeSave("Clients", function(request, response){
+    request.object.set("Name", request.object.get("Name").toUpperCase() ); 
+    response.success();
+});
 
+//UPPER CASE THE STORES NAME BEFORE SAVE
+Parse.Cloud.beforeSave("Agencies", function(request, response){
+    request.object.set("Name", request.object.get("Name").toUpperCase() ); 
+    response.success();
+});

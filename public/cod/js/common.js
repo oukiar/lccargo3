@@ -79,10 +79,11 @@ function date_condition(filterdate)
     {
         var nowbegin = new Date();
         var nowend = new Date();
+        nowend.setHours(23, 59);
                 
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowend ).format("MM[/]DD[/]YYYY")}}
+                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
                 };
     }
     else if($("#"+filterdate).val() == "Yesterday")
@@ -114,7 +115,7 @@ function date_condition(filterdate)
         
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowend ).format("MM[/]DD[/]YYYY")}}
+                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso: nowend}}
                 };
     }
     else if($("#"+filterdate).val() == "This month")
@@ -124,21 +125,17 @@ function date_condition(filterdate)
         
         var nowend = new Date();
         nowend.setHours(23, 59);
-        
-        alert(JSON.stringify({
-                greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : nowend}
-                }) );
-        
+                
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowend ).format("MM[/]DD[/]YYYY")}}
+                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso: nowend}}
                 };
     }
     else if($("#"+filterdate).val() == "Last month")
     {
         var nowend = new Date();
         nowend.setDate(0);
+        /*nowend.setHours(23, 59);*/
         
         var nowbegin = new Date();
         nowbegin.setDate(1);
@@ -147,7 +144,7 @@ function date_condition(filterdate)
         
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowend ).format("MM[/]DD[/]YYYY")}}
+                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
                 };
     }
     else if($("#"+filterdate).val() == "Current year")
@@ -164,7 +161,7 @@ function date_condition(filterdate)
         
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
-                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowend ).format("MM[/]DD[/]YYYY")}}
+                lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
                 };
     }
     

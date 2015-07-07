@@ -7,14 +7,16 @@ DONE - En tabla de clients warehouse cuando es repack el shipper sale undefined
 DONE - En tabla clients warehouse las opciones del filtro Warehouse salen estaticas, deben llenarse a las bodegas de la compañia
 - Tabla de stores inactives y pending salen igual, corregir igual que se hizo con clients
 - Agregar filtro a tabla actives, inactives y pendings en clients y stores
-
+- Al agregar store en newlabel no inicializo los valores del modal info
+- Al agregar cliente en newlabel no actualizo la lista de destinations
+- No permitir eliminar receipt que ya tiene cajas repacked
+- Al eliminar repack, devolver las cajas de los recibos originales como Received en lugar de Repacked
+- En informacion de cajas de repack mostrar que receipts entraron en dicho repack
 
 FILTROS
 
     DONE *-* Filtro en seccion Clients/Warehouse no funciona
-    
     DONE *-* Filtro en seccion Stores/Warehouse no funciona
-                *-* No funciona la busqueda por cliente
 
 
 - LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
@@ -23,7 +25,7 @@ FILTROS
 
 - Asegurarse que la impresion es correcta de 6x4 y que les agrade
 
-- En CSS hacer que el contenido derecho (central) siempre se ajuste al centro de la pantalla al igual que lo hace facebook
+- En CSS hacer que el contenido derecho (central) siempre se ajuste al centro de la pantalla al igual que lo hace facebook (checar client actives)
 
 Add/Delete Staff.
 
