@@ -1,6 +1,9 @@
 * HAY UN BUG EN LOS FILTROS DE CLIENTES ACTIVOS- PENDING- INACTIVE. SI DEJAS EL CAMBO VACIO TE FILTRA TODO DE TODO.
 *PAGINATION EN TODAS LAS TABLAS.
 
+
+DONE - Al hacer insert de nuevo registro en Clients y Agencies hacer UPPER al Name ... usar cloud before insert
+
 - Delete clients inactive, pendings y actives
 DONE - En clients information cambiar Destinations por Country
 DONE - En tabla de clients warehouse cuando es repack el shipper sale undefined
@@ -21,7 +24,6 @@ FILTROS
 
 - LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
 
-- Al hacer insert de nuevo registro en Clients y Agencies hacer UPPER al Name ... usar cloud before insert
 
 - Asegurarse que la impresion es correcta de 6x4 y que les agrade
 
