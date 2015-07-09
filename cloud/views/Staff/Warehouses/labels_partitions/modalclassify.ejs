@@ -31,68 +31,54 @@
             
             $("#div_classify").replaceWith("<div id='div_classify'>New shipment classification: " + shipment + "<br></div>");
             
-            if(classifyId == -1)
-            {
             
-                checkboxes = document.getElementsByName("checkship");
-                
-                for(i in checkboxes)
-                {
-                    if(checkboxes[i].checked)
-                    {        
-                        /*
-                        var ObjClass = Parse.Object.extend("Receipts");
-                        var obj = new ObjClass();
-                        
-                        obj.id = checkboxes[i].id;
-                        obj.set("Status", "NotProcessed");
-                        obj.set("Shipment", $("#shipment").val());
-                        obj.save();
-                    
-                        $("#div_classify").append("Classified: " + checkboxes[i].id + "<br>");
-                        */
-                        
-                        wh = JSON.parse(checkboxes[i].id);
-                    
-                        var str = "Saving receipt: " + wh["ReceiptNum"] + " <img id='save-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16><br>";
-                            
-                            
-                        $("#div_classify").append( str );
-                        
-                        kwargs = {
-                                    collection:"Receipts", 
-                                    objectId: wh["objectId"],
-                                    values:{Status:"NotProcessed", "Shipment":shipment}
-                                };                                               
-                            
-                        $.post("/update", 
-                            kwargs, 
-                            function(data)
-                            {
-                                kwargs = JSON.parse(data);
-                                $("#save-" + kwargs["objectId"]).replaceWith("SAVED");
-                            }
-                        );
-                        
-                    }
-                }
-            }
-            else    /* CLASSIFY INDIVIDUAL ITEMS */
-            {
+            checkboxes = document.getElementsByName("checkship");
             
-                $("#div_classify").append( "Saving receipt: " + classifyReceipt + " <img id='save-" + classifyId + "' src='/web/img/icons/loader_grey.gif' width=16 height=16><br>" );
+            for(i in checkboxes)
+            {
+                if(checkboxes[i].checked)
+                {        
+                    
+                    wh = JSON.parse(checkboxes[i].id);
                 
-                $.post("/update", 
-                            {
+                    var str = "Saving receipt: " + wh["ReceiptNum"] + " <img id='save-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16><br>";
+                        
+                        
+                    $("#div_classify").append( str );
+                    
+                    kwargs = {
                                 collection:"Receipts", 
-                                objectId: classifyId,
+                                objectId: wh["objectId"],
                                 values:{Status:"NotProcessed", "Shipment":shipment}
-                            }, 
-                            function(data)
+                            };                                               
+                        
+                    $.post("/update", 
+                        kwargs, 
+                        function(data)
+                        {
+                            kwargs = JSON.parse(data);
+                            $("#save-" + kwargs["objectId"]).replaceWith("SAVED");
+                        }
+                    );
+                    
+                    /* ESTABLECER TODAS LAS CAJAS DE CADA RECEIPT CON EL SHIPMENT SELECCIONADO */
+                    var query = new Parse.Query("Boxes");
+                    
+                    query.equalTo("Receipt", {__type:"Pointer", className:"Receipts", objectId:wh["objectId"]});
+                    
+                    query.find(function(results){
+                            for(box in results)
                             {
-                                kwargs = JSON.parse(data);
-                                $("#save-" + kwargs["objectId"]).replaceWith("SAVED");
-                            });
+                                /* SOLO CONFIGURAR EL SHIPMENT DE LAS CAJAS QUE NO HAN ENTRADO A REPACK */
+                                if(results[box].get("Status") != "Repacked")
+                                {
+                                    results[box].set("Shipment", shipment);
+                                    results[box].save();
+                                }
+                            }
+                        });
+                    
+                }
             }
             
             $("#div_classify").append("<a id='btn_doneclassifydialog' href='#close' class='pure-button pure-button-primary'>Done</a>");

@@ -155,9 +155,6 @@
                             <td>
                                 Weight
                             </td>
-                            <td>
-                                Mode
-                            </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,6 +162,7 @@
                 </table>
             </div>
             <a href="#close" id="btn_doneboxes" class="pure-button pure-button-primary">Close</a>
+            <a id="btn_saveboxesclassify" href="#close" class="pure-button pure-button-primary" style="background:#E08566;">SAVE</a>
             <!--<a>Select all</a>-->
         </div>
     </div>
@@ -177,9 +175,9 @@
         <a href="#close" title="Close" class="closeB">X</a>
 
         <div id="receipt_boxes">
-            <h2 class="title">Boxes contained in receipt# <font id="receiptBoxes"></font></h2>
+            <h2 class="title">Boxes contained in receipt# <font id="receiptBoxesRepack"></font></h2>
             <div style="overflow:scroll; height:400px; vertical-align: top;">
-                <table id="boxes_table" name="boxes_table" class="table table-bordered">
+                <table id="boxes_Repacktable" name="boxes_table" class="table table-bordered">
                     <thead>
                         <tr>
                             <td>
@@ -200,9 +198,6 @@
                             <td>
                                 RPrice
                             </td>
-                            <td>
-                                Mode
-                            </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -210,6 +205,7 @@
                 </table>
             </div>
             <a href="#close" id="btn_doneboxes" class="pure-button pure-button-primary">Close</a>
+            <a id="btn_saveboxesclassify2" href="#close" class="pure-button pure-button-primary" style="background:#E08566;">SAVE</a>
             <!--<a>Select all</a>-->
         </div>
     </div>
@@ -306,7 +302,7 @@ $(".pop").popover({ trigger: "manual" , html: true, animation:false})
         /*alert(JSON.stringify(user) );*/
             
         if($("#warehousefilter").val() == "All")
-            conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]},
+            conditions = {containedIn:{"Status":["Repack","NotProcessed"]},
                             equalTo:{"Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
         else
             conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]}, 
@@ -353,6 +349,35 @@ $(".pop").popover({ trigger: "manual" , html: true, animation:false})
             });        
     }
 
+    $("#btn_saveboxesclassify").click(function(){
+        
+            var query = new Parse.Query("Boxes");
+            query.equalTo("Receipt", {__type:"Pointer", className:"Receipts", objectId:openedreceipt});
+            
+            query.find(function(results){
+                    for(i in results)
+                    {
+                        results[i].set("Shipment", $("#" + results[i].id).val());
+                        results[i].save();
+                    }
+                });
+            
+        });
+        
+    $("#btn_saveboxesclassify2").click(function(){
+        
+            var query = new Parse.Query("Boxes");
+            query.equalTo("Receipt", {__type:"Pointer", className:"Receipts", objectId:openedreceipt});
+            
+            query.find(function(results){
+                    for(i in results)
+                    {
+                        results[i].set("Shipment", $("#" + results[i].id).val());
+                        results[i].save();
+                    }
+                });
+            
+        });
 
     $("#btn_closeclassifydialog").click(
             function(){
@@ -416,6 +441,8 @@ $(".pop").popover({ trigger: "manual" , html: true, animation:false})
                                             }
                                         }});
                                 }
+                                
+                                update_table();
                             
                             }});
                     }});

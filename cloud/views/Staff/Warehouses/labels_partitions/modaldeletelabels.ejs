@@ -27,16 +27,6 @@
                         
                     $("#delete-" + wh["objectId"]).replaceWith("<img id='delete-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16>");
                     
-                    /*
-                    $.post("/deleterow", 
-                            {collection:"Receipts", "objectId":wh["objectId"]},
-                            function(data)
-                            {
-                                res = JSON.parse(data);
-                                $("#delete-" + res["objectId"]).replaceWith("  DELETED");
-                                
-                            });*/
-
                     /* SEND THIS WAREHOUSE TO TRASH */
                     var Receipts = Parse.Object.extend("Receipts");
                     
@@ -47,6 +37,14 @@
                             function(label)
                             {
                                 oldstatus = label.get("Status");
+                                
+                                if(label.get("PackedBoxes") > 0)
+                                {
+                                    alert("The receipt #" + label.get("ReceiptNum") + " have boxes repacked");
+                                    $("#delete-" + label.id).replaceWith("  OPS: This receipt has boxes repacked");
+                                    return;
+                                }
+                                
                                 label.set("Status", "Deleted:" + oldstatus)
                                 label.save();
                                 
