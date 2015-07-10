@@ -7,8 +7,8 @@
 		#not:nth-child(odd) {background: #FBFBFC}
 		</style>
     <tr>
-            <th>Rcpt.</th>
-			<th>Repacked/Boxes</th>
+            <th>WH. Rcpt.</th>
+			<th>Boxes</th>
 			<th>Shipper</th>
             <th>Consignee</th>
             <th style="display:none;">Invoice</th>
@@ -39,10 +39,10 @@
 		 <tr style="" id="not">
         <%}%>
 		
-			 <td>
+			 <td align="center">
              <a class=" pop" data-container="body" data-toggle="popover" data-placement="right" data-content="
-            <a href='#openModalB' onclick=&quot;fillEditable('<%=label['objectId']%>')&quot;>Edit Receipt</a></br>
-            <a href='' onclick=&quot;window.open('/printreceipt/' + '<%= label["objectId"]%>','Microsoft')&quot;>Print Receipt</a></br>
+            <a href='#openModalB' onclick=&quot;fillEditable('<%=label['objectId']%>')&quot;>Edit Warehouse Rcpt.</a></br>
+            <a href='' onclick=&quot;window.open('/printreceipt/' + '<%= label["objectId"]%>','Microsoft')&quot;>Print Warehouse Rcpt.</a></br>
             <a href='' onclick=&quot;window.open('/printlabels/' + '<%= label["objectId"]%>','Microsoft')&quot;>Print Labels</a></br>
             <a href='#openEmail'>Email</a></br>
             <a href='#openReceiptLog'>Receipt Log</a></br>
@@ -51,13 +51,9 @@
             <div style="width:100%;"><b><%= label["ReceiptNum"]%></b></div>
             </a>
 			</td>
-	
-            <%if(label['Status']=="Repack"){%>
-                <td> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxesRepack'><%=label['PackedBoxes']%>/<%=label['TotalBoxes']%></a></td>
-            <%}else{%>
-                <td> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxes'><%=label['PackedBoxes']%>/<%=label['TotalBoxes']%></a></td>
-            <%}%>
-			
+	       
+            <td align="center"> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxes'><%=label['TotalBoxes']%></a></td>
+         
 			<td><% if(typeof label["Shipper"] != "undefined"){%> <%=label["Shipper"]%><%}else{%><%= label["Consignee"]%><%}%></td>
             <td><%= label["Consignee"]%></td>
 		
