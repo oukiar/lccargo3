@@ -19,7 +19,7 @@ DONE - LOS RECEIPTS QUE YA TIENEN CAJAS REPACKED YA NO DEBEN PODER CLASIFICARSE
 DONE - No permitir eliminar receipt que ya tiene cajas repacked
 
 !- Las cajas de los repacks no deben poder clasificarse
-- Eliminar boton de classify de lista de receipts y repacks
+DONE - Eliminar boton de classify de lista de receipts y repacks
 - Agregar opcion de imprimir recibo de repack al reempacar
 
 - En tabla de clients active aparece ACTIVATE, es correcto?, o se lo elimino.

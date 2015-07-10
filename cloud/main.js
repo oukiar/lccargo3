@@ -29,7 +29,9 @@ Parse.Cloud.define("sendMail", function(request, response) {
      {
         message: 
         {
-			html: "</br><img src='https://lccargoxpress.parseapp.com/login/images/logo.png' alt='Package' width='89' height='89' /><h3>LC Cargo Xpress</h3><br>" + request.params.text + "boxes </br><b>From:</b>" + request.params.shipper + "</br><b>Total Weight:</b> </br> <b>Receipt By:</b>" ,
+			/*html: "</br><img src='https://lccargoxpress.parseapp.com/login/images/logo.png' alt='Package' width='89' height='89' /><h3>LC Cargo Xpress</h3><br>" + request.params.text + "boxes </br><b>From:</b>" + request.params.shipper + "</br><b>Total Weight:</b> </br> <b>Receipt By:</b>" ,
+            */
+            html: request.params.text,
             subject: request.params.subject,
             from_email: request.params.from_email,
             from_name: request.params.from_name,
@@ -45,7 +47,7 @@ Parse.Cloud.define("sendMail", function(request, response) {
     {
         success: function(httpResponse) {
         console.log(httpResponse);
-        response.success("Email sent!");
+        response.success("Email sent! " + request.params.to_email);
         },
         error: function(httpResponse) {
         console.error(httpResponse);
