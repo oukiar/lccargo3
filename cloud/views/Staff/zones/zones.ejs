@@ -235,9 +235,14 @@
             });        
     }
 
-    $("#btn_search").click(function(){
-        update_table();
-    });
+        $("#btn_search").click(function(){
+                if($("#searchtext").val() == "")
+                {
+                    alert("Search text void, please enter keyword to find");
+                }
+                else
+                    update_table();
+            });
     
     $("#warehousefilter").change(function(){
         update_table();

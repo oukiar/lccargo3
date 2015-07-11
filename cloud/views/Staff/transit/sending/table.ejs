@@ -83,8 +83,13 @@
         });
         
         $("#btn_search").click(function(){
-            update_table();
-        });  
+                if($("#searchtext").val() == "")
+                {
+                    alert("Search text void, please enter keyword to find");
+                }
+                else
+                    update_table();
+            }); 
             
         $("#filterdate").change(function(){
             update_table();

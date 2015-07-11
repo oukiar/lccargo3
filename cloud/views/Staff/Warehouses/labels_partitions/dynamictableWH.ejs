@@ -38,7 +38,7 @@
         %>
 		 <tr style="" id="not">
         <%}%>
-		
+        
 			 <td align="center">
              <a class=" pop" data-container="body" data-toggle="popover" data-placement="right" data-content="
             <a href='#openModalB' onclick=&quot;fillEditable('<%=label['objectId']%>')&quot;>Edit Warehouse Rcpt.</a></br>
@@ -52,7 +52,7 @@
             </a>
 			</td>
 	       
-            <td align="center"> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxes'><%=label['TotalBoxes']%></a></td>
+            <td align="center"> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxesRepack'><%=label['TotalBoxes']%></a></td>
          
 			<td><% if(typeof label["Shipper"] != "undefined"){%> <%=label["Shipper"]%><%}else{%><%= label["Consignee"]%><%}%></td>
             <td><%= label["Consignee"]%></td>
@@ -65,10 +65,10 @@
             <td><a onclick="opentransfer('<%=label['objectId']%>')" href="#openModalC"><b><%= label["Warehouse"]%></b></a></td>
 	        <td>
 				   
-	        <select name="Country" id="Country" class="input-5">
-	        <option value="Custom"><%= label["Shipment"]%></option>
-		    <option value="-">Land Freight</option>
-		    <option value="-">Ocean</option>
+	        <select name="Shipment-<%=label['objectId']%>" id="Shipment-<%=label['objectId']%>" class="input-5" value="<%= label["Shipment"]%>">
+                <option value="Aereal" <%if(label["Shipment"]=="Aereal"){%>selected<%}%> >Aereal</option>
+                <option value="Terrestral" <%if(label["Shipment"]=="Terrestral"){%>selected<%}%> >Land Freight</option>
+                <option value="Sea" <%if(label["Shipment"]=="Sea"){%>selected<%}%> >Ocean</option>
 		    </select>
 		    </td>
 			
@@ -87,6 +87,15 @@
 
 
 <script>
+
+    $(".myclass").click(function(){
+            alert("Pending functionality: " + this.id);
+            /*
+            var receipt = new Parse.Object.extend("Receipts");
+            receipt.id = this.id;
+            receipt.set("Shipment", $("#Shipment-"+receipt.id).val() );
+            receipt.save();*/
+        });
 
     var unpacking = -1;
 
@@ -485,7 +494,14 @@
         var q=new Parse.Query("Receipts");
         q.get(openedreceipt, {success: function(receipt){
                 if(receipt.get("Status") == "Repack")
+                {
+                    $("#totalrepackprice").html(receipt.get("Value") );
+                    $("#totalweight").html(receipt.get("Weight") );
+                    $("#weightvolume").html(receipt.get("WeightVol"));
+                    $("#totalvolume").html(receipt.get("Volume"));
+                
                     $("#receiptBoxesRepack").html(receipt.get("ReceiptNum") );
+                }
                 else
                     $("#receiptBoxes").html(receipt.get("ReceiptNum") );
             

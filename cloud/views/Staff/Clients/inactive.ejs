@@ -73,8 +73,8 @@
 
             </table>
             </br>
-            User: <input type="text">
-            Password: <input type="text"><br><br>
+            User: <input id="txt_user" type="text">
+            Password: <input id="txt_pass" type="text"><br><br>
             
             <form class="form-inline" method="POST" action="/activateClient">
                 
@@ -116,17 +116,52 @@
         
     $("#btn_activate").click(function(){
             
-            var Clients = Parse.Object.extend("Clients");
-            var client = new Clients();
-            client.id = clientID;
-            client.set("Status", "Active");
-            client.save({success: function(){
+            /* CREAR EL NUEVO USUARIO */
+            /*var user = new Parse.User();*/
+            
+            var query = new Parse.Query("Clients");
+            query.get(clientID, {success: function(clientres){
+                            
+                    clientres.set("Status", "Active");
+                    clientres.save();
+                    
                     update_table();
-                    alert("Activated");
+                    
+                    $.post("/get_activation_template_clientInactive", {user:$("#txt_user").val(), pass:$("#txt_pass").val(), clientID:clientID}, function(template){
+                
+                                                        
+                            /* EMAIL PARAMETERS */
+                            emailparams = {
+                                            "text": template,
+                                            "subject": "Account activated",
+                                            "from_email": "cargoparse@notifications.com",
+                                            "from_name":"Notifier",
+                                            "to_email": clientres.get("Email"),
+                                            "to_name":clientres.get("Name")
+                                        };
+                                                            
+                            /* SEND EMAIL */
+                            Parse.Cloud.run('sendMail', emailparams, {
+                                success: 
+                                    function(result) 
+                                    {
+                                        alert(result);
+                                    },
+                                error:
+                                    function()
+                                    {
+                                    }
+                                });  
+                            
+                            alert("Activated");
+                            
+                        });
+                    
                 }});
             
             
         });
+        
 
         function update_table()
         {   
@@ -155,9 +190,13 @@
         }
 
 
-        $("#btn_search").click(function()
-            {
-                update_table();
+        $("#btn_search").click(function(){
+                if($("#searchtext").val() == "")
+                {
+                    alert("Search text void, please enter keyword to find");
+                }
+                else
+                    update_table();
             });        
 
         $("#filterby").change(function()
