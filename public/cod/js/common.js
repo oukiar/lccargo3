@@ -343,3 +343,22 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
     }
 }
 
+function byeByeClient(clientId, companyId, url){
+  swal({   
+	  title: "This user will be deleted permanently!",   text: "Do you want to continue?",   
+           type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   
+           confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
+           function(){    
+			   Parse.Cloud.run('byeByeClient', { clientId: clientId, companyId: companyId, url:url}, {
+  success: function() {
+	window.location.assign(url);
+	    },
+  error: function() {
+	  alert("Sorry something went wrong, please refresh the page and try again!");
+	    }
+	  });
+  });
+  }
+  
+ Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+

@@ -82,3 +82,20 @@ Parse.Cloud.beforeSave("Agencies", function(request, response){
     request.object.set("Name", request.object.get("Name").toUpperCase() ); 
     response.success();
 });
+
+
+//Deletes saved or published articles
+Parse.Cloud.define("byeByeClient", function(request, response) {
+	Parse.Cloud.useMasterKey();
+	var client = new Parse.Query("Clients");
+	var company = request.params.companyId;
+	client.equalTo("objectId", request.params.clientId);
+	client.first().then(function(result) {
+		if(result.get("Company").id = company){
+		  result.destroy({}); 
+		  response.success(); 
+	  }
+	 },function(error){
+			response.error("Sorry something went wrong, please refresh the page and try again!");
+		});  
+});

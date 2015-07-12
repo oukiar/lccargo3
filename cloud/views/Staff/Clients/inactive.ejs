@@ -1,3 +1,4 @@
+<% var companyID = Parse.User.current().get("Company").id%>
 <!DOCTYPE html>
 <html ng-app="myApp">
     <head>
@@ -9,6 +10,7 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=VT323">
+	   
         <!--ADMIN REQUIREMENTS-->   
         <% include ../../generals/ultraAdmin.ejs %>
         <script src="/cod/js/moment.js"></script>
@@ -37,13 +39,13 @@
         <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
         <div class="page-title"> 
             <% include clientsMenu.ejs%>
-            <h1 class="title" style="font-family: 'VT323', serif; font-size:50px; padding-left:13px;">Clients - Inactive</h1>
-			<div id="content">
-			<% include pendings_partitions/table.ejs %>
-                                </div>   
-                           </div>
-                       </div>
-                   </section>
+       <h1 class="title" style="font-family: 'VT323', serif; font-size:50px; padding-left:13px;">Consignees - Inactive</h1>
+	   <div id="content">
+	   <% include pendings_partitions/table.ejs %>
+       </div>   
+       </div>
+       </div>
+       </section>
 		
                <!-- END CONTENT -->
 
