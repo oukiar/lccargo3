@@ -2,9 +2,9 @@
     moment = require('cloud/moment');
 %>
 
-<button onclick="getPDF();" style="width:200;height:50">Get PDF</button>
-<button onclick="printPDF();" style="width:200;height:50">Print PDF</button>
-<button onclick="getIMG();" style="width:200;height:50">get IMG</button>
+<button onclick="getPDF();" style="width:200;height:50;font-size: 20px;">Get PDF</button>
+<button onclick="printPDF();" style="width:200;height:50;font-size: 20px;">Print PDF</button>
+<!--<button onclick="getIMG();" style="width:200;height:50;">get IMG</button>-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,205 +15,210 @@
 
         
         <!-- PDF INCLUDES -->
-        <link rel="stylesheet" type="text/css" href="/cod/css/site.20150714172440.css">
+        <link rel="stylesheet" type="text/css" href="/cod/css/site.20150715184417.css">
         <script src="/cod/js/jquery-1.11.2.min.js"></script>
         <script src="/cod/js/jspdf.min.js"></script>
         <script src="/cod/js/html2canvas.min.js"></script>
         <script src="/canvas2image/canvas2image.js"></script>
-        
+        <script src="/cod/js/base64.min.js"></script>
+
 
 	</head>
-	<body id="body" style="width:6.10in; height:4in">
+	<body id="body" style="width:6in; height:4in;">
         
         
         <% var i=0; boxes.forEach(function(box){ %>
         
-            <div id="mylabel-<%=box.get("BoxNum")%>" >
-                    <div class="section" style="width:6in; height:3.105in">
-                        <div class="cont">
-                            <div class="colwrapper">
-                                <div class="cont-2">
-                                    <div class="cont-3">
-                                        <div class="cont-4">
-                                            <div class="cont-5"><p class="para"><span class="font" id="Company"><%= receipt.get("Company").get("name") %></span></p></div>
-                                        </div>
-                                        <div class="cont-6">
-                                            <div class="colwrapper-2">
-                                                <div class="cont-7">
-                                                    <div class="cont-8"><p class="para-2">#<span class="font-2" id="ReceiptNum"><%=receipt.get("ReceiptNum")%></span></p></div>
-                                                </div>
-                                            </div>
-                                            <div class="colwrapper-3">
-                                                <div class="cont-9">
-                                                    <div class="cont-10"><p class="para-3"><span class="font-3">-</span></p></div>
-                                                </div>
-                                            </div>
-                                            <div class="colwrapper-4">
-                                                <div class="cont-11">
-                                                    <div class="cont-12"><p class="para-4"><span class="font-4"><%=receipt.get("Destination")%></span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-13">
-                                        <div class="colwrapper-5">
-                                            <div class="cont-14"></div>
-                                            <div class="cont-15">
-                                                <div class="cont-16"><p class="para-5"><span class="font-5">Length</span></p></div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-6">
-                                            <div class="cont-17">
-                                                <div class="cont-18">
-                                                    <div class="cont-19"><p class="para-6"><span class="font-6">Width</span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-7">
-                                            <div class="cont-20">
-                                                <div class="cont-21">
-                                                    <div class="cont-22"><p class="para-7"><span class="font-7">Height</span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-8">
-                                            <div class="cont-23">
-                                                <div class="cont-24">
-                                                    <div class="cont-25"><p class="para-8"><span class="font-8">Volume</span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-9">
-                                            <div class="cont-26">
-                                                <div class="cont-27">
-                                                    <div class="cont-28"><p class="para-9"><span class="font-9">Weight-Vol.</span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-10">
-                                            <div class="cont-29">
-                                                <div class="cont-30">
-                                                    <div class="cont-31"><p class="para-10"><span class="font-10">Weight</span></p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-32">
-                                        <div class="colwrapper-11">
-                                            <div class="cont-33">
-                                                <input type="text" name="text" class="input" value="<%=box.get("Length")%>">
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-12">
-                                            <div class="cont-34">
-                                                <input type="text" name="text" class="input-2" value="<%=box.get("Width")%>">
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-13">
-                                            <div class="cont-35">
-                                                <input type="text" name="text" class="input-3" value="<%=box.get("Height")%>">
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-14">
-                                            <div class="cont-36">
-                                                <input type="text" name="text" class="input-4" value="<%=box.get("Volume")%>">
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-15">
-                                            <div class="cont-37">
-                                                <input type="text" name="text" class="input-5" value="<%=receipt.get("WeightVol")%>">
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-16">
-                                            <div class="cont-38">
-                                                <input type="text" name="text" class="input-6" value="<%=box.get("Weight")%>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-39">
-                                        <div class="colwrapper-17">
-                                            <div class="cont-40">
-                                                <div class="cont-41"><p class="para-11"><span class="font-11">Shipper:</span></p></div>
-                                            </div>
-                                            <div class="cont-42">
-                                                <div class="cont-43"><p class="para-12"><span class="font-12"><%=receipt.get("Shipper").get("Name")%></span></p></div>
-                                            </div>
-                                            <div class="cont-44">
-                                                <div class="colwrapper-18">
-                                                    <div class="cont-45">
-                                                        <div class="cont-46"><p class="para-13"><span class="font-13">Zone:</span></p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="colwrapper-19">
-                                                    <div class="cont-47">
-                                                        <div class="cont-48"><p class="para-14"><span class="font-14"><%=receipt.get("Zone")%></span></p></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cont-49">
-                                                <div class="colwrapper-20">
-                                                    <div class="cont-50">
-                                                        <div class="colwrapper-21">
-                                                            <div class="cont-51">
-                                                                <div class="cont-52"><p class="para-15"><span class="font-15">Time:</span></p></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="colwrapper-22">
-                                                            <div class="cont-53">
-                                                                <div class="cont-54"><p class="para-16"><span class="font-16">&nbsp;<%=moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")%></span></p></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-55">
-                                                        <div class="cont-56"><p class="para-17"><span class="font-17">ALL CARGO IS SUBJECT TO INSPECTION</span></p></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="colwrapper-23">
-                                            <div class="cont-57"></div>
-                                        </div>
-                                        <div class="colwrapper-24">
-                                            <div class="cont-58">
-                                                <div class="cont-59"><p class="para-18"><span class="font-18">Consignee:</span></p></div>
-                                            </div>
-                                            <div class="cont-60">
-                                                <div class="cont-61"><p class="para-19"><span class="font-19"><%=receipt.get("Consignee").get("Name")%></span></p></div>
-                                            </div>
-                                            <div class="cont-62">
-                                                <div class="colwrapper-25">
-                                                    <div class="cont-63">
-                                                        <div class="cont-64"><p class="para-20"><span class="font-20">Receipt by:</span></p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="colwrapper-26">
-                                                    <div class="cont-65">
-                                                        <div class="cont-66"><p class="para-21"><span class="font-21"><%=receipt.get("Usr").get("Name")%></span></p></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cont-67">
-                                                <div class="colwrapper-27">
-                                                    <div class="cont-68">
-                                                        <div class="cont-69"><p class="para-22"><span class="font-22">Box:</span></p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="colwrapper-28">
-                                                    <div class="cont-70">
-                                                        <div class="cont-71"><p class="para-23"><span class="font-23">&nbsp; <%=box.get("Num") %></span></p></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cont-72"></div>
-                            </div>
-                        </div>
-                    </div>
-                
+            <div id="mylabel-<%=box.get("BoxNum")%>">
+
+
+
+		<div class="section">
+			<div class="cont">
+				<div class="colwrapper">
+					<div class="cont-2">
+						<div class="cont-3">
+							<div class="cont-4">
+								<div class="cont-5"><p class="para"><span class="font">LC CARGO XPRESS</span></p></div>
+							</div>
+							<div class="cont-6">
+								<div class="colwrapper-2">
+									<div class="cont-7">
+										<div class="cont-8"><p class="para-2"><span class="font-2">&nbsp;# 00124123</span></p></div>
+									</div>
+								</div>
+								<div class="colwrapper-3">
+									<div class="cont-9">
+										<div class="cont-10"><p class="para-3"><span class="font-3">-</span></p></div>
+									</div>
+								</div>
+								<div class="colwrapper-4">
+									<div class="cont-11">
+										<div class="cont-12"><p class="para-4"><span class="font-4">Destination</span></p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cont-13">
+							<div class="colwrapper-5">
+								<div class="cont-14"></div>
+								<div class="cont-15">
+									<div class="cont-16"><p class="para-5"><span class="font-5">Length</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-6">
+								<div class="cont-17">
+									<div class="cont-18">
+										<div class="cont-19"><p class="para-6"><span class="font-6">Width</span></p></div>
+									</div>
+								</div>
+							</div>
+							<div class="colwrapper-7">
+								<div class="cont-20">
+									<div class="cont-21">
+										<div class="cont-22"><p class="para-7"><span class="font-7">Height</span></p></div>
+									</div>
+								</div>
+							</div>
+							<div class="colwrapper-8">
+								<div class="cont-23">
+									<div class="cont-24">
+										<div class="cont-25"><p class="para-8"><span class="font-8">Volume</span></p></div>
+									</div>
+								</div>
+							</div>
+							<div class="colwrapper-9">
+								<div class="cont-26">
+									<div class="cont-27">
+										<div class="cont-28"><p class="para-9"><span class="font-9">Weight-Vol.</span></p></div>
+									</div>
+								</div>
+							</div>
+							<div class="colwrapper-10">
+								<div class="cont-29">
+									<div class="cont-30">
+										<div class="cont-31"><p class="para-10"><span class="font-10">Weight</span></p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cont-32">
+							<div class="colwrapper-11">
+								<div class="cont-33">
+									<div class="cont-34"><p class="para-11"><span class="font-11">134511</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-12">
+								<div class="cont-35">
+									<div class="cont-36"><p class="para-12"><span class="font-12">13451</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-13">
+								<div class="cont-37">
+									<div class="cont-38"><p class="para-13"><span class="font-13">13451</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-14">
+								<div class="cont-39">
+									<div class="cont-40"><p class="para-14"><span class="font-14">13451</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-15">
+								<div class="cont-41">
+									<div class="cont-42"><p class="para-15"><span class="font-15">13451</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-16">
+								<div class="cont-43">
+									<div class="cont-44"><p class="para-16"><span class="font-16">13451</span></p></div>
+								</div>
+							</div>
+						</div>
+						<div class="cont-45">
+							<div class="colwrapper-17">
+								<div class="cont-46">
+									<div class="cont-47"><p class="para-17"><span class="font-17">Shipper:</span></p></div>
+								</div>
+								<div class="cont-48">
+									<div class="cont-49"><p class="para-18"><span class="font-18">Mario Salvador Diaz Durand de la Colonia</span></p></div>
+								</div>
+								<div class="cont-50">
+									<div class="colwrapper-18">
+										<div class="cont-51">
+											<div class="cont-52"><p class="para-19"><span class="font-19">Zone:</span></p></div>
+										</div>
+									</div>
+									<div class="colwrapper-19">
+										<div class="cont-53">
+											<div class="cont-54"><p class="para-20"><span class="font-20">900123-123</span></p></div>
+										</div>
+									</div>
+								</div>
+								<div class="cont-55">
+									<div class="colwrapper-20">
+										<div class="cont-56">
+											<div class="cont-57"><p class="para-21"><span class="font-21">Time:</span></p></div>
+										</div>
+									</div>
+									<div class="colwrapper-21">
+										<div class="cont-58">
+											<div class="cont-59"><p class="para-22"><span class="font-22">&nbsp;5/5/2015&nbsp;&nbsp;8:38:29</span></p></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="colwrapper-22">
+								<div class="cont-60"></div>
+							</div>
+							<div class="colwrapper-23">
+								<div class="cont-61">
+									<div class="cont-62"><p class="para-23"><span class="font-23">Consignee:</span></p></div>
+								</div>
+								<div class="cont-63">
+									<div class="cont-64"><p class="para-24"><span class="font-24">Mario Salvador Diaz Durand de la Colonia</span></p></div>
+								</div>
+								<div class="cont-65">
+									<div class="colwrapper-24">
+										<div class="cont-66">
+											<div class="cont-67"><p class="para-25"><span class="font-25">Receipt by:</span></p></div>
+										</div>
+									</div>
+									<div class="colwrapper-25">
+										<div class="cont-68">
+											<div class="cont-69"><p class="para-26"><span class="font-26">User who recives</span></p></div>
+										</div>
+									</div>
+								</div>
+								<div class="cont-70">
+									<div class="cont-71"><p class="para-27"><span class="font-27">Box:</span></p></div>
+								</div>
+							</div>
+						</div>
+						<div class="cont-72">
+							<div class="colwrapper-26">
+								<div class="cont-73">
+									<div class="cont-74"><p class="para-28"><span class="font-28">ALL CARGO IS SUBJECT TO INSPECTION</span></p></div>
+								</div>
+							</div>
+							<div class="colwrapper-27">
+								<div class="cont-75">
+									<div class="cont-76"><p class="para-29"><span class="font-29">&nbsp;12/12</span></p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cont-77">
+						<div class="colwrapper-28">
+							<div class="cont-78"></div>
+							<div class="cont-79"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
             </div>
-   
 
         <script>
             
@@ -221,10 +226,10 @@
             html2canvas($("#mylabel-<%=box.get("BoxNum")%>"), {
                 onrendered: function(canvas) {
                 
-                    img = Canvas2Image.convertToImage(canvas, 800, 600, "png");
-                    labels.push(img);
-                    
-                    
+                    /*img = Canvas2Image.convertToImage(canvas, 800, 600, "png");*/
+
+                    labels.push(canvas );
+
                 }
             });
                
@@ -244,10 +249,7 @@
 
 <script>
     var labels = [];
-    
-    /*printPDF();*/
-    
-    var pdf = jsPDF('l', 'in', [6,4]);
+
     
     function getPDF()
     {                
@@ -265,7 +267,9 @@
     }
         
     function printPDF()
-    {   
+    {
+        var pdf = jsPDF('l', 'in', [6,4]);
+
         for(i in labels)
         {        
             pdf.addImage(labels[i], "PNG", 0,0,6,4, i.toString() );
@@ -274,8 +278,9 @@
                 pdf.addPage(); 
         }
         
-        pdf.autoPrint(); 
-        pdf.output('dataurlnewwindow'); 
+        /*pdf.autoPrint();
+        pdf.output('dataurlnewwindow'); */
+        pdf.save();
     }
     
     function getIMG()

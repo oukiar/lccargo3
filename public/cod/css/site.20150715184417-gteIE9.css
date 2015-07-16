@@ -1,0 +1,9 @@
+
+.cont-60 {
+	behavior: url(js/PIE.htc);
+	-pie-background: rgba(0,0,0,0.500);
+}
+.cont-135 {
+	behavior: url(js/PIE.htc);
+	-pie-background: rgba(0,0,0,0.500);
+}
