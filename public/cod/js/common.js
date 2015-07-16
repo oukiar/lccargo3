@@ -1,3 +1,4 @@
+ Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
 function InsertForm(kwargs)
 {
     /*REQUEST DATA FROM THE SERVER*/
@@ -360,5 +361,69 @@ function byeByeClient(clientId, companyId, url){
   });
   }
   
- Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+  function byeByeStaff(staffId, companyId, url){
+    swal({   
+  	  title: "This user will be deleted permanently!",   text: "Do you want to continue?",   
+             type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   
+             confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
+             function(){    
+  			   Parse.Cloud.run('byeByeStaff', { staffId: staffId, companyId: companyId, url:url}, {
+    success: function() {
+  	window.location.assign(url);
+  	    },
+    error: function() {
+  	  alert("Sorry something went wrong, please refresh the page and try again!");
+  	    }
+  	  });
+    });
+    }
+	
+		
+//FORM ADD STAFF REGISTRATION VALIDATION
+	function valRegStaff() {
+	   var staffFullName = document.forms["regStaffForm"]["staffName"].value;
+	   var staffPosition = document.forms["regStaffForm"]["staffJobPosition"].value;
+	   var staffUsername = document.forms["regStaffForm"]["staffUsername"].value;
+	   var staffPassword = document.forms["regStaffForm"]["staffPassword"].value;
+	   var staffConPassword = document.forms["regStaffForm"]["staffConPassword"].value;
+	   var vreg_email = document.forms["regStaffForm"]["staffEmail"].value;
+	   var atpos = vreg_email.indexOf("@");
+	   var dotpos = vreg_email.lastIndexOf(".");
+	   var findme = "@";
+   
+	   if( staffFullName == null || staffFullName == "") {
+		 sweetAlert("Sorry...","Please fill out the name!", "error");
+	        return false;
+	    } else if (staffFullName.length < 2) {
+		   sweetAlert("Sorry...", "Invalid name!", "error");
+	        return false;
+	  }else if (vreg_email == null || vreg_email == "") {
+		  sweetAlert("Sorry...", "Email must be filled out!", "error");
+	        return false;
+		}else if (staffUsername.indexOf(findme) > -1){
+  		  sweetAlert("Sorry...", "Username can't have @", "error");
+  	        return false;
+	  } else if (atpos < 1 || ( dotpos - atpos < 2 )) {
+		  sweetAlert("Sorry...", "Invalid Email!", "error");
+	        return false;
+	  } else if (staffPosition == null || staffPosition == "") {
+		  sweetAlert("Sorry...", "Please enter staff job position!", "error");
+	        return false;
+	    } else if (staffPassword == null || staffPassword == "") {
+		 sweetAlert("Error...", "Password needed!");
+	        return false;
+	    } else if (staffConPassword == null || staffConPassword == "") {
+		  sweetAlert("Error...", "Please confirm your password!", "error");
+	        return false;
+	    }else if(staffPassword != staffConPassword){
+	   	 sweetAlert("Error...", "Password does not match!", "error");	
+	           return false;
+	        }
+	      };
+  
+
+		  	
+	
+
+
 

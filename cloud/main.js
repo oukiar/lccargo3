@@ -99,3 +99,22 @@ Parse.Cloud.define("byeByeClient", function(request, response) {
 			response.error("Sorry something went wrong, please refresh the page and try again!");
 		});  
 });
+
+
+//Deletes saved or published articles
+Parse.Cloud.define("byeByeStaff", function(request, response) {
+	Parse.Cloud.useMasterKey();
+	var staff = new Parse.Query("User");
+	staff.include("StaffId");
+	var company = request.params.companyId;
+	staff.equalTo("objectId", request.params.staffId);
+	staff.first().then(function(result) {
+		  result.get("StaffId").destroy({});
+		  result.destroy({}); 
+		  response.success(); 
+
+	 },function(error){
+			response.error("Sorry something went wrong, please refresh the page and try again!");
+		});  
+});
+
