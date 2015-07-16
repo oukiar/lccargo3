@@ -1,151 +1,292 @@
-<%moment = require('cloud/moment')%>
-<!doctype html>
-<html lang="en">
-    <head>
-         
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <meta charset="utf-8" />
-        <title>LC Cargo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura&amp;subset=all">
-        <link rel="stylesheet" href="cod/css/styleWareHouse.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-        <script src="/cod/js/qrcode/qrcode.js"></script>
-         
-        <!--ADMIN REQUIREMENTS-->   
-        <% include ../../../generals/ultraAdmin.ejs %>
-     
-    <script src="/cod/js/common.js"></script>
-    <style type="text/css">
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #FAFAFA;
-        font: 6pt "Tahoma";
-    }
-    * {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-    .page{
-        width: 8.0in;
-        min-height: 4in;
-        padding: 8mm;
-        margin: 21mm auto;
-        border: 1px #CCD6E0 solid;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-           }
-    .subpage {
-        padding: 2mm;
-        border: 3px #718DA9 solid;
-        height: 3.7in;
-        outline: .5cm #CCD6E0 solid;
-    }
-       
-    @media print {
-        html, body {
-            width: 6in;
-            height: 4in;        
-        }
-        .page {
-            margin: 0;
-            border: initial;
-            border-radius: initial;
-            width: initial;
-            min-height: initial;
-            box-shadow: initial;
-            background: initial;
-            page-break-after: always;
-        }
-    }
-</style>
- 
- 
- 
- 
-</head>
-<body>
- 
-         
-<script>
-    function onprint(){
-        /* OCULTAR ICONO PARA QUE NO SE IMPRIMA */
-        $("#printButton").hide();
-        window.print();
-        $("#printButton").show();
-    }
-</script>
-     
-    <div style="position:fixed; left:100px;">
-        <a onclick="onprint()"><img src="/assets/images/printer.png" width="89" height="89" alt="Printer" id="printButton"></a>
-    </div>
-     
-    <% var i=0; boxes.forEach(function(box){ %>
-     
-     
-    <div class="page">
-        <div class="subpage">
-     
-       <!--MODAL PARA MOSTAR LABEL-->
-       <table align="center" style="width:100%;">
-       <tr>
-       <td align="center">
-       <h3 style="font-size: 21px;"><b><%= receipt.get("Company").get("name")%></b></h3></td>
-       </tr>
-       <tr>
-       <td align="center" style="position:relative; top:-21px; border-bottom:1pt solid black;"><h2>Rcpt#<b><%= receipt.get("ReceiptNum")%> - <%= receipt.get("Destination")%></b>
-       </h2></td>
-       </tr>
-       </table>
+<%
+    moment = require('cloud/moment');
+%>
+
+<button onclick="getPDF();" style="width:200;height:50">Get PDF</button>
+<button onclick="printPDF();" style="width:200;height:50">Print PDF</button>
+<button onclick="getIMG();" style="width:200;height:50">get IMG</button>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=960">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Jura&amp;subset=all">
+		<title>Page 1</title>
+
+        
+        <!-- PDF INCLUDES -->
+        <link rel="stylesheet" type="text/css" href="/cod/css/site.20150714172440.css">
+        <script src="/cod/js/jquery-1.11.2.min.js"></script>
+        <script src="/cod/js/jspdf.min.js"></script>
+        <script src="/cod/js/html2canvas.min.js"></script>
+        <script src="/canvas2image/canvas2image.js"></script>
+        
+
+	</head>
+	<body id="body" style="width:6.10in; height:4in">
+        
+        
+        <% var i=0; boxes.forEach(function(box){ %>
+        
+            <div id="mylabel-<%=box.get("BoxNum")%>" >
+                    <div class="section" style="width:6in; height:3.105in">
+                        <div class="cont">
+                            <div class="colwrapper">
+                                <div class="cont-2">
+                                    <div class="cont-3">
+                                        <div class="cont-4">
+                                            <div class="cont-5"><p class="para"><span class="font" id="Company"><%= receipt.get("Company").get("name") %></span></p></div>
+                                        </div>
+                                        <div class="cont-6">
+                                            <div class="colwrapper-2">
+                                                <div class="cont-7">
+                                                    <div class="cont-8"><p class="para-2">#<span class="font-2" id="ReceiptNum"><%=receipt.get("ReceiptNum")%></span></p></div>
+                                                </div>
+                                            </div>
+                                            <div class="colwrapper-3">
+                                                <div class="cont-9">
+                                                    <div class="cont-10"><p class="para-3"><span class="font-3">-</span></p></div>
+                                                </div>
+                                            </div>
+                                            <div class="colwrapper-4">
+                                                <div class="cont-11">
+                                                    <div class="cont-12"><p class="para-4"><span class="font-4"><%=receipt.get("Destination")%></span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cont-13">
+                                        <div class="colwrapper-5">
+                                            <div class="cont-14"></div>
+                                            <div class="cont-15">
+                                                <div class="cont-16"><p class="para-5"><span class="font-5">Length</span></p></div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-6">
+                                            <div class="cont-17">
+                                                <div class="cont-18">
+                                                    <div class="cont-19"><p class="para-6"><span class="font-6">Width</span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-7">
+                                            <div class="cont-20">
+                                                <div class="cont-21">
+                                                    <div class="cont-22"><p class="para-7"><span class="font-7">Height</span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-8">
+                                            <div class="cont-23">
+                                                <div class="cont-24">
+                                                    <div class="cont-25"><p class="para-8"><span class="font-8">Volume</span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-9">
+                                            <div class="cont-26">
+                                                <div class="cont-27">
+                                                    <div class="cont-28"><p class="para-9"><span class="font-9">Weight-Vol.</span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-10">
+                                            <div class="cont-29">
+                                                <div class="cont-30">
+                                                    <div class="cont-31"><p class="para-10"><span class="font-10">Weight</span></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cont-32">
+                                        <div class="colwrapper-11">
+                                            <div class="cont-33">
+                                                <input type="text" name="text" class="input" value="<%=box.get("Length")%>">
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-12">
+                                            <div class="cont-34">
+                                                <input type="text" name="text" class="input-2" value="<%=box.get("Width")%>">
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-13">
+                                            <div class="cont-35">
+                                                <input type="text" name="text" class="input-3" value="<%=box.get("Height")%>">
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-14">
+                                            <div class="cont-36">
+                                                <input type="text" name="text" class="input-4" value="<%=box.get("Volume")%>">
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-15">
+                                            <div class="cont-37">
+                                                <input type="text" name="text" class="input-5" value="<%=receipt.get("WeightVol")%>">
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-16">
+                                            <div class="cont-38">
+                                                <input type="text" name="text" class="input-6" value="<%=box.get("Weight")%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cont-39">
+                                        <div class="colwrapper-17">
+                                            <div class="cont-40">
+                                                <div class="cont-41"><p class="para-11"><span class="font-11">Shipper:</span></p></div>
+                                            </div>
+                                            <div class="cont-42">
+                                                <div class="cont-43"><p class="para-12"><span class="font-12"><%=receipt.get("Shipper").get("Name")%></span></p></div>
+                                            </div>
+                                            <div class="cont-44">
+                                                <div class="colwrapper-18">
+                                                    <div class="cont-45">
+                                                        <div class="cont-46"><p class="para-13"><span class="font-13">Zone:</span></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="colwrapper-19">
+                                                    <div class="cont-47">
+                                                        <div class="cont-48"><p class="para-14"><span class="font-14"><%=receipt.get("Zone")%></span></p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cont-49">
+                                                <div class="colwrapper-20">
+                                                    <div class="cont-50">
+                                                        <div class="colwrapper-21">
+                                                            <div class="cont-51">
+                                                                <div class="cont-52"><p class="para-15"><span class="font-15">Time:</span></p></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="colwrapper-22">
+                                                            <div class="cont-53">
+                                                                <div class="cont-54"><p class="para-16"><span class="font-16">&nbsp;<%=moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")%></span></p></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-55">
+                                                        <div class="cont-56"><p class="para-17"><span class="font-17">ALL CARGO IS SUBJECT TO INSPECTION</span></p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="colwrapper-23">
+                                            <div class="cont-57"></div>
+                                        </div>
+                                        <div class="colwrapper-24">
+                                            <div class="cont-58">
+                                                <div class="cont-59"><p class="para-18"><span class="font-18">Consignee:</span></p></div>
+                                            </div>
+                                            <div class="cont-60">
+                                                <div class="cont-61"><p class="para-19"><span class="font-19"><%=receipt.get("Consignee").get("Name")%></span></p></div>
+                                            </div>
+                                            <div class="cont-62">
+                                                <div class="colwrapper-25">
+                                                    <div class="cont-63">
+                                                        <div class="cont-64"><p class="para-20"><span class="font-20">Receipt by:</span></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="colwrapper-26">
+                                                    <div class="cont-65">
+                                                        <div class="cont-66"><p class="para-21"><span class="font-21"><%=receipt.get("Usr").get("Name")%></span></p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cont-67">
+                                                <div class="colwrapper-27">
+                                                    <div class="cont-68">
+                                                        <div class="cont-69"><p class="para-22"><span class="font-22">Box:</span></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="colwrapper-28">
+                                                    <div class="cont-70">
+                                                        <div class="cont-71"><p class="para-23"><span class="font-23">&nbsp; <%=box.get("Num") %></span></p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cont-72"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
    
-       <table style="position:relative; top:-13px;">
-       <tr><td><h5 style="font-size: 17px;"><b>Shipper: </b><%if(typeof receipt.get("Shipper") != "undefined"){ %><%= receipt.get("Shipper").get("Name")%><%}%></h5></td></tr>
-       <tr><td><h5 style="font-size: 17px;"><b>Consignee:</b> <%= receipt.get("Consignee").get("Name")%></h5></td></tr>
-       <tr><td><h5 style="font-size: 17px;"><b>Box:</b> <%= box.get("Num")%></h5></td></tr>
-       <tr><td><h5 style="font-size: 17px;"><b>Zone:</b> <%= receipt.get("Zone")%></h5></td></tr>
-       <tr><td><h5 style="font-size: 17px;"><b>Receipt By:</b><%= receipt.get("ReceiptBy").get("Name")%></h5></td></tr>
-       <tr><td><h5 style="font-size: 17px;"><b>Time:</b> <%= moment(receipt.get("ReceiptHour")).format("MM[/]DD[/]YYYY h:mm:ss")  %></h5></td></tr>
-		</table>
-			 
-			      
-            <table align="right" style="position:relative; top:-233px; left:-30px;">
-            <tr>
-            <td colspan=2>
-            <div id="qrcodeLabel-<%=i%>"></div>
-            </td>
-            </tr>
-            </table>  
-			
-			<table align="right" style="position:relative; top:-49px; left:90px;">
-	        <tr>
-	        <td><h5><b>Weight:</b> <%= receipt.get("Weight")%> lb</b></h5></td>
-	        <td><h5><b>Volume:</b> <%= receipt.get("Volume")%> cuft</h5></td>
-	        </tr>
-	        </table> 
-      
-        </div>
-    </div>
- 
-        <script> new QRCode(document.getElementById("qrcodeLabel-<%=i%>"), 
-                                {
-                                    text:"<%= JSON.stringify({Receipt:receipt.id, NumBox:box.get("Num")}) %>",
-                                    width: 128,
-                                    height: 128,
-                                }); 
+
+        <script>
+            
+            
+            html2canvas($("#mylabel-<%=box.get("BoxNum")%>"), {
+                onrendered: function(canvas) {
+                
+                    img = Canvas2Image.convertToImage(canvas, 800, 600, "png");
+                    labels.push(img);
+                    
+                    
+                }
+            });
+               
         </script>
- 
-    <% i+=1; }) %>
- 
- 
-</body>
+        
+        <% i+=1; }) %>  
+        
+	</body>
+
 </html>
+
+
+<script type="text/javascript">
+    var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
+    if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) { document.getElementsByTagName('body')[0].className+=' whitespacefix'; }
+</script>
+
+<script>
+    var labels = [];
+    
+    /*printPDF();*/
+    
+    var pdf = jsPDF('l', 'in', [6,4]);
+    
+    function getPDF()
+    {                
+        var pdf = jsPDF('l', 'in', [6,4]);
+        
+        for(i in labels)
+        {
+            pdf.addImage(labels[i], "PNG", 0,0,6,4, i.toString());
+            
+            if( i < labels.length-1)
+                pdf.addPage(); 
+        }
+        
+        pdf.save("Labels.pdf")
+    }
+        
+    function printPDF()
+    {   
+        for(i in labels)
+        {        
+            pdf.addImage(labels[i], "PNG", 0,0,6,4, i.toString() );
+            
+            if( i < labels.length-1)
+                pdf.addPage(); 
+        }
+        
+        pdf.autoPrint(); 
+        pdf.output('dataurlnewwindow'); 
+    }
+    
+    function getIMG()
+    {
+            html2canvas($("#mylabel-0"), {
+                onrendered: function(canvas) {
+                                    
+                    Canvas2Image.saveAsPNG(canvas); 
+                }
+            });
+    }
+    
+</script>
+
