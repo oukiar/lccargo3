@@ -365,11 +365,11 @@ function byeByeClient(clientId, companyId, url){
     swal({   
   	  title: "This user will be deleted permanently!",   text: "Do you want to continue?",   
              type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   
-             confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
+             confirmButtonText: "Yes, delete it!",   closeOnConfirm: true },
              function(){    
   			   Parse.Cloud.run('byeByeStaff', { staffId: staffId, companyId: companyId, url:url}, {
     success: function() {
-  	window.location.assign(url);
+  	$('#staffTableList').load(document.URL +  ' #staffTableList');
   	    },
     error: function() {
   	  alert("Sorry something went wrong, please refresh the page and try again!");
