@@ -5,6 +5,9 @@
 
 require('cloud/app.js');
 
+
+
+
 Parse.Cloud.define("restore", function(request, response) {
     Parse.Cloud.useMasterKey();
     var queryWarehouse = new Parse.Query("Receipts");
@@ -119,36 +122,80 @@ Parse.Cloud.define("byeByeStaff", function(request, response) {
 });
 
 
-//Deletes saved or published articles
-Parse.Cloud.define("byeByeStaff", function(request, response) {
-	Parse.Cloud.useMasterKey();
-	var staff = new Parse.Query("User");
-	staff.include("StaffId");
-	var company = request.params.companyId;
-	staff.equalTo("objectId", request.params.staffId);
-	staff.first().then(function(result) {
-		  result.get("StaffId").destroy({});
-		  result.destroy({}); 
-		  response.success(); 
-
-	 },function(error){
-			response.error("Sorry something went wrong, please refresh the page and try again!");
-		});  
-});
-
-
 //Create and save the PDF for best print times
 Parse.Cloud.define("createPDF", function(request, response) {
 
-    var jsPDF = require('cloud/jspdf.min.js');
-
+    
+    var jsPDF = require('cloud/jspdf.js');
+       
+    /*var doc = new jsPDF('l', 'in', [6,4]);*/
+    var doc = new jsPDF('l', 'pt', [432,288]);
+    
+        company = 'LCCargo Xpress';
+        rcpData = '# 00124123       -       Destination';
+        headTable = 'Length | Width | Height | Volume | Weight-Vol. | Weight';
+        values = '134511 | 134511 | 134511 | 134511 | 134511 | 134511';
+        shipper = 'Shipper: Carlos hernandez';
+        zone = 'Zone: ABCD';
+        time = '15/07/2015 00:00';
+        box = '12/12';
+        
+        
+        /*
+        doc.setFontSize(16);
+        * 
+        var offset=10;
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(company)*16)/2;
+        doc.text(offset, 20, company);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(rcpData)*16)/2;
+        doc.text(offset, 40, rcpData);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(headTable)*16)/2;
+        doc.text(offset, 60, headTable);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(values)*16)/2;
+        doc.text(offset, 80, values);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(shipper)*16)/2;
+        doc.text(offset, 100, shipper);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(zone)*16)/2;
+        doc.text(offset, 120, zone);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(time)*16)/2;
+        doc.text(offset, 140, time);
+        
+        //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(box)*16)/2;
+        doc.text(offset, 160, box);
+        
+        */
+    
 	var query = new Parse.Query("Boxes");
     
     query.equalTo("Receipt", {__type:"Pointer", className:"Receipts", objectId:request.params.receiptId});
     
-	query.find({success:function(result) {
+	query.find({success:function(results) {
             
+            for(i=0; i<results.length; i++)
+            {
+                
+                var offset=10;
+                
+                doc.text(offset, 20, company);
+                doc.text(offset, 40, rcpData);
+                doc.text(offset, 60, headTable);
+                doc.text(offset, 80, values);
+                doc.text(offset, 100, shipper);
+                doc.text(offset, 120, zone);
+                doc.text(offset, 140, time);
+                if(typeof results[i].get("Num") != "undefined")
+                    doc.text(offset, 160, results[i].get("Num"));
+                
+                doc.addPage();
+            }
             
-            
-            response.success(); 
+            response.success( doc.output() ); 
         }});
+});
