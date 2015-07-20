@@ -126,7 +126,8 @@ Parse.Cloud.define("byeByeStaff", function(request, response) {
 Parse.Cloud.define("createPDF", function(request, response) {
 
     
-    var jsPDF = require('cloud/jspdf.js');
+    var jsPDF = require('cloud/jspdf.debug.js');
+    //var jsPDF = require('cloud/split_text_to_size.js');
        
     /*var doc = new jsPDF('l', 'in', [6,4]);*/
     var doc = new jsPDF('l', 'pt', [432,288]);
@@ -183,12 +184,14 @@ Parse.Cloud.define("createPDF", function(request, response) {
                 
                 var offset=10;
                 
+                //var w = doc.getStringUnitWidth("hello hello");
+                
                 doc.text(offset, 20, company);
                 doc.text(offset, 40, rcpData);
                 doc.text(offset, 60, headTable);
                 doc.text(offset, 80, values);
                 doc.text(offset, 100, shipper);
-                doc.text(offset, 120, zone);
+                doc.text(offset, 120, w.toString() );
                 doc.text(offset, 140, time);
                 if(typeof results[i].get("Num") != "undefined")
                     doc.text(offset, 160, results[i].get("Num"));
@@ -198,4 +201,24 @@ Parse.Cloud.define("createPDF", function(request, response) {
             
             response.success( doc.output() ); 
         }});
+});
+
+//SERVER SIDE QR GENERATION
+Parse.Cloud.beforeSave("Boxes", function(request, response){
+        
+    var QRCode = require('cloud/qrcode.js');
+
+    QRCode.toDataURL(request.object.id, function(err,url){
+
+            //console.log(url);
+            
+            //var file = new Parse.File("qr.png", { "base64": qr.toImage("png").toDataURL()} );
+            //file.save();
+
+            request.object.set("QR", url);
+                
+            response.success();
+        });
+    
+    
 });
