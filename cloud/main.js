@@ -222,3 +222,16 @@ Parse.Cloud.beforeSave("Boxes", function(request, response){
     
     
 });
+
+
+//Edit Staff Info
+Parse.Cloud.define("editStaffInfo", function(request, response) {
+	Parse.Cloud.useMasterKey();
+	var userStaff = Parse.Object.extend("User");
+	var usrStaff = new userStaff;
+	usrStaff.id = request.params.staffId;
+	usrStaff.set("email", request.params.stemail);
+	usrStaff.set("username", request.params.stusrname);
+	usrStaff.save();
+		  response.success(); 
+});

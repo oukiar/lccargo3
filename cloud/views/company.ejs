@@ -293,11 +293,10 @@
 										</br></br>
 										<form method="post" action="/reset">
                                             <p>
-                                                <label><font color="#35353C">E-mail address:</font></label></br></br>
-                                                <input type="email" name="re_email" id="re_email" class="input" placeholder="e-mail" size="34" />
-												<input type="hidden" value="<%= company.get("companyLink") %>" name="companyLink">
+                                            <label><font color="#35353C">E-mail address:</font></label></br></br>
+                                            <input type="email" name="re_email" id="re_email" class="input" placeholder="e-mail" size="34" />
+										    <input type="hidden" value="<%= company.get("companyLink") %>" name="companyLink">
                                             </p>
-
                                             </br>
                                             <p class="submit">
                                                 <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-orange" value="Recover" />  &nbsp &nbsp<a href="#close" style="color:black;" >Cancel</a>
@@ -687,17 +686,12 @@
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
         <script src="cod/js/jquery.geocomplete.js"></script>
      
-        
-
-        
+      
         <script>
             
             var $j = jQuery.noConflict();
-   
             var nwarehouses = 1;
-            
             $j(function(){
-   
                 var options = {
                   map: ".map_canvas",
                     details: "form ul",
@@ -706,12 +700,10 @@
                 
                 $j("#geocomplete").geocomplete(options)
                   .bind("geocode:result", function(event, result){
-                      /*alert(JSON.stringify(result) );*/
-                      
+                      /*alert(JSON.stringify(result) );*/  
                     $j.log(result);
                   })
 				  
-  
                   .bind("geocode:error", function(event, status){
                     /*$j.log("ERROR: " + status);*/
                   })
@@ -730,7 +722,6 @@
               $j.log = function(result){
                 var message = result.formatted_address;
                 var wareName = result["address_components"][0]["long_name"];
-                
                 var long_name;
                 var short_name;
                 
