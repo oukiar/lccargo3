@@ -204,6 +204,7 @@ Parse.Cloud.define("createPDF", function(request, response) {
 });
 
 //SERVER SIDE QR GENERATION
+/*
 Parse.Cloud.beforeSave("Boxes", function(request, response){
         
     var QRCode = require('cloud/qrcode.js');
@@ -221,7 +222,7 @@ Parse.Cloud.beforeSave("Boxes", function(request, response){
         });
     
     
-});
+});*/
 
 
 //Edit Staff Info
