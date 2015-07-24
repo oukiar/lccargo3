@@ -54,12 +54,12 @@
 	       
             <td align="center"> <a onclick="showboxes('<%=label['objectId']%>')" href='#openReceiptBoxesRepack'><%=label['TotalBoxes']%></a></td>
          
-			<td><% if(typeof label["Shipper"] != "undefined"){%> <%=label["Shipper"]%><%}else{%><%= label["Consignee"]%><%}%></td>
-            <td><%= label["Consignee"]%></td>
+			<td><%= label["RepackShipper"]%></td>
+            <td><%= label["RepackConsignee"]%></td>
 		
             <td style="display:none;"><%= label["Invoice"]%></td>
             <td><%= label["ReceiptDate"] %></td>
-            <td><%if( label["Destination"] != null){%><%= label["Destination"]%><%}else{%><%= label["Country"]%><%}%></td>
+            <td><%if( label["Destination"] != null && typeof(label["Destination"]) != "undefined"){%><%= label["Destination"]%><%}else{%><%= label["Country"]%><%}%></td>
 			
         
             <td><a onclick="opentransfer('<%=label['objectId']%>')" href="#openModalC"><b><%= label["Warehouse"]%></b></a></td>
