@@ -159,21 +159,20 @@ ul li, ol li {
 			<!-- content -->
             <div class="content" style="width:100%;">
 
-                <h1><font color="color:rgba(50, 50, 58, 1.0)">LC CARGO XPRESS</font></h1>
-                        <p>1500 Griffith Ave</p>
-                        <p>Los Angeles, CA 90021</p>
+                <h1><font color="color:rgba(50, 50, 58, 1.0)"><%= company.get("name")%></font></h1>
+                        <p><%= company.get("address")%></p>
 
 
-						<h1>Recipt # 123512</h1>
-                        <p><b>Date:</b></p>
-                        <p><b>Boxes:</b></p>
-                        <p><b>Total Weight:</b></p>
-                        <p><b>Received By:</b></p>
+						<h1>Recipt # <%=receipt.get("ReceiptNum")%></h1>
+                        <p><b>Date:</b><%=receipt.get("ReceiptDate")%></p>
+                        <p><b>Boxes:</b><%=receipt.get("TotalBoxes")%></p>
+                        <p><b>Total Weight:</b><%=receipt.get("Weight")%></p>
+                        <p><b>Received By:</b><%=receipt.get("Usr").get("Name")%></p>
 
                         <div style="position:relative; left:55%; top:-122px;">
-                        <p><b>Shipper:</b></p>
-                        <p><b>Destination:</b></p>
-                        <p><b>Total Volume:</b></p>
+                        <p><b>Shipper:</b><%=receipt.get("RepackShipper").get("Name")%></p>
+                        <p><b>Destination:</b><%=receipt.get("Destination")%></p>
+                        <p><b>Total Volume:</b><%=receipt.get("Volume")%></p>
                         </div>
 
                           <div style="position:relative;  top:-55px;">
@@ -181,11 +180,11 @@ ul li, ol li {
 
                               <table style="width:96%; background:#F0F0FF;">
                                   <tr>
-                                      <td><b>Lenght</b></td>
-                                      <td><b>Width</b></td>
-                                      <td><b>Height</b></td>
-                                      <td><b>Weight</b></td>
-                                      <td><b>Boxes</b></td>
+                                      <td><b>Volume: </b><%=receipt.get("Volume")%></td>
+                                      <td><b>Weight: </b><%=receipt.get("Weight")%></td>
+                                      <td><b>Boxes: </b><%=receipt.get("TotalBoxes")%></td>
+                                      <td><b>Extra cost: </b><%=receipt.get("ExtraCost")%></td>
+                                      <td><b>Invoice: </b><%=receipt.get("Invoice")%></td>
                                   </tr>
                               </table>
 
