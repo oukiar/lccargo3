@@ -27,7 +27,7 @@ form {
 	vertical-align: top;
 	min-width: 802px;
 	width: 802px;
-	min-height: 536px;
+	min-height: 400px;
 	position: relative;
 	z-index: 1;
 	margin-left: 116px;
@@ -52,7 +52,7 @@ form {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 287px;
-	width: 287px;
+	width: 377px;
 	min-height: 63px;
 	position: relative;
 	z-index: 15;
@@ -453,8 +453,8 @@ form {
 	min-width: 402px;
 	width: 402px;
 	min-height: 105px;
-	height: 105px;
-	position: relative;
+	height: 205px;
+	position: absolute;
 	overflow:scroll;
 	z-index: 7;
 	margin-left: 0px;
@@ -870,6 +870,7 @@ form {
 	position: relative;
 	margin-left: 19px;
 	margin-top: 0px;
+	top:-102px;
 }
 .colwrapper-54-REG {
 	display: inline-block;
@@ -1068,8 +1069,9 @@ form {
 	height: 25px;
 	position: relative;
 	z-index: 28;
+	top:-95px;
 	margin-left: 0px;
-	margin-top: 7px;
+	margin-top: 0px;
 	border: 0;
 	background-color: rgba(103,121,133,0.648);
 }

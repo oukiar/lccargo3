@@ -808,6 +808,8 @@ div #dashboard{
 	text-decoration: none;
 	color: rgba(0,0,0,0.634);
 	line-height: 72.41pt;
+	position:relative;
+	left: -34px;
 	letter-spacing: normal;
 }
 .cont-39 {
