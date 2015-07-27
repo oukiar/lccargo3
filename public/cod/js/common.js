@@ -1,4 +1,8 @@
- Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+
+
+Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
+
+
 function InsertForm(kwargs)
 {
     /*REQUEST DATA FROM THE SERVER*/
@@ -195,8 +199,20 @@ function filter_conditions(filterby, searchtext, filterdate)
                 };
     }
     else
-    { 
-        return date_condition(filterdate);
+    {
+        /* NEW RANGE INTERVAL */
+        if($("#fromdate").val() != "" && $("#todate").val() != "")
+        {
+            var daterange = {
+                                greaterThanOrEqualTo: {'ReceiptDate' : $("#fromdate").val() },
+                                lessThanOrEqualTo: {'ReceiptDate' : $("#todate").val() }
+                            };
+            
+            return daterange;
+            
+        }
+        else
+            return date_condition(filterdate);
     }
 }
 
@@ -239,7 +255,7 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
     if(typeof updatetable == "undefined") updatetable = update_table;
     //if(typeof searchkeyup == "undefined") searchkeyup = searchtext_keyup;
     
-    if($("#"+filterby).val() == "Date" )
+    if($("#"+filterby).val() == "Date_DISABLED" )
     {
         $("#"+searchtext).replaceWith("<input type='text'  placeholder='From' id='searchtext' name='searchtext'>".replace(/searchtext/g, searchtext));
         /*$("#fromTxt").replaceWith("<label class='pfont' style='display: block;' id='fromTxt'>Date:</label>");
@@ -260,25 +276,25 @@ function filterby_changed(filterby, searchtext, filterdate, updatetable)
     else if($("#"+filterby).val() == "All")
     {
         $("#"+searchtext).replaceWith("<input type='hidden' placeholder='Search' id='searchtext' name='searchtext'>".replace(/searchtext/g, searchtext));
-        $("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
+        /*$("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yestarday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
             
         $("#"+filterdate).change(function(){
                 updatetable();
             }); 
               
-        updatetable();
+        updatetable();*/
         
     }
     else
     {
         $("#"+searchtext).replaceWith("<input type='text' placeholder='Search' id='searchtext' name='searchtext'>".replace(/searchtext/g, searchtext));
-        $("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yesterday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
+        /*$("#"+filterdate).replaceWith("<select id='filterdate' name='filterdate'><option value='All'>All</option><option value='Today'>Today</option> <option value='Yesterday'>Yesterday</option><option value='This week'>This week</option><option value='This month'>This month</option><option value='Last month'>Last month</option><option value='Current year'>Current Year</option></select>".replace(/filterdate/g, filterdate));
         
         //$("#"+searchtext).keyup(searchkeyup);
         
         $("#"+filterdate).change(function(){
                 updatetable();
-            }); 
+            }); */
         
         /* CLIENT AUTOFILL ON FILTER */    
         if($("#"+filterby).val() == "Consignee")
