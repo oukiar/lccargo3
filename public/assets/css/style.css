@@ -110,7 +110,7 @@ html.boxed{
 
 body {
     background-color: rgba(192,192,192,0.363);
-    color: rgba(118, 118, 118, 1.0);
+    color: rgba(192,192,192,0.363);
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 14px;
     padding: 0px !important;
@@ -7382,7 +7382,7 @@ border-left: 3px solid transparent;
 */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-body {color: #3A3A3A;background: #eee;padding: 0; margin: 0px !important;font-size: 13px;line-height: 1.618;}
+body {color: #3A3A3A;background: rgba(192,192,192,0.363); padding: 0; margin: 0px !important;font-size: 13px;line-height: 1.618;}
 .container{ background:#FFF; margin-top:20px; border-radius:8px;}
 .panel-heading {border-color: #eff2f7;font-size: 16px;font-weight: 200;padding: 15px 0;border-bottom: 1px solid transparent;border-top-right-radius: 3px;border-top-left-radius: 3px; border-bottom:#eff2f7 solid 1px;}
 .panel-body ul{ border:none; margin:0; padding:0;}
