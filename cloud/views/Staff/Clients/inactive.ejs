@@ -173,6 +173,7 @@
         
 		
 	    <!--MODAL PARA MOSTAR LABEL-->
+        <!--
 	    <div id="openModalRegClient" class="modalDialogB">
 	        <div>
 	          <a href="#close" title="Close" class="closeB">X</a>
@@ -317,6 +318,8 @@
 			                </div>
 		          </div>
 		      </div>
+              -->
+              
         <!-- END CONTAINER -->
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
         <%include ../../generals/endFiles.ejs%>
@@ -433,39 +436,39 @@
             query.get(clientID, {success: function(clientres){
                             
                     clientres.set("Status", "Active");
-                    clientres.save();
+                    clientres.save({success: function(){
+                            $.post("/get_activation_template_clientInactive", {user:$("#txt_user").val(), pass:$("#txt_pass").val(), clientID:clientID}, function(template){
+                        
+                                                                
+                                    /* EMAIL PARAMETERS */
+                                    emailparams = {
+                                                    "text": template,
+                                                    "subject": "Account activated",
+                                                    "from_email": "cargoparse@notifications.com",
+                                                    "from_name":"Notifier",
+                                                    "to_email": clientres.get("Email"),
+                                                    "to_name":clientres.get("Name")
+                                                };
+                                                                    
+                                    /* SEND EMAIL */
+                                    Parse.Cloud.run('sendMail', emailparams, {
+                                        success: 
+                                            function(result) 
+                                            {
+                                                alert(result);
+                                            },
+                                        error:
+                                            function()
+                                            {
+                                            }
+                                        });  
+                                    
+                                    update_table();
+                                    alert("Activated");
+                                    
+                                });                    
+                        }});
                     
-                    update_table();
-                    
-                    $.post("/get_activation_template_clientInactive", {user:$("#txt_user").val(), pass:$("#txt_pass").val(), clientID:clientID}, function(template){
-                
-                                                        
-                            /* EMAIL PARAMETERS */
-                            emailparams = {
-                                            "text": template,
-                                            "subject": "Account activated",
-                                            "from_email": "cargoparse@notifications.com",
-                                            "from_name":"Notifier",
-                                            "to_email": clientres.get("Email"),
-                                            "to_name":clientres.get("Name")
-                                        };
-                                                            
-                            /* SEND EMAIL */
-                            Parse.Cloud.run('sendMail', emailparams, {
-                                success: 
-                                    function(result) 
-                                    {
-                                        alert(result);
-                                    },
-                                error:
-                                    function()
-                                    {
-                                    }
-                                });  
-                            
-                            alert("Activated");
-                            
-                        });
                     
                 }});
             
@@ -485,13 +488,13 @@
                             
                             "Name":"",
                             "Country":"", 
-                            "Company":{"Name":""},
+                            "Company":{"name":""},
                             "Telephone":"",
                             "Email":"",
                             "objectId":""
                         },
                     collection: "Clients", 
-                    conditions: filter_conditions_with_dict({conditions:conditions}),
+                    conditions: conditions,
                     like: filter_like(),
                     document: "Staff/Clients/pendings_partitions/dynamictable",
                     itemid: "clientstable"

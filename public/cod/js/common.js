@@ -200,12 +200,16 @@ function filter_conditions(filterby, searchtext, filterdate)
     }
     else
     {
+        
         /* NEW RANGE INTERVAL */
         if($("#fromdate").val() != "" && $("#todate").val() != "")
         {
+            var begindate = new Date($("#fromdate").val() );
+            var enddate = new Date($("#todate").val() );
+            
             var daterange = {
-                                greaterThanOrEqualTo: {'ReceiptDate' : $("#fromdate").val() },
-                                lessThanOrEqualTo: {'ReceiptDate' : $("#todate").val() }
+                            greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( begindate ).format("MM[/]DD[/]YYYY")}},
+                            lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( enddate ).format("MM[/]DD[/]YYYY")}}
                             };
             
             return daterange;

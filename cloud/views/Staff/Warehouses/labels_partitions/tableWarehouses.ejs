@@ -24,10 +24,15 @@
                     <option value="Shipper">Store</option>
                     <option value="Consignee">Client</option>
                     <option value="ReceiptNum">Receipt #</option>
-                    <option value="Date">Date</option>
                     <option value="Destination">Destination</option>
                 </select>
                 </td>
+				  <td style="padding: 8px;">
+					  <input type="text" id="fromdate"style="display:none;">
+				  </td>
+				    <td style="padding: 8px;">
+						<input type="text" id="todate" style="display:none;">
+					</td>  
                 
                 <td style="padding: 5px;"> 
                     <!-- IF ALL OR DATE SELECTED THIS SEARCH INPUT IS NOT USE-->
@@ -37,6 +42,7 @@
                 <td style="padding: 8px;">
                 <select id="filterdate" name="filterdate">
                      <option value="">All</option>
+					 <option value="DateRange">Date Range</option>
                      <option value="Today">Today</option>
                      <option value="Yesterday">Yesterday</option>
                      <option value="This week">This week</option>
@@ -75,8 +81,14 @@
         $("#filterdate").val("Today");
     });
 
+
     $("#btn_search").click(function(){
-            update_table();
+            if($("#searchtext").val() == "" && $("#filterby").val() != "All")
+            {
+                alert("Search text void, please enter keyword to find");
+            }
+            else
+                update_table();
         });
 
     $("#warehousefilter").change(function(){
@@ -85,8 +97,20 @@
     
         
     $("#filterdate").change(function(){
-        update_table();
-    });            
+        if($("#filterdate").val() == "DateRange")
+        {
+            $("#fromdate").show();
+            $("#todate").show();
+            
+            $("#fromdate").datepicker();
+            $("#todate").datepicker();
+        }
+        else
+        {
+            $("#fromdate").hide();
+            $("#todate").hide();
+        }
+    });        
 
     $("#filterby").change(function(){
         filterby_changed();
