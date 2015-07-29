@@ -5,9 +5,6 @@
 
 require('cloud/app.js');
 
-
-
-
 Parse.Cloud.define("restore", function(request, response) {
     Parse.Cloud.useMasterKey();
     var queryWarehouse = new Parse.Query("Receipts");
@@ -140,8 +137,7 @@ Parse.Cloud.define("createPDF", function(request, response) {
         zone = 'Zone: ABCD';
         time = '15/07/2015 00:00';
         box = '12/12';
-        
-        
+              
         /*
         doc.setFontSize(16);
         * 
@@ -167,10 +163,9 @@ Parse.Cloud.define("createPDF", function(request, response) {
         
         //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(time)*16)/2;
         doc.text(offset, 140, time);
-        
+		
         //var offset = doc.internal.pageSize.width/2 - (doc.getStringUnitWidth(box)*16)/2;
         doc.text(offset, 160, box);
-        
         */
     
 	var query = new Parse.Query("Boxes");
