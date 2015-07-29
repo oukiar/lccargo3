@@ -31,7 +31,7 @@ for line in lines:
         
     agency.Name = name
     agency.Email = email
-    agency.Company = {"__type": "Pointer", "className": "Companies", "objectId": "AgViN0JqQq"}
+    agency.Company = {"__type": "Pointer", "className": "Companies", "objectId": "ATTeW8GRQt"}
     agency.Key = company
     agency.Country = country
     #client.save()

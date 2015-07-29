@@ -12,7 +12,7 @@ register("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "PE8FNw0hDdlvcHYYgxEnbUyxPk
 ClientsTest = Object.factory("Clients")
      
 
-lines = open("Clients.csv").readlines()
+lines = open("LISTA DE CLIENTES 2015.csv").readlines()
 
 clientslist = []
 
@@ -22,15 +22,27 @@ for line in lines:
     #print lines.index(line)
     client = ClientsTest()
     
-    try:
-        name, email, company, country = line.split(",")
-    except:
-        name = line.split('"')[0]
-        fooname, email, company, country, morefoo = line[len(name)+2:].split(",")
+#try:
+    #name, email, company, country = line.split(",")
+    ID, name, company, country, city, state, address, email, phone = line.split(",")
+#except:
+    #name = line.split('"')[0]
+    #fooname, email, company, country, morefoo = line[len(name)+2:].split(",")
+#    print "Error: ", line
+#    exit()
         
+        
+    print name
+        
+    client.AccountID = ID
     client.Name = name
+    client.Country = country
+    client.City = city
+    client.State = state
+    client.Address = address
+    client.Telephone = phone
     client.Email = email
-    client.Company = {"__type": "Pointer", "className": "Companies", "objectId": "AgViN0JqQq"}
+    client.Company = {"__type": "Pointer", "className": "Companies", "objectId": "ATTeW8GRQt"}
     client.Key = company
     client.Country = country
     #client.save()
