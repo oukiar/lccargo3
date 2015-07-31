@@ -1,6 +1,5 @@
 
 
-Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
 
 
 function InsertForm(kwargs)
