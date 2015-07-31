@@ -204,7 +204,15 @@ function filter_conditions(filterby, searchtext, filterdate)
         if($("#fromdate").val() != "" && $("#todate").val() != "")
         {
             var begindate = new Date($("#fromdate").val() );
+            /*
             var enddate = new Date($("#todate").val() );
+            enddate.setHours(23, 59);*/
+            
+            var today = moment();
+            var enddate = today;
+            /*var enddate = moment(today).add(1, 'days');*/
+            
+            /*alert(enddate);*/
             
             var daterange = {
                             greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( begindate ).format("MM[/]DD[/]YYYY")}},
