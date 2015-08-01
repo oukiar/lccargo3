@@ -7,8 +7,8 @@
         <meta charset="utf-8" />
         <title>LC Cargo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
+        <meta content="BY NAT" name="description" />
+        <meta content="By NAT" name="author" />
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=VT323">
 	   
         <!--ADMIN REQUIREMENTS-->   
@@ -19,8 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css">     
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>   
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=VT323|Jura|EB+Garamond&amp;subset=all">
 		<link rel="stylesheet" type="text/css" href="cod/labels/css/registerConsignee.css">
         <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
@@ -49,8 +48,8 @@
 	    	right: 0;
 	    	bottom: 0;
 	    	left: 0;
-	  	height:100%;
-	    	background: rgba(255,255,255,0.8);
+	  	    height:100%;
+	    	background: rgba(116, 116, 116,0.5);
 	    	z-index: 99999;
 	    	opacity:0;
 	    	-webkit-transition: opacity 400ms ease-in;
@@ -70,7 +69,7 @@
 	    	margin: 10% auto;
 	    	padding: 5px 20px 13px 20px;
 	    	border-radius: 10px;
-	    	background: white;
+	    	background: rgba(116, 116, 116,0.5);;
 	    }
   
   
@@ -170,10 +169,10 @@
             </br>
         </div>
     </div>
+     
         
 		
-	    <!--MODAL PARA MOSTAR LABEL-->
-        <!--
+	  
 	    <div id="openModalRegClient" class="modalDialogB">
 	        <div>
 	          <a href="#close" title="Close" class="closeB">X</a>
@@ -224,13 +223,12 @@
 			  		  							<input type="text" name="text" class="input-4-REG">
 			  		  						</div>
 			  		  					</div>
-			  		  					<div class="colwrapper-48-REG" id="regClient">
-			  		  						<div class="cont-153-REG" id="regClient">
-			                                         <pre><b>Destinations List:</b> 
-			                                             <table id="logger" style='overflow:scroll;'>
-
-			                                             </table>
-			                                         </pre>
+			  		  					<div class="colwrapper-48-REG" >
+			  		  						<div class="cont-153-REG" >
+			                                  <pre><b>Destinations List:</b> 
+			                                        <table id="logger" style='overflow:scroll;'>
+			                                        </table>
+			                                  </pre>
 			  		  						</div>
 			  		  					</div>
 			  		  				</div>
@@ -318,7 +316,7 @@
 			                </div>
 		          </div>
 		      </div>
-              -->
+           
               
         <!-- END CONTAINER -->
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
@@ -468,11 +466,8 @@
                                     
                                 });                    
                         }});
-                    
-                    
+
                 }});
-            
-            
         });
         
 

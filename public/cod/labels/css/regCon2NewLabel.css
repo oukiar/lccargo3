@@ -2,11 +2,6 @@ div #regClient {
 	font-size: 0px;
 }
 
-form {
-	display: inline-block;
-}
-
-
 .whitespacefix {
 	word-spacing: -1px;
 }
@@ -58,7 +53,7 @@ form {
 	margin-top: 4px;
 	overflow: visible;
 }
-.para-57-REG-REG {
+.para-57-REG {
 	text-indent: 0;
 	padding-top: 5pt;
 	margin-top: 0pt;

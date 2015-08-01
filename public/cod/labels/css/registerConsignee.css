@@ -1,16 +1,9 @@
-
-
-div #regClient {
+#regClient {
 	font-size: 0px;
 }
 
 form {
 	display: inline-block;
-}
-
-
-.whitespacefix {
-	word-spacing: -1px;
 }
 
 .section-3-REG {
@@ -30,23 +23,29 @@ form {
 	min-height: 536px;
 	position: relative;
 	z-index: 1;
-	margin-left: 116px;
+	margin-left: 144px;
 	margin-top: 0px;
 	border: 0;
 	background-color: rgb(255,255,255);
 }
+
+#logger{
+		font-size: 13px;
+}
+
+
 .cont-136-REG {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 802px;
 	width: 802px;
-	min-height: 67px;
+	min-height: 64px;
 	position: relative;
 	z-index: 2;
 	margin-left: 0px;
 	margin-top: 0px;
 	border: 0;
-	background-color: rgba(103,121,133,0.648);
+	background-color: rgb(103,122,133);
 }
 .cont-137-REG {
 	display: inline-block;
@@ -469,7 +468,7 @@ form {
 	width: 255px;
 	min-height: 45px;
 	position: relative;
-	margin-left: 73px;
+	margin-left: 85px;
 	margin-top: -6px;
 }
 .colwrapper-49-REG {
@@ -1071,5 +1070,5 @@ form {
 	margin-left: 0px;
 	margin-top: 7px;
 	border: 0;
-	background-color: rgba(103,121,133,0.648);
+	background-color: rgb(103,122,133);
 }

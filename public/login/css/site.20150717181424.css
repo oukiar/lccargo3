@@ -1,30 +1,23 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-div #sparkle {
+#sparkle {
 	font-size: 0px;
 }
 
-form {
-	display: inline-block;
-}
-input {
+
+.input-LOGIN {
 	box-sizing: border-box;
 }
-textarea {
+.textarea-LOGIN {
 	box-sizing: border-box;
 }
-a {
-	text-decoration: inherit;
-	color: inherit;
-}
-.whitespacefix {
-	word-spacing: -1px;
-}
+
+
 #body {
-	background-color: rgb(192,192,192);
+	background-color: #E4E4E4;
 }
-.section {
+.section-LOGIN {
 	position: relative;
 	margin-top: 140px;
 	min-width: 960px;
@@ -33,7 +26,7 @@ a {
 	margin-right: auto;
 	display: block;
 }
-.cont {
+.cont-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -46,7 +39,7 @@ a {
 	border: 0;
 	background-color: rgb(255,255,255);
 }
-.cont-2 {
+.cont-2-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -56,7 +49,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.colwrapper {
+.colwrapper-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -67,7 +60,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-3 {
+.cont-3-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -79,14 +72,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para {
+.para-LOGIN {
 	text-indent: 4px;
 	padding-top: 1pt;
 	margin-top: 0pt;
 	margin-bottom: -1pt;
 	text-align: left;
 }
-.font {
+.font-LOGIN {
 	font-family: VT323;
 	font-size: 28.50pt;
 	font-weight: 400;
@@ -96,10 +89,10 @@ a {
 	line-height: 31.33pt;
 	letter-spacing: normal;
 }
-.cont-4 {
+.cont-4-LOGIN {
 	overflow: hidden;
 }
-.cont-5 {
+.cont-5-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -113,7 +106,7 @@ a {
 	border: 0;
 	background-color: rgb(103,122,133);
 }
-.cont-6 {
+.cont-6-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -125,14 +118,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-2 {
+.para-2-LOGIN {
 	text-indent: 0;
 	padding-top: 5pt;
 	margin-top: 0pt;
 	margin-bottom: -5pt;
 	text-align: center;
 }
-.font-2 {
+.font-2-LOGIN {
 	font-family: Jura;
 	font-size: 31.50pt;
 	font-weight: 400;
@@ -142,10 +135,10 @@ a {
 	line-height: 41.71pt;
 	letter-spacing: normal;
 }
-.cont-7 {
+.cont-7-LOGIN {
 	overflow: hidden;
 }
-.cont-8 {
+.cont-8-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 313px;
@@ -155,7 +148,7 @@ a {
 	margin-left: 132px;
 	margin-top: 22px;
 }
-.colwrapper-2 {
+.colwrapper-2-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 76px;
@@ -166,7 +159,7 @@ a {
 	margin-top: 1px;
 	line-height: 0;
 }
-.cont-9 {
+.cont-9-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 76px;
@@ -178,14 +171,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-3 {
+.para-3-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-3 {
+.font-3-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -195,10 +188,10 @@ a {
 	line-height: 16.04pt;
 	letter-spacing: normal;
 }
-.cont-10 {
+.cont-10-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-3 {
+.colwrapper-3-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 230px;
@@ -209,7 +202,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-11 {
+.cont-11-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 230px;
@@ -220,7 +213,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.input {
+.input-LOGIN {
 	width: 230px;
 	height: 33px;
 	font-size: 11.25pt;
@@ -237,7 +230,7 @@ a {
 	margin-bottom: 0pt;
 	text-align: center;
 }
-.cont-12 {
+.cont-12-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 313px;
@@ -247,7 +240,7 @@ a {
 	margin-left: 132px;
 	margin-top: 19px;
 }
-.colwrapper-4 {
+.colwrapper-4-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 76px;
@@ -258,7 +251,7 @@ a {
 	margin-top: 1px;
 	line-height: 0;
 }
-.cont-13 {
+.cont-13-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 76px;
@@ -270,14 +263,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-4 {
+.para-4-LOGIN {
 	text-indent: 0;
 	padding-top: 1pt;
 	margin-top: 0pt;
 	margin-bottom: -1pt;
 	text-align: left;
 }
-.font-4 {
+.font-4-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -287,10 +280,10 @@ a {
 	line-height: 12.60pt;
 	letter-spacing: normal;
 }
-.cont-14 {
+.cont-14-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-5 {
+.colwrapper-5-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 230px;
@@ -301,7 +294,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-15 {
+.cont-15-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 230px;
@@ -312,7 +305,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.input-2 {
+.input-2-LOGIN {
 	width: 230px;
 	height: 33px;
 	font-size: 12.00pt;
@@ -329,7 +322,7 @@ a {
 	margin-bottom: 0pt;
 	text-align: center;
 }
-.cont-16 {
+.cont-16-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 140px;
@@ -340,7 +333,7 @@ a {
 	margin-left: -185px;
 	margin-top: 69px;
 }
-.button {
+.button-LOGIN {
 	width: 140px;
 	display: inline-block;
 	overflow: hidden;
@@ -361,17 +354,17 @@ a {
 	margin-bottom: 0;
 	height: 30px;
 }
-.button:hover {
+.button-LOGIN:hover {
 	background-color: rgb(130,147,158);
 	border-color: rgba(0,0,0,0.321);
 	color: rgb(241,196,35);
 }
-.button:active {
+.button-LOGIN:active {
 	background-color: rgb(82,100,111);
 	border-color: rgba(0,0,0,0.321);
 	color: rgb(255,255,255);
 }
-.cont-17 {
+.cont-17-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 660px;
@@ -384,7 +377,7 @@ a {
 	border: 0;
 	background-color: rgb(103,122,133);
 }
-.cont-18 {
+.cont-18-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 640px;
@@ -394,7 +387,7 @@ a {
 	margin-left: 10px;
 	margin-top: 9px;
 }
-.colwrapper-6 {
+.colwrapper-6-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 150px;
@@ -405,7 +398,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-19 {
+.cont-19-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 150px;
@@ -417,14 +410,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-5 {
+.para-5-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: left;
 }
-.font-5 {
+.font-5-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -434,10 +427,10 @@ a {
 	line-height: 17.19pt;
 	letter-spacing: normal;
 }
-.cont-20 {
+.cont-20-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-7 {
+.colwrapper-7-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 66px;
@@ -448,7 +441,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-21 {
+.cont-21-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 66px;
@@ -460,14 +453,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-6 {
+.para-6-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: left;
 }
-.font-6 {
+.font-6-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -477,10 +470,10 @@ a {
 	line-height: 17.19pt;
 	letter-spacing: normal;
 }
-.cont-22 {
+.cont-22-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-8 {
+.colwrapper-8-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 46px;
@@ -491,7 +484,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-23 {
+.cont-23-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 46px;
@@ -503,14 +496,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-7 {
+.para-7-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: left;
 }
-.font-7 {
+.font-7-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -520,10 +513,10 @@ a {
 	line-height: 17.19pt;
 	letter-spacing: normal;
 }
-.cont-24 {
+.cont-24-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-9 {
+.colwrapper-9-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 23px;
@@ -534,7 +527,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-25 {
+.cont-25-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 23px;
@@ -546,14 +539,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-8 {
+.para-8-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: left;
 }
-.font-8 {
+.font-8-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -563,10 +556,10 @@ a {
 	line-height: 17.19pt;
 	letter-spacing: normal;
 }
-.cont-26 {
+.cont-26-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-10 {
+.colwrapper-10-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 60px;
@@ -577,7 +570,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-27 {
+.cont-27-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 60px;
@@ -589,14 +582,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-9 {
+.para-9-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: left;
 }
-.font-9 {
+.font-9-LOGIN {
 	font-family: Jura;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -606,14 +599,14 @@ a {
 	line-height: 17.19pt;
 	letter-spacing: normal;
 }
-.cont-28 {
+.cont-28-LOGIN {
 	overflow: hidden;
 }
 @media (max-width:959px) {
 #body {
-	background-color: rgb(192,192,192);
+	background-color: #E4E4E4;
 }
-.section {
+.section-LOGIN {
 	position: relative;
 	margin-top: 36px;
 	min-width: 320px;
@@ -622,7 +615,7 @@ a {
 	margin-right: auto;
 	display: block;
 }
-.cont {
+.cont-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -635,7 +628,7 @@ a {
 	border: 0;
 	background-color: rgb(255,255,255);
 }
-.cont-2 {
+.cont-2-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -645,7 +638,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.colwrapper {
+.colwrapper-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -656,7 +649,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-3 {
+.cont-3-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 220px;
@@ -668,14 +661,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para {
+.para-LOGIN {
 	text-indent: 0;
 	padding-top: 1pt;
 	margin-top: 0pt;
 	margin-bottom: -1pt;
 	text-align: left;
 }
-.font {
+.font-LOGIN {
 	font-family: VT323;
 	font-size: 11.25pt;
 	font-weight: 400;
@@ -685,10 +678,10 @@ a {
 	line-height: 12.37pt;
 	letter-spacing: normal;
 }
-.cont-4 {
+.cont-4-LOGIN {
 	overflow: hidden;
 }
-.cont-5 {
+.cont-5-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -702,7 +695,7 @@ a {
 	border: 0;
 	background-color: rgb(103,122,133);
 }
-.cont-6 {
+.cont-6-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -714,14 +707,14 @@ a {
 	margin-top: 3px;
 	overflow: visible;
 }
-.para-2 {
+.para-2-LOGIN {
 	text-indent: 0;
 	padding-top: 3pt;
 	margin-top: 0pt;
 	margin-bottom: -3pt;
 	text-align: center;
 }
-.font-2 {
+.font-2-LOGIN {
 	font-family: Jura;
 	font-size: 18.75pt;
 	font-weight: 400;
@@ -731,10 +724,10 @@ a {
 	line-height: 24.83pt;
 	letter-spacing: normal;
 }
-.cont-7 {
+.cont-7-LOGIN {
 	overflow: hidden;
 }
-.cont-8 {
+.cont-8-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 244px;
@@ -744,7 +737,7 @@ a {
 	margin-left: 4px;
 	margin-top: 6px;
 }
-.colwrapper-2 {
+.colwrapper-2-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 42px;
@@ -755,7 +748,7 @@ a {
 	margin-top: 5px;
 	line-height: 0;
 }
-.cont-9 {
+.cont-9-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 42px;
@@ -767,14 +760,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-3 {
+.para-3-LOGIN {
 	text-indent: 0;
 	padding-top: 1pt;
 	margin-top: 0pt;
 	margin-bottom: -1pt;
 	text-align: left;
 }
-.font-3 {
+.font-3-LOGIN {
 	font-family: Jura;
 	font-size: 6.00pt;
 	font-weight: 400;
@@ -784,10 +777,10 @@ a {
 	line-height: 8.56pt;
 	letter-spacing: normal;
 }
-.cont-10 {
+.cont-10-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-3 {
+.colwrapper-3-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 202px;
@@ -798,7 +791,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-11 {
+.cont-11-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 202px;
@@ -809,7 +802,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.input {
+.input-LOGIN {
 	width: 202px;
 	height: 22px;
 	font-size: 11.25pt;
@@ -826,7 +819,7 @@ a {
 	margin-bottom: 0pt;
 	text-align: center;
 }
-.cont-12 {
+.cont-12-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 244px;
@@ -836,7 +829,7 @@ a {
 	margin-left: 4px;
 	margin-top: 8px;
 }
-.colwrapper-4 {
+.colwrapper-4-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 39px;
@@ -847,7 +840,7 @@ a {
 	margin-top: 4px;
 	line-height: 0;
 }
-.cont-13 {
+.cont-13-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 39px;
@@ -859,14 +852,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-4 {
+.para-4-LOGIN {
 	text-indent: 0;
 	padding-top: 0pt;
 	margin-top: 0pt;
 	margin-bottom: -0pt;
 	text-align: left;
 }
-.font-4 {
+.font-4-LOGIN {
 	font-family: Jura;
 	font-size: 6.00pt;
 	font-weight: 400;
@@ -876,10 +869,10 @@ a {
 	line-height: 6.72pt;
 	letter-spacing: normal;
 }
-.cont-14 {
+.cont-14-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-5 {
+.colwrapper-5-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 202px;
@@ -890,7 +883,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-15 {
+.cont-15-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 202px;
@@ -901,7 +894,7 @@ a {
 	margin-left: 0px;
 	margin-top: 0px;
 }
-.input-2 {
+.input-2-LOGIN {
 	width: 202px;
 	height: 22px;
 	font-size: 12.00pt;
@@ -918,7 +911,7 @@ a {
 	margin-bottom: 0pt;
 	text-align: center;
 }
-.cont-16 {
+.cont-16-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 133px;
@@ -929,7 +922,7 @@ a {
 	margin-left: 81px;
 	margin-top: 4px;
 }
-.button {
+.button-LOGIN {
 	width: 133px;
 	display: inline-block;
 	overflow: hidden;
@@ -950,7 +943,7 @@ a {
 	margin-bottom: 0;
 	height: 18px;
 }
-.cont-17 {
+.cont-17-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 295px;
@@ -963,7 +956,7 @@ a {
 	border: 0;
 	background-color: rgb(103,122,133);
 }
-.cont-18 {
+.cont-18-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 286px;
@@ -973,7 +966,7 @@ a {
 	margin-left: 4px;
 	margin-top: 0px;
 }
-.colwrapper-6 {
+.colwrapper-6-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 88px;
@@ -984,7 +977,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-19 {
+.cont-19-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 88px;
@@ -996,14 +989,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-5 {
+.para-5-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-5 {
+.font-5-LOGIN {
 	font-family: Jura;
 	font-size: 6.75pt;
 	font-weight: 400;
@@ -1013,10 +1006,10 @@ a {
 	line-height: 10.31pt;
 	letter-spacing: normal;
 }
-.cont-20 {
+.cont-20-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-7 {
+.colwrapper-7-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 39px;
@@ -1027,7 +1020,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-21 {
+.cont-21-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 39px;
@@ -1039,14 +1032,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-6 {
+.para-6-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-6 {
+.font-6-LOGIN {
 	font-family: Jura;
 	font-size: 6.75pt;
 	font-weight: 400;
@@ -1056,10 +1049,10 @@ a {
 	line-height: 10.31pt;
 	letter-spacing: normal;
 }
-.cont-22 {
+.cont-22-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-8 {
+.colwrapper-8-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 26px;
@@ -1070,7 +1063,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-23 {
+.cont-23-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 26px;
@@ -1082,14 +1075,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-7 {
+.para-7-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-7 {
+.font-7-LOGIN {
 	font-family: Jura;
 	font-size: 6.75pt;
 	font-weight: 400;
@@ -1099,10 +1092,10 @@ a {
 	line-height: 10.31pt;
 	letter-spacing: normal;
 }
-.cont-24 {
+.cont-24-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-9 {
+.colwrapper-9-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 13px;
@@ -1113,7 +1106,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-25 {
+.cont-25-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 13px;
@@ -1125,14 +1118,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-8 {
+.para-8-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-8 {
+.font-8-LOGIN {
 	font-family: Jura;
 	font-size: 6.75pt;
 	font-weight: 400;
@@ -1142,10 +1135,10 @@ a {
 	line-height: 10.31pt;
 	letter-spacing: normal;
 }
-.cont-26 {
+.cont-26-LOGIN {
 	overflow: hidden;
 }
-.colwrapper-10 {
+.colwrapper-10-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 25px;
@@ -1156,7 +1149,7 @@ a {
 	margin-top: 0px;
 	line-height: 0;
 }
-.cont-27 {
+.cont-27-LOGIN {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 25px;
@@ -1168,14 +1161,14 @@ a {
 	margin-top: 0px;
 	overflow: visible;
 }
-.para-9 {
+.para-9-LOGIN {
 	text-indent: 0;
 	padding-top: 2pt;
 	margin-top: 0pt;
 	margin-bottom: -2pt;
 	text-align: left;
 }
-.font-9 {
+.font-9-LOGIN {
 	font-family: Jura;
 	font-size: 6.75pt;
 	font-weight: 400;
@@ -1185,7 +1178,7 @@ a {
 	line-height: 10.31pt;
 	letter-spacing: normal;
 }
-.cont-28 {
+.cont-28-LOGIN {
 	overflow: hidden;
 }
 }
