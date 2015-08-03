@@ -84,11 +84,17 @@ function date_condition(filterdate)
         var nowbegin = new Date();
         var nowend = new Date();
         nowend.setHours(23, 59);
-                
+        
+        return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( nowbegin ).format("YYYYMMDD")},
+                lessThanOrEqualTo: {'ReceiptDate' : moment( nowend).format("YYYYMMDD")}
+                };
+        
+        /*        
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
                 lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
-                };
+                };*/
     }
     else if($("#"+filterdate).val() == "Yesterday")
     {
@@ -96,10 +102,17 @@ function date_condition(filterdate)
         var yesterday = new Date();
         yesterday.setDate(yesterday.getDate()-1);
         
+        
+        return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( yesterday ).format("YYYYMMDD")},
+                lessThan: {'ReceiptDate' : moment( now ).format("YYYYMMDD")}
+                };
+        
+        /*
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( yesterday ).format("MM[/]DD[/]YYYY")}},
                 lessThan: {'ReceiptDate' : {__type:"Date", iso:moment( now ).format("MM[/]DD[/]YYYY")}}
-                };
+                };*/
     }
     else if($("#"+filterdate).val() == "This week")
     {
@@ -118,9 +131,14 @@ function date_condition(filterdate)
         var nowend = new Date(now.getTime() + (time) );
         
         return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( nowbegin ).format("YYYYMMDD")},
+                lessThanOrEqualTo: {'ReceiptDate' : moment( nowend).format("YYYYMMDD")}
+                };
+        /*
+        return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
                 lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso: nowend}}
-                };
+                };*/
     }
     else if($("#"+filterdate).val() == "This month")
     {
@@ -129,11 +147,17 @@ function date_condition(filterdate)
         
         var nowend = new Date();
         nowend.setHours(23, 59);
-                
+        
+        return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( nowbegin ).format("YYYYMMDD")},
+                lessThanOrEqualTo: {'ReceiptDate' : moment( nowend).format("YYYYMMDD")}
+                };
+        
+        /*
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
                 lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso: nowend}}
-                };
+                };*/
     }
     else if($("#"+filterdate).val() == "Last month")
     {
@@ -145,11 +169,16 @@ function date_condition(filterdate)
         nowbegin.setDate(1);
         nowbegin.setMonth(nowend.getMonth() );
         
+        return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( nowbegin ).format("YYYYMMDD")},
+                lessThanOrEqualTo: {'ReceiptDate' : moment(nowend).format("YYYYMMDD")}
+                };
         
+        /*
         return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
                 lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
-                };
+                };*/
     }
     else if($("#"+filterdate).val() == "Current year")
     {
@@ -164,9 +193,15 @@ function date_condition(filterdate)
         nowend.setHours(23,59,59);
         
         return {
+                greaterThanOrEqualTo: {'ReceiptDate' : moment( nowbegin ).format("YYYYMMDD")},
+                lessThanOrEqualTo: {'ReceiptDate' : moment(nowend).format("YYYYMMDD")}
+                };
+        
+        /*
+        return {
                 greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( nowbegin ).format("MM[/]DD[/]YYYY")}},
                 lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:nowend}}
-                };
+                };*/
     }
     
     return {};
@@ -215,8 +250,8 @@ function filter_conditions(filterby, searchtext, filterdate)
             /*alert(enddate);*/
             
             var daterange = {
-                            greaterThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( begindate ).format("MM[/]DD[/]YYYY")}},
-                            lessThanOrEqualTo: {'ReceiptDate' : {__type:"Date", iso:moment( enddate ).format("MM[/]DD[/]YYYY")}}
+                            greaterThanOrEqualTo: {'ReceiptDate' : moment( begindate ).format("YYYYMMDD")},
+                            lessThanOrEqualTo: {'ReceiptDate' : moment( enddate).format("YYYYMMDD")}
                             };
             
             return daterange;

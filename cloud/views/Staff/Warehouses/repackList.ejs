@@ -326,21 +326,11 @@
 
 <script>
 	
-    $(".pop").popover({ trigger: "manual" , html: true, animation:false})
-        .on("mouseenter", function () {
-            var _this = this;
-            $(this).popover("show");
-            $(".popover").on("mouseleave", function () {
-                $(_this).popover('hide');
-            });
-        }).on("mouseleave", function () {
-            var _this = this;
-            setTimeout(function () {
-                if (!$(".popover:hover").length) {
-                    $(_this).popover("hide");
-                }
-            }, 300);
-    });
+    
+    $( document ).ready(function() {
+            console.log( "ready!" );
+            $("#filterdate").val("Today");
+        });
 
 
     Parse.initialize("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "MDhb1hBngr2tx2v9TjyzoUhMcOFeWGJ56TWvChqi");
@@ -361,6 +351,7 @@
                 /* SAVE USER FOR FUTURE OPERATIONS */
                 user = object;
                 
+                update_table();
                 
                 /* FILL THE WAREHOUSES SELECT FILTER */
                 var query = new Parse.Query("Cellars");
@@ -417,7 +408,7 @@
                         "Consignee":{"Name":"", "Country":"Country"}, /*This is the sintax for return fields of pointers showed on table*/
                         "Shipper":{"Name":""}, /*This is the sintax for return fields of pointers showed on table*/
                         "Invoice":"",
-                        "ReceiptDate":$("#DateSelect").val(),
+                        "ReceiptDate":"",
                         "Destination":"",
                         "Transport":"",
                         "Warehouse":{"Name":""},
@@ -439,7 +430,7 @@
                 /*BUSQUEDA DE SEARCH TIPO LIKE*/
                 like: filter_like(),
                 
-                document: "Staff/Warehouses/labels_partitions/dynamictable",
+                document: "Staff/Warehouses/labels_partitions/dynamictableWH",
                 itemid: "ware_table"
             });        
     }
