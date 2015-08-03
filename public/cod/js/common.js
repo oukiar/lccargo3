@@ -74,7 +74,87 @@ function Update(kwargs)
         }
     );      
 }
-      
+
+function clientDateConditions(query)
+{
+    
+    if($("#filterdate").val() == "Today")
+    {
+        var nowbegin = new Date();
+        var nowend = new Date();
+        nowend.setHours(23, 59);
+        
+        query.greaterThanOrEqualTo('ReceiptDate', moment( nowbegin ).format("YYYYMMDD"));
+        query.lessThanOrEqualTo('ReceiptDate', moment( nowend).format("YYYYMMDD"));
+    }
+    else if($("#filterdate").val() == "Yesterday")
+    {
+        var now = new Date();
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate()-1);
+        
+        query.greaterThanOrEqualTo('ReceiptDate', moment( yesterday ).format("YYYYMMDD"));
+        query.lessThan('ReceiptDate', moment( now ).format("YYYYMMDD"));
+    }
+    else if($("#filterdate").val() == "This week")
+    {
+        var now = new Date();
+        now.setHours(0,0,0);
+        
+        //dia de la semana
+        var nday = now.getDay();  //index zero based
+        
+        var difftime = nday * (24 * 3600 * 1000); // number of day to substract to current date
+        
+        nowbegin = new Date(now.getTime() - difftime );
+        
+        var time = (24 * 3600 * 1000)-1000;
+        var nowend = new Date(now.getTime() + (time) );
+        
+        query.greaterThanOrEqualTo('ReceiptDate', moment( nowbegin ).format("YYYYMMDD"));
+        query.lessThanOrEqualTo('ReceiptDate', moment( nowend).format("YYYYMMDD"));
+    }
+    else if($("#filterdate").val() == "This month")
+    {
+        nowbegin = new Date();
+        nowbegin.setDate(1);
+        
+        var nowend = new Date();
+        nowend.setHours(23, 59);
+        
+        query.greaterThanOrEqualTo('ReceiptDate' , moment( nowbegin ).format("YYYYMMDD"));
+        query.lessThanOrEqualTo('ReceiptDate' , moment( nowend).format("YYYYMMDD"));
+    }
+    else if($("#filterdate").val() == "Last month")
+    {
+        var nowend = new Date();
+        nowend.setDate(0);
+        /*nowend.setHours(23, 59);*/
+        
+        var nowbegin = new Date();
+        nowbegin.setDate(1);
+        nowbegin.setMonth(nowend.getMonth() );
+        
+        query.greaterThanOrEqualTo('ReceiptDate' , moment( nowbegin ).format("YYYYMMDD"));
+        query.lessThanOrEqualTo('ReceiptDate' , moment(nowend).format("YYYYMMDD"));
+    }
+    else if($("#filterdate").val() == "Current year")
+    {
+        var now = new Date();
+        now.setHours(0,0,0);
+        
+        nowbegin = new Date(now.getTime() - (1000) );
+        nowbegin.setDate( 1 );
+        nowbegin.setMonth(0);
+        
+        var nowend = new Date(now.getTime() );
+        nowend.setHours(23,59,59);
+        
+        query.greaterThanOrEqualTo('ReceiptDate', moment( nowbegin ).format("YYYYMMDD"));
+        query.lessThanOrEqualTo('ReceiptDate', moment(nowend).format("YYYYMMDD"));
+    }
+}
+
 function date_condition(filterdate)
 {
     if(typeof filterdate == "undefined") filterdate = "filterdate";
