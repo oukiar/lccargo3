@@ -391,7 +391,7 @@
             conditions = {containedIn:{"Status":["Repack","NotProcessed"]},
                             equalTo:{"Company":{__type: "Pointer", className: "Companies", objectId: user.get("Company").id}}};
         else
-            conditions = {containedIn:{"Status":["Repack","Received","NotProcessed"]}, 
+            conditions = {containedIn:{"Status":["Repack","NotProcessed"]}, 
                             equalTo:
                             {
                                 "Warehouse":{__type: "Pointer", className: "Cellars", objectId: $("#warehousefilter").val()},
