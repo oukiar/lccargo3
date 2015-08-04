@@ -3537,6 +3537,8 @@ blockquote.orange{ border-color: rgba(250,133,100,1.0); }
 .table>thead>tr>td.orange, .table>tbody>tr>td.orange, .table>tfoot>tr>td.orange, .table>thead>tr>th.orange, .table>tbody>tr>th.orange, .table>tfoot>tr>th.orange, .table>thead>tr.orange>td, .table>tbody>tr.orange>td, .table>tfoot>tr.orange>td, .table>thead>tr.orange>th, .table>tbody>tr.orange>th, .table>tfoot>tr.orange>th {
     background-color: rgba(250, 133, 100, .2);
 }
+
+.table tr:hover td { background: #B2E6FF; }
 .table>thead>tr>td.purple, .table>tbody>tr>td.purple, .table>tfoot>tr>td.purple, .table>thead>tr>th.purple, .table>tbody>tr>th.purple, .table>tfoot>tr>th.purple, .table>thead>tr.purple>td, .table>tbody>tr.purple>td, .table>tfoot>tr.purple>td, .table>thead>tr.purple>th, .table>tbody>tr.purple>th, .table>tfoot>tr.purple>th {
     background-color: rgba(153, 114, 181, .2);
 }

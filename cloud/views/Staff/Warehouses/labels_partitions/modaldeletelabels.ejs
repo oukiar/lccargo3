@@ -8,17 +8,14 @@
             
         </div>
         
-        <br><br><button id="btn_dodelete">Delete !</button>
+        <br><br><button class="pure-button pure-button-primary" style="background:#E08566;" id="btn_dodelete">Delete !</button>
     </div>
 </div>
 
 <script>
-
     $("#btn_dodelete").click(
         function(){
-            
             checkboxes = document.getElementsByName("checkdelete");
-            
             for(i in checkboxes)
             {
                 if(checkboxes[i].checked)
