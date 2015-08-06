@@ -230,7 +230,7 @@
 				</div>
 				<div class="cont-72">
 					<div class="colwrapper-22">
-						<div class="cont-73"></div>
+						<div class="cont-73" id="qrcode_receipt"></div>
 					</div>
 					<div class="colwrapper-23">
 						<div class="cont-74">
@@ -349,12 +349,21 @@
 		<script type="text/javascript" src="js/menu-horizontal-dropdown.js"></script>
 		<script type="text/javascript" src="js/menu-horizontal-dropdown-1.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" src="/cod/js/qrcode/qrcode.js"></script>
+        
 		<script type="text/javascript">
 			var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
             if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) 
             { 
                 document.getElementsByTagName('body')[0].className+=' whitespacefix'; 
             }
+            
+            /*  */
+            new QRCode(document.getElementById("qrcode_receipt"), "<%= JSON.stringify({objectId:receipt.id, type:"Receipt"})%>");
+
             
 		</script>
 	</body>
