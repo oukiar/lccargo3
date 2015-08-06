@@ -29,20 +29,20 @@
 					</div>
 					<div class="colwrapper-2">
 						<div class="cont-5">
-							<div class="cont-6"><p class="para"><span class="font"><%= company.get("name")%></span></p></div>
+							<div class="cont-6"><p class="para"><span class="font"><b><%= company.get("name")%></b></span></p></div>
 						</div>
 						<div class="cont-7">
-							<div class="cont-8"><p class="para-2"><span class="font-2"><%= company.get("address")%></span></p></div>
+							<div class="cont-8"><p class="para-2"><span class="font-2"><b><%= company.get("address")%></b></span></p></div>
 						</div>
 						<div class="cont-9">
 							<div class="colwrapper-3">
 								<div class="cont-10">
-									<div class="cont-11"><p class="para-3"><span class="font-3"><%= company.get("phone")%></span></p></div>
+									<div class="cont-11"><p class="para-3"><span class="font-3"><b>Phone: <%= company.get("phone")%></b></span></p></div>
 								</div>
 							</div>
 							<div class="colwrapper-4">
 								<div class="cont-12">
-									<div class="cont-13"><p class="para-4"><span class="font-4"><%= company.get("website")%></span></p></div>
+									<div class="cont-13"><p class="para-4"><span class="font-4"><b><%= company.get("website")%></b></span></p></div>
 								</div>
 							</div>
 						</div>
@@ -51,12 +51,12 @@
 				<div class="cont-14">
 					<div class="colwrapper-5">
 						<div class="cont-15">
-							<div class="cont-16"><p class="para-5"><span class="font-5"><%=moment(receipt.get("ReceiptDate"), "YYYYMMDD").format("MM/DD/YYYY")%> <%=receipt.get("Hour")%></span></p></div>
+							<div class="cont-16"><p class="para-5"><span class="font-5"><b>Date Received: </b> <%=moment(receipt.get("ReceiptDate"), "YYYYMMDD").format("MM/DD/YYYY")%> <%=receipt.get("Hour")%></span></p></div>
 						</div>
 					</div>
 					<div class="colwrapper-6">
 						<div class="cont-17">
-							<div class="cont-18"><p class="para-6"><span class="font-6">Received By: <%=receipt.get("Usr").get("Name")%></span></p></div>
+							<div class="cont-18"><p class="para-6"><span class="font-6"><b>Received By:</b> <%=receipt.get("Usr").get("Name")%></span></p></div>
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,11 @@
 								<div class="cont-36"><p class="para-13"><span class="font-13"><%=receipt.get("Shipper").get("Name")%></span></p></div>
 							</div>
 							<div class="cont-37">
-								<div class="cont-38"><p class="para-14"><span class="font-14">Address: <%=receipt.get("Shipper").get("Address")%></span></p></div>
+								<div class="cont-38"><p class="para-14"><span class="font-14"><b>Address:</b> <% if(receipt.get("Shipper").get("Address") === ""){ %>
+							-
+								<% }else {%>
+						<%= receipt.get("Shipper").get("Address") %>	
+								<% }%></span></p></div>
 							</div>
 						</div>
 					</div>
@@ -216,12 +220,11 @@
                         <%if(primero){ primero=false;%>
 						<div class="colwrapper-21">
 							<div class="cont-70">
-								<div class="cont-71"><p class="para-26"><span class="font-26">Description: <%=receipt.get("GeneralNotes")%></span></p></div>
+								<div class="cont-71"><p class="para-26"><span class="font-26"> <%=receipt.get("Content")%></span></p></div>
 							</div>
 						</div>
                         <%}%>
 					</div>
-                    
                     <%});%>
                     
 				</div>

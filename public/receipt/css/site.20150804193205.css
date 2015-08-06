@@ -201,7 +201,7 @@ a {
 	font-style: normal;
 	text-decoration: none;
 	color: rgb(0,0,0);
-	line-height: 14.04pt;
+	line-height: 16.00pt;
 	letter-spacing: normal;
 }
 .cont-8 {
@@ -249,7 +249,7 @@ a {
 }
 .font-3 {
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 6.75pt;
+	font-size: 8.75pt;
 	font-weight: 400;
 	font-style: normal;
 	text-decoration: none;
@@ -292,12 +292,12 @@ a {
 }
 .font-4 {
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 6.75pt;
+	font-size: 8.75pt;
 	font-weight: 400;
 	font-style: normal;
 	text-decoration: none;
 	color: rgb(0,0,0);
-	line-height: 11.48pt;
+	line-height: 16.90pt;
 	letter-spacing: normal;
 }
 .cont-13 {
@@ -327,8 +327,8 @@ a {
 .cont-15 {
 	display: inline-block;
 	vertical-align: top;
-	min-width: 234px;
-	width: 234px;
+	min-width: 334px;
+	width: 434px;
 	min-height: 30px;
 	position: relative;
 	z-index: 12;
