@@ -20,6 +20,7 @@
             {
                 if(checkboxes[i].checked)
                 {
+                    
                     wh = JSON.parse(checkboxes[i].id);
                         
                     $("#delete-" + wh["objectId"]).replaceWith("<img id='delete-" + wh["objectId"] + "' src='/web/img/icons/loader_grey.gif' width=16 height=16>");
