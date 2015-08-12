@@ -1,3 +1,4 @@
+<%moment = require('cloud/moment')%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width"/>
@@ -45,7 +46,7 @@
 	font-weight: 200;">Recipt # <%=receipt.get("ReceiptNum")%></h1>
                 <div>
                         <p style="font-size: 12px;
-	color: #666;"><b>Date:</b> <%=receipt.get("ReceiptDate")%></p>
+	color: #666;"><b>Date:</b> <%=moment(receipt.get("ReceiptDate"), "YYYYMMDD").format("MM/DD/YYYY")%> <%=receipt.get("Hour")%></p>
                
                         <p style="font-size: 12px;
 	color: #666;"><b>Received By:</b> <%=receipt.get("Usr").get("Name")%></p>
