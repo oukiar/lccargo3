@@ -1,0 +1,211 @@
+
+		<div class="section-REG">
+			<div class="cont-REG">
+				<div class="colwrapper-REG">
+					<div class="cont-2-REG">
+						<div class="cont-3-REG">
+							<div class="cont-4-REG">
+								<div class="cont-5-REG"><p class="para-REG"><span class="font-REG">CLIENT REGISTRATION</span></p></div>
+							</div>
+						</div>
+                        
+                       <table border=0 style="margin-left:50px; margin-top:10px; height:150px; background-color:white;">
+                                <tr>
+                                    <td><span class="font-24-REG">Full Name:</span></td><td> <input id="RegClientFullName" type="text"></td>
+                                    <td><span class="font-24-REG">Address:</span></td><td> <input  id="RegClientAddress" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-24-REG">Account #:</span></td><td> <input  id="RegClientAccount" type="text"></td>
+                                    <td><span class="font-24-REG">State:</span></td><td> <input  id="RegClientState" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-24-REG">ID:</span></td><td> <input  id="RegClientID" type="text"></td>
+                                    <td><span class="font-24-REG">Country:</span></td><td> <input  id="RegClientCountry" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-24-REG">Tel:</span></td><td> <input id="RegClientTel"  type="text"></td>
+                                    <td><span class="font-24-REG">Zip code:</span></td><td> <input  id="RegClientZip"type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-24-REG">Cel:</span></td><td> <input  id="RegClientCel" type="text"></td>
+                                    <td colspan="2"><input  id="RegClientSHIP" type="checkbox" checked> Shipper <input  id="RegClientCONS" type="checkbox" checked> Consignee</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-24-REG">Email:</span></td><td> <input  id="RegClientEmail" type="text"></td>
+                                </tr>
+                        </table>
+                        <br>
+                        <br>
+                        <a class="button-REG" id="btn_cancelConsignee" style="margin-left:50%;margin-top:20px;">Cancel</a>
+                        <a class="button-2-REG" id="btn_regConsignee">Save</a>
+                        <br>
+                        <span class="font-18-REG" style="margin-left:10px;">Additional consignees:</span>
+                        
+                        <table style="margin-left:30px; margin-top:10px; width:300px; height:400;background-color:white;">
+                            <tr>
+                                <td width=200><span class="font-24-REG">Full Name:</span><td><td> <input  id="FullnameMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">Address:</span><td><td> <input id="AddressMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">TEL:</span><td><td> <input  id="TelMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">CEL:</span><td><td> <input  id="CelMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">State:</span><td><td> <input id="StateMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">Country:</span><td><td> <input id="CountryMainClient" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-24-REG">Zip Code:</span><td><td> <input id="ZipMainClient" type="text"></td>
+                            </tr>
+                        </table>
+                        <button id="btn_addconsignee" style="height:20px; margin-left:20px;background-color:#FF4444">Add Consignee</button>
+                        
+                        <table id="lst_consignees" style="width:40%; margin-left:60%; margin-top:-160px" class="table table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Destination</th>
+                                    <th>X</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            </tbody>
+                        </table>
+                        
+                        
+					</div>
+				</div>
+			</div>
+        </div>
+        
+     
+        <script>
+        
+        var consignees = [];
+        
+        $("#btn_addconsignee").click(function(){
+                
+                /* VERIFICAR CAMPOS VALIDOS */
+                if($("#FullnameMainClient").val() == "")
+                {
+                    alert("You must specify the Name of this consignee");
+                    return;
+                }
+                
+                var Clients = Parse.Object.extend("Clients");
+                var client = new Clients();
+                
+                client.set("Name", $("#FullnameMainClient").val() );
+                client.set("Address", $("#AddressMainClient").val() );
+                client.set("Telephone", $("#TelMainClient").val() );
+                /*client.set("Telephone2", $("#Tel2MainClient").val() );*/
+                client.set("Cellphone", $("#CelMainClient").val() );
+                client.set("State", $("#StateMainClient").val() );
+                client.set("Country", $("#CountryMainClient").val() );
+                client.set("Zip", $("#ZipMainClient").val() );
+                client.set("Company", user.get("Company") );
+                
+                consignees.push(client);
+                
+                $("#lst_consignees > tbody").append("<tr><td>"+ $("#FullnameMainClient").val() +"</td><td>"+ $("#CountryMainClient").val() +"</td><td><i class='fa fa-trash-o'></i></td></tr>");
+                                
+                /* LIMPIAR CONTROLES */
+                $("#FullnameMainClient").val("");
+                $("#AddressMainClient").val("");
+                $("#TelMainClient").val("");
+                
+                $("#CelMainClient").val("");
+                $("#StateMainClient").val("");
+                $("#CountryMainClient").val("");
+                $("#ZipMainClient").val("");
+            });
+        
+        $("#btn_cancelConsignee").click(function(){
+                hideClient();
+            });
+        
+        $("#btn_regConsignee").click(function(){
+                
+                /* VALIDAR CAMPOS VALIDOS */
+                if($("#RegClientFullName").val() == "")
+                {
+                    alert("You must specify the Name of this consignee");
+                    return;
+                }
+                
+                
+                var Clients = Parse.Object.extend("Clients");
+                var client = new Clients();
+                
+                client.set("Name", $("#RegClientFullName").val() );
+                client.set("Address", $("#RegClientAddress").val() );
+                client.set("Account", $("#RegClientAccount").val() );
+                client.set("AccountID", $("#RegClientID").val() );
+                client.set("Telephone", $("#RegClientTel").val() );
+                client.set("Cellphone", $("#RegClientCel").val() );
+                client.set("State", $("#RegClientState").val() );
+                client.set("Country", $("#RegClientCountry").val() );
+                client.set("Zip", $("#RegClientZip").val() );
+                client.set("IsShipper", $("#RegClientSHIP").is(':checked') );
+                client.set("IsConsignee", $("#RegClientCONS").is(':checked') );
+                client.set("Company", user.get("Company") );
+                   
+                client.save({success: function(client){
+                        
+                        for(i in consignees)
+                        {
+                            consignees[i].set("MainClient", client);
+                        }
+                        
+                        /* SAVE THE SUBCONSIGNEES */
+                        Parse.Object.saveAll(consignees,{success:function(){
+                        
+                                $("#Consignee").val(client.get("Name") );
+                                        
+                                consigneeEmail = client.get("Email");
+
+                                fillDestinations(client.id);
+                                
+                                $("#clientNameInfo").html(client.get("Name") );
+                                $("#clientAccount").html(client.get("AccountID") ); 
+                                $("#clientCountryInfo").html(client.get("Country") );
+                                $("#clientEmailInfo").html(client.get("Email") );
+                                $("#clientTelephoneInfo").html(client.get("Telephone"));
+                                $("#clientIDInfo").html(client.get("ID1") );
+                                $("#clientStatusInfo").html(client.get("Status") );
+                                
+                                hideClient();
+                                
+                                /* LIMPIAR CONTROLES */
+                                $("#RegClientFullName").val("");
+                                $("#RegClientAddress").val("");
+                                $("#RegClientAccount").val("");
+                                $("#RegClientID").val("");
+                                $("#RegClientTel").val("");
+                                $("#RegClientCel").val("");
+                                $("#RegClientState").val("");
+                                $("#RegClientCountry").val("");
+                                $("#RegClientZip").val("");
+                                $("#RegClientCountry").val("");
+                                $("#RegClientEmail").val("");
+                                
+                                $("#lst_consignees").html("<thead><tr><th>Name</th><th>Destination</th><th>X</th></tr></thead><tbody></tbody>");
+                                consignees = [];
+                                
+                                
+                            }});
+                        
+                    }, error:function(){
+                        alert("Error guardando");
+                    }});
+                    
+            });
+        
+        </script>
