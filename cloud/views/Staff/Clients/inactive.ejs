@@ -526,8 +526,14 @@
                 
                     for(i in results)
                     {
+                              
+                        var mmm = results[i].get("Telephone");
+                        /*console.log(mmm.replace('\r', '\n') );*/
+                        console.log(i.toString() + " " + mmm.charCodeAt(0) + " " + mmm);
                                             
-                        var row = "<tr><td><a href='#openModal' onclick=\"fillClient('" + results[i].id + "', '" + results[i].get("Name") + "', '" + results[i].get("Telephone") + "', '" + results[i].get("Email") + "')\">Activate</a></td><td>"+
+                        /*var row = "<tr><td><a href='#openModal' onclick=\"fillClient('" + results[i].id + "', '" + results[i].get("Name") + "', '" + tryget(results[i].get("Telephone")) + "', '" + tryget(results[i].get("Email")) + "')\">Activate</a></td><td>"+
+                        */
+                        var row = "<tr><td><a href='#openModal' onclick=\"alert('" + nl2br(mmm) +"');\">Activate</a></td><td>"+
                                     results[i].get("Name") +"</td><td>"+
                                     /*tryget(results[i].get("Company").get("Name")) +"</td><td>"+*/
                                     tryget(results[i].get("Country")) +"</td><td>"+
@@ -540,6 +546,11 @@
                     }
                     
                 }});
+        }
+
+        function nl2br (str, is_xhtml) {   
+            var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
+            return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
         }
 
         function openSubClients(objectId)
