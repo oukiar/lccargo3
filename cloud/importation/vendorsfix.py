@@ -9,25 +9,8 @@ import time
 #parse initialization
 register("XEPryFHrd5Tztu45du5Z3kpqxDsweaP1Q0lt8JOb", "PE8FNw0hDdlvcHYYgxEnbUyxPkP9TAsPqKvdB4L0")
      
-ClientsTest = Object.factory("Clients")
+Agencies = Object.factory("Agencies")
 
-pc = ClientsTest.Query.get(objectId="mCcWlsoRUh")
-
-'''
-if pc.Telephone[0] == chr(10):
-    print "SI"
-
-
-pc.Telephone = pc.Telephone.splitlines()[0]
-
-print len(pc.Telephone)
-
-for character in pc.Telephone:
-    print pc.Telephone.index(character)
-    print character.encode('hex')
-
-exit()
-'''
 
 n = 100
 counter = 0
@@ -36,7 +19,7 @@ clients = []
 
 while n == 100:
     print "Fetching: " + str(counter)
-    res = ClientsTest.Query.all().skip(counter)
+    res = Agencies.Query.all().skip(counter)
 
     cc = 0
     batchclients = []
@@ -52,30 +35,32 @@ while n == 100:
         i.AccountID = accountID
         
         print "-- " + i.Name
-        print "-- " + i.Telephone
         
         try:
+            print "-- " + i.Telephone
             i.Telephone = i.Telephone.splitlines()[0]
         except:
-            i.Telephone = ""
+            if hasattr(i, "Telephone"):
+                i.Telephone = ""
         
             
         try:
             i.Email = i.Email.splitlines()[0]
         except:
-            i.Email = ""
+            if hasattr(i, "Email"):
+                i.Email = ""
             
         cc += 1
             
-        i.save()
+        #i.save()
         
-        '''
-        if len(batchclients) == 10:
+        
+        if len(batchclients) == 50:
             batcher = ParseBatcher()
-            batcher.batch_save(res)
+            batcher.batch_save(batchclients)
             
             batchclients = []
-        '''
+        
     n = len(res)
     counter += n
 
