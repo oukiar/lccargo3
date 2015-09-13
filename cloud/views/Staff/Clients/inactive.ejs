@@ -115,15 +115,16 @@
 		<!--START TOPBAR-->
 		<% include ../../generals/topbar.ejs %> 
         <!-- START CONTAINER -->
-        <div class="page-container row-fluid">
-        <!-- SIDEBAR - START -->
-        <!--  SIDEBAR - END -->	
-        <!-- START CONTENT -->
-        <section class="wrapper" style='display:inline-block;width:100%;'>
-        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-        <div class="page-title"> 
+        <!-- START CONTAINER -->
+       <div class="page-container row-fluid">
+       <!-- SIDEBAR - START -->
+       <!--  SIDEBAR - END -->	
+       <!-- START CONTENT -->
+       <section class="wrapper" style='display:inline-block;width:100%; position:relative; top:70px;'>
+       <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' style="top:-21px;">
+       <div class="page-title">
             <% include clientsMenu.ejs%>
-       <h1 class="title" style="font-family: 'VT323', serif; font-size:50px; padding-left:13px; margin-top:50px;">Consignees - Inactive</h1>
+       <h1 class="title" style="font-family: 'VT323', serif; font-size:50px; padding-left:13px; margin-top:13px;">Consignees - Inactive</h1>
 	   <div id="content">
 	   <% include pendings_partitions/table.ejs %>
        </div>   
