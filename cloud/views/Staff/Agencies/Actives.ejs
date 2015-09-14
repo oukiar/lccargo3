@@ -412,7 +412,7 @@
                                     tryget(results[i].get("Telephone")) +"</td><td>"+
                                     tryget(results[i].get("Email")) +"</td><td>"+
                                     tryget(results[i].get("AccountID")) +"</td>"+
-                                    "<td align='center' style='white-space:nowrap'><a href='#modalEditClient' onclick='onEditClient(\""+ results[i].id +"\")' class='btn btn-border btn-orange'><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp &nbsp <a class='btn btn-border btn-danger' id='"+results[i].id+"' onclick='byeByeClient(this.id, \"" + user.get("Company").id + "\" )'><i class='fa fa-trash-o'></i></a></td></tr>";
+                                    "<td align='center' style='white-space:nowrap'><a href='#modalEditClient' onclick='onEditClient(\""+ results[i].id +"\")' class='btn btn-border btn-orange'><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp &nbsp <a class='btn btn-border btn-danger' id='"+results[i].id+"' onclick='byeByeVendor(this.id, \"" + user.get("Company").id + "\" )'><i class='fa fa-trash-o'></i></a></td></tr>";
                                     
                         $("#inactiveVendorsTable > tbody").append(row);
                     }
@@ -554,7 +554,7 @@
                                     tryget(results[i].get("Telephone")) +"</td><td>"+
                                     tryget(results[i].get("Email")) +"</td><td>"+
                                     tryget(results[i].get("AccountID")) +"</td>"+
-                                    "<td align='center' style='white-space:nowrap'><a href='#modalEditClient' onclick='onEditClient(\""+ results[i].id +"\")' class='btn btn-border btn-orange'><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp &nbsp <a class='btn btn-border btn-danger' id='"+results[i].id+"' onclick='byeByeClient(this.id, \"" + user.get("Company").id + "\" )'><i class='fa fa-trash-o'></i></a></td></tr>";
+                                    "<td align='center' style='white-space:nowrap'><a href='#modalEditClient' onclick='onEditClient(\""+ results[i].id +"\")' class='btn btn-border btn-orange'><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp &nbsp <a class='btn btn-border btn-danger' id='"+results[i].id+"' onclick='byeByeVendor(this.id, \"" + user.get("Company").id + "\" )'><i class='fa fa-trash-o'></i></a></td></tr>";
                                     
                     $("#inactiveVendorsTable > tbody").append(row);
                 }
