@@ -15,7 +15,7 @@
                                     <td><span class="font-24-REG">Address:</span></td><td> <input  id="RegClientAddress" type="text" class="formInputText"></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="font-24-REG">Company Name:*</span></td><td> <input  id="RegClientCompanyName" type="text" class="formInputText"></td>
+                                    <td><span class="font-24-REG">Company Name:</span></td><td> <input  id="RegClientCompanyName" type="text" class="formInputText"></td>
                                     <td><span class="font-24-REG">City:</span></td><td> <input  id="RegClientCity" type="text" class="formInputText"></td>
                                 </tr>
                                 <tr>
@@ -24,14 +24,14 @@
                                 </tr>
                                 <tr>
                                     <td><span class="font-24-REG">Tel:</span></td><td> <input id="RegClientTel"  type="text" class="formInputText"></td>
-                                    <td><span class="font-24-REG">Country:*</span></td><td> <input  id="RegClientCountry" type="text" class="formInputText"></td>
+                                    <td><span class="font-24-REG">Country:</span></td><td> <input  id="RegClientCountry" type="text" class="formInputText"></td>
                                 </tr>
                                 <tr>
                                     <td><span class="font-24-REG">Cel:</span></td><td> <input  id="RegClientCel" type="text" class="formInputText"></td>
                                     <td><span class="font-24-REG">Zip code:</span></td><td> <input  id="RegClientZip"type="text" class="formInputText"></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="font-24-REG">Email:*</span></td><td> <input  id="RegClientEmail" type="text" class="formInputText"></td>
+                                    <td><span class="font-24-REG">Email:</span></td><td> <input  id="RegClientEmail" type="text" class="formInputText"></td>
                                     <td colspan="2"><input  id="RegClientSHIP" type="checkbox" checked> Shipper <input  id="RegClientCONS" type="checkbox" checked> Consignee</td>
                                 </tr>
                         </table>
@@ -53,7 +53,7 @@
                                 <td><span class="font-24-REG">State:</span><td><td> <input id="StateMainClient" type="text" class="formInputText"></td>
                             </tr>
                             <tr>
-                                <td><span class="font-24-REG">Country:*</span><td><td> <input id="CountryMainClient" type="text" class="formInputText"></td>
+                                <td><span class="font-24-REG">Country:</span><td><td> <input id="CountryMainClient" type="text" class="formInputText"></td>
                             </tr>
                             <tr>
                                 <td><span class="font-24-REG">Zip Code:</span><td><td> <input id="ZipMainClient" type="text" class="formInputText"></td>
@@ -62,7 +62,7 @@
                                 <td><span class="font-24-REG">TEL:</span><td><td> <input  id="TelMainClient" type="text" class="formInputText"></td>
                             </tr>
                             <tr>
-                                <td><span class="font-24-REG">Email:*</span><td><td> <input  id="EmailMainClient" type="text" class="formInputText"></td>
+                                <td><span class="font-24-REG">Email:</span><td><td> <input  id="EmailMainClient" type="text" class="formInputText"></td>
                             </tr>
                         </table>
                         
@@ -98,9 +98,9 @@
         $("#btn_addconsignee").click(function(){
                 
                 /* VERIFICAR CAMPOS VALIDOS */
-                if($("#FullnameMainClient").val() == "" ||
+                if($("#FullnameMainClient").val() == "" /*||
                     $("#CountryMainClient").val() == "" ||
-                    $("#EmailMainClient").val() == "" )
+                    $("#EmailMainClient").val() == "" */)
                 {
                     alert("You must fill the fields with *");
                     return;
@@ -158,10 +158,10 @@
         $("#btn_regConsignee").click(function(){
                 
                 /* VALIDAR CAMPOS VALIDOS */
-                if($("#RegClientFullName").val() == "" ||
+                if($("#RegClientFullName").val() == "" /*||
                     $("#RegClientCompanyName").val() == "" ||
                     $("#RegClientCountry").val() == "" ||
-                    $("#RegClientEmail").val() == "")
+                    $("#RegClientEmail").val() == ""*/)
                 {
                     alert("You must fill the fields with *");
                     return;

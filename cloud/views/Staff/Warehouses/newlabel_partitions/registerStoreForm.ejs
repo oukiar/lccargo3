@@ -32,7 +32,7 @@
                         <td><span class="font-24-REG">Address:</span></td><td> <input  id="RegStoreAddress" type="text" class="formInputText"></td>
                     </tr>
                     <tr>
-                        <td><span class="font-24-REG">Company Name:*</span></td><td> <input  id="RegStoreCompanyName" type="text" class="formInputText"></td>
+                        <td><span class="font-24-REG">Company Name:</span></td><td> <input  id="RegStoreCompanyName" type="text" class="formInputText"></td>
                         <td><span class="font-24-REG">City:</span></td><td> <input  id="RegStoreCity" type="text" class="formInputText"></td>
                     </tr>
                     <tr>
@@ -41,14 +41,14 @@
                     </tr>
                     <tr>
                         <td><span class="font-24-REG">Tel:</span></td><td> <input id="RegStoreTel"  type="text" class="formInputText"></td>
-                        <td><span class="font-24-REG">Country:*</span></td><td> <input  id="RegStoreCountry" type="text" class="formInputText"></td>
+                        <td><span class="font-24-REG">Country:</span></td><td> <input  id="RegStoreCountry" type="text" class="formInputText"></td>
                     </tr>
                     <tr>
                         <td><span class="font-24-REG">Cel:</span></td><td><input  id="RegStoreCel" type="text" class="formInputText"></td>
                         <td><span class="font-24-REG">Zip code:</span></td><td> <input  id="RegStoreZip"type="text" class="formInputText"></td>
                     </tr>
                     <tr>
-                        <td><span class="font-24-REG">Email:*</span></td><td> <input  id="RegStoreEmail" type="text" class="formInputText"></td>
+                        <td><span class="font-24-REG">Email:</span></td><td> <input  id="RegStoreEmail" type="text" class="formInputText"></td>
                         <td><span class="font-24-REG">Website:</span></td><td><input id="RegStoreWebsite" type="text" class="formInputText"></td>
                     </tr>
                 </table>
@@ -66,10 +66,10 @@
             });
             
         $("#btn_regStore").click(function(){
-                if($("#RegStoreFullName").val() == "" ||
+                if($("#RegStoreFullName").val() == "" /*||
                     $("#RegStoreCompanyName").val() == "" ||
                     $("#RegStoreCountry").val() == "" ||
-                    $("#RegStoreEmail").val() == "")
+                    $("#RegStoreEmail").val() == ""*/)
                 {
                     alert("You must fill the fields with *");
                     return;
