@@ -582,6 +582,30 @@ function byeByeVendor(vendorId){
                 
             });
 }
+
+function byeByeVendorCB(vendorId, callback){
+    swal({   
+                title: "This vendor will be deleted permanently!",   
+                text: "Do you want to continue?",   
+                type: "warning",   
+                showCancelButton: true,   
+                confirmButtonColor: "#DD6B55",   
+                confirmButtonText: "Yes, delete it!",   
+                closeOnConfirm: true
+            },
+            function()
+            {    
+                var query = new Parse.Query("Agencies");
+                
+                query.get(vendorId, {success: function(client){
+                        client.destroy({success:function(){
+                                callback();
+                            }});
+                    }});
+                
+            });
+}
+
   
   function byeByeStaff(staffId, companyId, url){
     swal({   
