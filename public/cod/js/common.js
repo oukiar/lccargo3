@@ -2,11 +2,14 @@
 
 function tryget(myvar)
 {
-    if(myvar.charCodeAt(0) == 10)
-        myvar = "";
 
     if(typeof(myvar)!="undefined" || myvar == "")
+    {        
+        if(myvar.charCodeAt(0) == 10)
+            myvar = "";
+        
         return myvar;
+    }
     else return "-";
 }
 
