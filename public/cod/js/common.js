@@ -2,10 +2,14 @@
 
 function tryget(myvar)
 {
+    if(myvar.charCodeAt(0) == 10)
+        myvar = "";
+
     if(typeof(myvar)!="undefined" || myvar == "")
         return myvar;
     else return "-";
 }
+
 
 function InsertForm(kwargs)
 {
